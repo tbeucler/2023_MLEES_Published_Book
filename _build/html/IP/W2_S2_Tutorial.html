@@ -1,0 +1,1391 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.24. Figure and Axes &#8212; Machine Learning for Earth and Environmental Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'IP/W2_S2_Tutorial';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.30. Exercise 3: Replicating Plots using Matplotlib and Numpy" href="W2_S2.html" />
+    <link rel="prev" title="1.23. Exercise 2: Analyzing Ocean Floats Data using Numpy and Matplotlib" href="W2_S1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro_python.html">1. Basics of Scientific Programming for Applied Machine Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="W1_S1_Tutorial.html">1.1. <strong>Python Introduction</strong></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="W1_S1.html">1.4. (Exercises) Text and Tabular Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="W1_S2_Tutorial.html">1.5. <strong>Data Structure</strong></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="W1_S2.html">1.7. List</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="W2_S1_Tutorial.html">1.14. Importing and Examining a New Package</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="W2_S1.html">1.23. (Exercise) Ocean Floats Data Analysis</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.24. Figure and Axes</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="W2_S2.html">1.30. (Exercises) Replicating plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="W3_S1_Tutorial.html">1.31. Introduction</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="W3_S1.html">1.42. (Exercise) Earthquake Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="W3_S2_Tutorial.html">1.43. GeoPandas</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="W4_S1_Tutorial.html">1.45. <strong>Linear Regression</strong></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="W4_S1.html">1.47. (Exercises) Multivariate linear regression and clustering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ML/Week_1_Linear%26Logistic_Regression.html">2. Welcome to “Machine Learning for Earth and Environmental Sciences”</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ML/Week_2_Decision_Trees_Random_Forests_SVMs.html">5. <strong>Welcome to the second lab: Support vector machines, Decision trees, Random forests &amp; Environmental risk analysis</strong></a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ML/Week_3_Dimensionality_Reduction_Clustering.html">9. <strong>Welcome to the third lab: Dimensionality Reduction, Clustering, and Regime Identification</strong></a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Deep Learning for the Geosciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../DL/Week_4_Artificial_Neural_Networks.html">13. <strong>Welcome to the fourth lab: Artificial Neural Networks and Surrogate Modeling</strong></a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../DL/Week_5_Convolutional_NN.html">17. Notebook Setup</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../DL/Week_6_Recurrent_NN.html">20. <strong>Welcome to the sixth lab: Recurrent Neural Networks and Long-Short Term Memory (LSTM) Networks!</strong></a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FIP/W2_S2_Tutorial.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/IP/W2_S2_Tutorial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Figure and Axes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.24. Figure and Axes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots">1.25. Subplots</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-into-axes">1.26. Drawing into Axes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#labeling-plots">1.27. Labeling Plots</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-line-plots">1.28. Customizing Line Plots</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-styles">1.28.1. Line Styles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colors">1.28.2. Colors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markers">1.28.3. Markers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#label-ticks-and-gridlines">1.28.4. Label, Ticks, and Gridlines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#axis-limits">1.28.5. Axis Limits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-annotations">1.28.6. Text Annotations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plots">1.28.7. Scatter Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plots">1.28.8. Bar Plots</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plotting-methods">1.29. 2D Plotting Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imshow">1.29.1. imshow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcolormesh">1.29.2. pcolormesh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contour-contourf">1.29.3. contour / contourf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiver">1.29.4. quiver</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamplot">1.29.5. streamplot</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><a href="https://colab.research.google.com/github/tbeucler/2022_Intro_Python/blob/main/Tutorials/W2_S2_Tutorial.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p><img alt="images.png" src="data:image/png;base64,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" /></p>
+<p><strong>Matplotlib</strong>: Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python.</p>
+<p>Website: <a class="reference external" href="https://matplotlib.org/">https://matplotlib.org/</a></p>
+<p>GitHub: <a class="github reference external" href="https://github.com/matplotlib/matplotlib">matplotlib/matplotlib</a></p>
+<p>In the previous notebook, we saw some basic examples of plotting and visualization in the context of learning <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. In this notebook, we dive much deeper. The goal is to understand how <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> represents figures internally.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="figure-and-axes">
+<h1><span class="section-number">1.24. </span>Figure and Axes<a class="headerlink" href="#figure-and-axes" title="Permalink to this headline">#</a></h1>
+<p>The <em>figure</em> is the highest level of organization of <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> objects. If we want, we can create a figure explicitly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1300x500 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/db0ac902e8564869962634b9439b859c87359a3536eb3ff8cb02be31f38ea524.png" src="../_images/db0ac902e8564869962634b9439b859c87359a3536eb3ff8cb02be31f38ea524.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/328f59bba194f012e39a2d5eb4b80233bddf6cc2672e00b3946a8af2bdc20404.png" src="../_images/328f59bba194f012e39a2d5eb4b80233bddf6cc2672e00b3946a8af2bdc20404.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/77071a8a12cea999578e1e7ba96edb014a6e65de693b57de46f1b4f3300a9153.png" src="../_images/77071a8a12cea999578e1e7ba96edb014a6e65de693b57de46f1b4f3300a9153.png" />
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="subplots">
+<h1><span class="section-number">1.25. </span>Subplots<a class="headerlink" href="#subplots" title="Permalink to this headline">#</a></h1>
+<p>Subplot syntax is one way to specify the creation of multiple axes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7904a5754f728e192c558bb594a25f0fb51ddf5e9033cfaf090ec040c96ff539.png" src="../_images/7904a5754f728e192c558bb594a25f0fb51ddf5e9033cfaf090ec040c96ff539.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0c55e91d3f32528f7e288f8befe2c6a6bca796648637bc6a6de5a8b4c14f4328.png" src="../_images/0c55e91d3f32528f7e288f8befe2c6a6bca796648637bc6a6de5a8b4c14f4328.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;Axes: &gt;, &lt;Axes: &gt;, &lt;Axes: &gt;],
+       [&lt;Axes: &gt;, &lt;Axes: &gt;, &lt;Axes: &gt;]], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is a shorthand for doing this all at once, <strong>which is our recommended way to create new figures!</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1666bd7d93a7212337303e4225edbe0a71238a8ea1792f9b9a74430b38f28f7e.png" src="../_images/1666bd7d93a7212337303e4225edbe0a71238a8ea1792f9b9a74430b38f28f7e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;g&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e9751e28a34d1362cf4d1630a1712b3f70ac90ee48556575fe08bb9a9bcd0859.png" src="../_images/e9751e28a34d1362cf4d1630a1712b3f70ac90ee48556575fe08bb9a9bcd0859.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&lt;Axes: &gt;, &lt;Axes: &gt;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="drawing-into-axes">
+<h1><span class="section-number">1.26. </span>Drawing into Axes<a class="headerlink" href="#drawing-into-axes" title="Permalink to this headline">#</a></h1>
+<p>All plots are drawn into axes. It is easiest to understand how matplotlib works if you use the <a class="reference external" href="https://matplotlib.org/faq/usage_faq.html#coding-styles">object-oriented</a> style.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create some data to plot</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2c69e4d1790&gt;]
+</pre></div>
+</div>
+<img alt="../_images/229389d53756f364fc5b1863f6ac04c16afc5c92555693ef60e71c30b96ddebf.png" src="../_images/229389d53756f364fc5b1863f6ac04c16afc5c92555693ef60e71c30b96ddebf.png" />
+</div>
+</div>
+<p>This does the same thing as</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2c6a0715e20&gt;]
+</pre></div>
+</div>
+<img alt="../_images/229389d53756f364fc5b1863f6ac04c16afc5c92555693ef60e71c30b96ddebf.png" src="../_images/229389d53756f364fc5b1863f6ac04c16afc5c92555693ef60e71c30b96ddebf.png" />
+</div>
+</div>
+<p>This starts to matter when we have multiple axes to worry about.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax0</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">axes</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2c6a07dcbb0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/1c5bce1d7e74c18705a86493af9228281cff10dadd1dfa6865fa9b287556d35c.png" src="../_images/1c5bce1d7e74c18705a86493af9228281cff10dadd1dfa6865fa9b287556d35c.png" />
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="labeling-plots">
+<h1><span class="section-number">1.27. </span>Labeling Plots<a class="headerlink" href="#labeling-plots" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax0</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">axes</span>
+
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;x vs. y&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;x vs. z&#39;</span><span class="p">)</span>
+
+<span class="c1"># squeeze everything in</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f0d174e27a7e9169b4d06acfbcf34985ba317231a6f35338c53081a50dfac353.png" src="../_images/f0d174e27a7e9169b4d06acfbcf34985ba317231a6f35338c53081a50dfac353.png" />
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="customizing-line-plots">
+<h1><span class="section-number">1.28. </span>Customizing Line Plots<a class="headerlink" href="#customizing-line-plots" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2c6a0c5e970&gt;,
+ &lt;matplotlib.lines.Line2D at 0x2c6a0c5e9d0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/864014ee6ae723d0df478abac2762af87b55d8288ff3a222fd0d574a5b290560.png" src="../_images/864014ee6ae723d0df478abac2762af87b55d8288ff3a222fd0d574a5b290560.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># It’s simple to switch axes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2c6a2014130&gt;,
+ &lt;matplotlib.lines.Line2D at 0x2c6a2014190&gt;]
+</pre></div>
+</div>
+<img alt="../_images/f52a72a3e861a2a1fcf66d7014f2f695eef2ee50f90da634b6176fc21df7ff4c.png" src="../_images/f52a72a3e861a2a1fcf66d7014f2f695eef2ee50f90da634b6176fc21df7ff4c.png" />
+</div>
+</div>
+<p>A “parametric” graph:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2c6a208eca0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/ffe16216ec59b1630222583914e256592f51638f273172cf1c7ace9c56d4ce27.png" src="../_images/ffe16216ec59b1630222583914e256592f51638f273172cf1c7ace9c56d4ce27.png" />
+</div>
+</div>
+<div class="section" id="line-styles">
+<h2><span class="section-number">1.28.1. </span>Line Styles<a class="headerlink" href="#line-styles" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashdot&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2c6a21e6820&gt;]
+</pre></div>
+</div>
+<img alt="../_images/10bc857bc5c133c77b34237e253ec38b541b9e576cf988bcbc68606f518621bc.png" src="../_images/10bc857bc5c133c77b34237e253ec38b541b9e576cf988bcbc68606f518621bc.png" />
+</div>
+</div>
+</div>
+<div class="section" id="colors">
+<h2><span class="section-number">1.28.2. </span>Colors<a class="headerlink" href="#colors" title="Permalink to this headline">#</a></h2>
+<p>As described in the <a class="reference external" href="https://matplotlib.org/2.0.2/api/colors_api.html">colors documentation</a>, there are some special codes for commonly used colors:</p>
+<ul class="simple">
+<li><p>b: blue</p></li>
+<li><p>g: green</p></li>
+<li><p>r: red</p></li>
+<li><p>c: cyan</p></li>
+<li><p>m: magenta</p></li>
+<li><p>y: yellow</p></li>
+<li><p>k: black</p></li>
+<li><p>w: white</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2c6a22334f0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/e2dab6b8288d7b5a8941bee17f4fb90922f14e172db073eca365dffd4a259583.png" src="../_images/e2dab6b8288d7b5a8941bee17f4fb90922f14e172db073eca365dffd4a259583.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Other ways to specify colors:</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># grayscale</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.8&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.2&#39;</span><span class="p">)</span>
+
+<span class="c1"># RGB tuple</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+
+<span class="c1"># HTML hex code</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00dcba&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#b029ee&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2c6a22ff370&gt;]
+</pre></div>
+</div>
+<img alt="../_images/28f472d51ed1af7e3b83fa99c51721cb69545a23c893356e50878de38a2c6e0d.png" src="../_images/28f472d51ed1af7e3b83fa99c51721cb69545a23c893356e50878de38a2c6e0d.png" />
+</div>
+</div>
+<p>There is a default color cycle built into <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.prop_cycle&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table><th>'color'</th><tr><td>'#1f77b4'</td></tr><tr><td>'#ff7f0e'</td></tr><tr><td>'#2ca02c'</td></tr><tr><td>'#d62728'</td></tr><tr><td>'#9467bd'</td></tr><tr><td>'#8c564b'</td></tr><tr><td>'#e377c2'</td></tr><tr><td>'#7f7f7f'</td></tr><tr><td>'#bcbd22'</td></tr><tr><td>'#17becf'</td></tr></table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">factor</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">factor</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/268c76a6c14f912526045312e77da0eaa41cc607a4ceb32507a5eb92b34deba1.png" src="../_images/268c76a6c14f912526045312e77da0eaa41cc607a4ceb32507a5eb92b34deba1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="markers">
+<h2><span class="section-number">1.28.3. </span>Markers<a class="headerlink" href="#markers" title="Permalink to this headline">#</a></h2>
+<p>There are <a class="reference external" href="https://matplotlib.org/api/markers_api.html">lots of different markers</a> availabile in matplotlib!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="mi">20</span><span class="p">],</span> <span class="n">y</span><span class="p">[:</span><span class="mi">20</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="mi">20</span><span class="p">],</span> <span class="n">z</span><span class="p">[:</span><span class="mi">20</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="mi">20</span><span class="p">],</span> <span class="n">z</span><span class="p">[:</span><span class="mi">20</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">,</span>
+             <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span>
+             <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2c6a2437190&gt;]
+</pre></div>
+</div>
+<img alt="../_images/96947aa0ad58c451f3527691ca91d7ee94dc4081f28be976915cf99346510e99.png" src="../_images/96947aa0ad58c451f3527691ca91d7ee94dc4081f28be976915cf99346510e99.png" />
+</div>
+</div>
+</div>
+<div class="section" id="label-ticks-and-gridlines">
+<h2><span class="section-number">1.28.4. </span>Label, Ticks, and Gridlines<a class="headerlink" href="#label-ticks-and-gridlines" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;A complicated math function: $f(x) = \cos(x)$&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="sa">r</span><span class="s1">&#39;$-\pi$&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\pi$&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#ax.set_xticks(np.arange(-3, 3.1, 0.2), minor=True)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/dbcec977a3cd231e8d8f32fba5af5c08bf7c62badc0014a242f3043ea65c8404.png" src="../_images/dbcec977a3cd231e8d8f32fba5af5c08bf7c62badc0014a242f3043ea65c8404.png" />
+</div>
+</div>
+</div>
+<div class="section" id="axis-limits">
+<h2><span class="section-number">1.28.5. </span>Axis Limits<a class="headerlink" href="#axis-limits" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-3.0, 3.0)
+</pre></div>
+</div>
+<img alt="../_images/779a9306442999e30507768b4e007f206784ca871d9fd63346c35adef4e09fbf.png" src="../_images/779a9306442999e30507768b4e007f206784ca871d9fd63346c35adef4e09fbf.png" />
+</div>
+</div>
+</div>
+<div class="section" id="text-annotations">
+<h2><span class="section-number">1.28.6. </span>Text Annotations<a class="headerlink" href="#text-annotations" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;the maximum&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+             <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">arrowprops</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0, &#39;the maximum&#39;)
+</pre></div>
+</div>
+<img alt="../_images/6afff30510fb9614d0580b6181dc11edabac9e98f89e349714ccffc16b76e520.png" src="../_images/6afff30510fb9614d0580b6181dc11edabac9e98f89e349714ccffc16b76e520.png" />
+</div>
+</div>
+</div>
+<div class="section" id="scatter-plots">
+<h2><span class="section-number">1.28.7. </span>Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">splot</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">splot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x2c6a2a15eb0&gt;
+</pre></div>
+</div>
+<img alt="../_images/b8ccfa82fb6920618f4d6e7874943dfa54ee3cf2153655482c680401cd1cdda4.png" src="../_images/b8ccfa82fb6920618f4d6e7874943dfa54ee3cf2153655482c680401cd1cdda4.png" />
+</div>
+</div>
+</div>
+<div class="section" id="bar-plots">
+<h2><span class="section-number">1.28.8. </span>Bar Plots<a class="headerlink" href="#bar-plots" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">,</span> <span class="s1">&#39;third&#39;</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 3 artists&gt;
+</pre></div>
+</div>
+<img alt="../_images/c8ea0a7fd77198723d9a1c483fe04170c36f62053ee5e08c91b3793b54828002.png" src="../_images/c8ea0a7fd77198723d9a1c483fe04170c36f62053ee5e08c91b3793b54828002.png" />
+</div>
+</div>
+<p><a name="2D_Plotting_Methods"></a></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="d-plotting-methods">
+<h1><span class="section-number">1.29. </span>2D Plotting Methods<a class="headerlink" href="#d-plotting-methods" title="Permalink to this headline">#</a></h1>
+<div class="section" id="imshow">
+<h2><span class="section-number">1.29.1. </span>imshow<a class="headerlink" href="#imshow" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## imshow</span>
+<span class="n">x1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x1d</span><span class="p">,</span> <span class="n">y1d</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">yy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(50, 100)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">33</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\matplotlib\__init__.py:1475,</span> in <span class="ni">_preprocess_data.&lt;locals&gt;.inner</span><span class="nt">(ax, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1472</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1473</span> <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1474</span>     <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1475</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">sanitize_sequence</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1477</span>     <span class="n">bound</span> <span class="o">=</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1478</span>     <span class="n">auto_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1479</span>                   <span class="ow">or</span> <span class="n">bound</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">))</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\matplotlib\axes\_axes.py:5656,</span> in <span class="ni">Axes.imshow</span><span class="nt">(self, X, cmap, norm, aspect, interpolation, alpha, vmin, vmax, origin, extent, interpolation_stage, filternorm, filterrad, resample, url, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5654</span>     <span class="n">aspect</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;image.aspect&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">5655</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="n">aspect</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">5656</span> <span class="n">im</span> <span class="o">=</span> <span class="n">mimage</span><span class="o">.</span><span class="n">AxesImage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5657</span>                       <span class="n">interpolation</span><span class="o">=</span><span class="n">interpolation</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5658</span>                       <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span> <span class="n">filternorm</span><span class="o">=</span><span class="n">filternorm</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5659</span>                       <span class="n">filterrad</span><span class="o">=</span><span class="n">filterrad</span><span class="p">,</span> <span class="n">resample</span><span class="o">=</span><span class="n">resample</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5660</span>                       <span class="n">interpolation_stage</span><span class="o">=</span><span class="n">interpolation_stage</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5661</span>                       <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5663</span> <span class="n">im</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5664</span> <span class="n">im</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\matplotlib\_api\deprecation.py:454,</span> in <span class="ni">make_keyword_only.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">name_idx</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>     <span class="n">warn_deprecated</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>         <span class="n">since</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Passing the </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(obj_type)s</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="s2">&quot;positionally is deprecated since Matplotlib </span><span class="si">%(since)s</span><span class="s2">; the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="s2">&quot;parameter will become keyword-only </span><span class="si">%(removal)s</span><span class="s2">.&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">obj_type</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;parameter of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">454</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\matplotlib\image.py:922,</span> in <span class="ni">AxesImage.__init__</span><span class="nt">(self, ax, cmap, norm, interpolation, origin, extent, filternorm, filterrad, resample, interpolation_stage, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">905</span> <span class="nd">@_api</span><span class="o">.</span><span class="n">make_keyword_only</span><span class="p">(</span><span class="s2">&quot;3.6&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;cmap&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">906</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">907</span>              <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">917</span>              <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">918</span>              <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">920</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_extent</span> <span class="o">=</span> <span class="n">extent</span>
+<span class="ne">--&gt; </span><span class="mi">922</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">923</span>         <span class="n">ax</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">924</span>         <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">925</span>         <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">926</span>         <span class="n">interpolation</span><span class="o">=</span><span class="n">interpolation</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">927</span>         <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">928</span>         <span class="n">filternorm</span><span class="o">=</span><span class="n">filternorm</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">929</span>         <span class="n">filterrad</span><span class="o">=</span><span class="n">filterrad</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">930</span>         <span class="n">resample</span><span class="o">=</span><span class="n">resample</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">931</span>         <span class="n">interpolation_stage</span><span class="o">=</span><span class="n">interpolation_stage</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">932</span>         <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">933</span>     <span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\matplotlib\image.py:263,</span> in <span class="ni">_ImageBase.__init__</span><span class="nt">(self, ax, cmap, norm, interpolation, origin, filternorm, filterrad, resample, interpolation_stage, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span> <span class="k">if</span> <span class="n">origin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>     <span class="n">origin</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;image.origin&#39;</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">263</span> <span class="n">_api</span><span class="o">.</span><span class="n">check_in_list</span><span class="p">([</span><span class="s2">&quot;upper&quot;</span><span class="p">,</span> <span class="s2">&quot;lower&quot;</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span> <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="n">origin</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_filternorm</span><span class="p">(</span><span class="n">filternorm</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\matplotlib\_api\__init__.py:131,</span> in <span class="ni">check_in_list</span><span class="nt">(_values, _print_supported_values, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span> <span class="k">if</span> <span class="n">_print_supported_values</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span>     <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;; supported values are </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">repr</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">131</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: &#39;bottom&#39; is not a valid value for origin; supported values are &#39;upper&#39;, &#39;lower&#39;
+</pre></div>
+</div>
+<img alt="../_images/d7ae5ac2f5b07d890d883a96368ccfe17d6b538e0d96f004307e63dade769e62.png" src="../_images/d7ae5ac2f5b07d890d883a96368ccfe17d6b538e0d96f004307e63dade769e62.png" />
+</div>
+</div>
+</div>
+<div class="section" id="pcolormesh">
+<h2><span class="section-number">1.29.2. </span>pcolormesh<a class="headerlink" href="#pcolormesh" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">pc0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x1d</span><span class="p">,</span> <span class="n">y1d</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<span class="n">pc1</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">pc0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">pc1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f112e3a6810&gt;
+</pre></div>
+</div>
+<img alt="../_images/8e26787d28de1e7fd401d742ae9a35ceba830f5538b8996f4e47f74a881cd141.png" src="../_images/8e26787d28de1e7fd401d742ae9a35ceba830f5538b8996f4e47f74a881cd141.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_sm</span><span class="p">,</span> <span class="n">y_sm</span><span class="p">,</span> <span class="n">f_sm</span> <span class="o">=</span> <span class="n">xx</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span> <span class="p">:</span><span class="mi">10</span><span class="p">],</span> <span class="n">yy</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span> <span class="p">:</span><span class="mi">10</span><span class="p">],</span> <span class="n">f</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span> <span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># last row and column ignored!</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x_sm</span><span class="p">,</span> <span class="n">y_sm</span><span class="p">,</span> <span class="n">f_sm</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="c1"># same!</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x_sm</span><span class="p">,</span> <span class="n">y_sm</span><span class="p">,</span> <span class="n">f_sm</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f112e2302d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/80a8e5cd9c817340c869af620553faf7f2d5da8b2cdb319ae599047e5f84c4ba.png" src="../_images/80a8e5cd9c817340c869af620553faf7f2d5da8b2cdb319ae599047e5f84c4ba.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_distorted</span> <span class="o">=</span> <span class="n">y_sm</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">x_sm</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x_sm</span><span class="p">,</span> <span class="n">y_distorted</span><span class="p">,</span> <span class="n">f_sm</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_sm</span><span class="p">,</span> <span class="n">y_distorted</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f112e1bae90&gt;
+</pre></div>
+</div>
+<img alt="../_images/4a538432330f3254967cf87c334eda47f46fbb0cada62c181b1cd2b11f0d3f5c.png" src="../_images/4a538432330f3254967cf87c334eda47f46fbb0cada62c181b1cd2b11f0d3f5c.png" />
+</div>
+</div>
+</div>
+<div class="section" id="contour-contourf">
+<h2><span class="section-number">1.29.3. </span>contour / contourf<a class="headerlink" href="#contour-contourf" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># same thing!</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x1d</span><span class="p">,</span> <span class="n">y1d</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7f112e167790&gt;
+</pre></div>
+</div>
+<img alt="../_images/97ea925adc4e67707aa7bda047fc9e65e58237efc61b09ccae81dea7527e7ee6.png" src="../_images/97ea925adc4e67707aa7bda047fc9e65e58237efc61b09ccae81dea7527e7ee6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">c0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%2.1f</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f113253a4d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/2a8968a07a7f0cb3bff40945a9efd750a907eabe5055358a3c9979853673bc48.png" src="../_images/2a8968a07a7f0cb3bff40945a9efd750a907eabe5055358a3c9979853673bc48.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">clevels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span>
+
+<span class="n">cf0</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">clevels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">cf1</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">clevels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno&#39;</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cf0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cf1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f112dc6a350&gt;
+</pre></div>
+</div>
+<img alt="../_images/ec162b09bf361c4721c2385f04b37f049e568908d9125cbeeb950b1500ac6583.png" src="../_images/ec162b09bf361c4721c2385f04b37f049e568908d9125cbeeb950b1500ac6583.png" />
+</div>
+</div>
+</div>
+<div class="section" id="quiver">
+<h2><span class="section-number">1.29.4. </span>quiver<a class="headerlink" href="#quiver" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">yy</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">yy</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">clevels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">xx</span><span class="p">[::</span><span class="mi">4</span><span class="p">,</span> <span class="p">::</span><span class="mi">4</span><span class="p">],</span> <span class="n">yy</span><span class="p">[::</span><span class="mi">4</span><span class="p">,</span> <span class="p">::</span><span class="mi">4</span><span class="p">],</span>
+           <span class="n">u</span><span class="p">[::</span><span class="mi">4</span><span class="p">,</span> <span class="p">::</span><span class="mi">4</span><span class="p">],</span> <span class="n">v</span><span class="p">[::</span><span class="mi">4</span><span class="p">,</span> <span class="p">::</span><span class="mi">4</span><span class="p">],</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x7f112dbffc10&gt;
+</pre></div>
+</div>
+<img alt="../_images/746c693e2bbf40049ab5897fd1b868be94df8bc4c5810fe48928deadf973be40.png" src="../_images/746c693e2bbf40049ab5897fd1b868be94df8bc4c5810fe48928deadf973be40.png" />
+</div>
+</div>
+</div>
+<div class="section" id="streamplot">
+<h2><span class="section-number">1.29.5. </span>streamplot<a class="headerlink" href="#streamplot" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">streamplot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="n">u</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.streamplot.StreamplotSet at 0x7f112d668fd0&gt;
+</pre></div>
+</div>
+<img alt="../_images/1f8c0cf096495c614b1d1b1460ef14b3d8befc75ff53e286eb2e96e764626365.png" src="../_images/1f8c0cf096495c614b1d1b1460ef14b3d8befc75ff53e286eb2e96e764626365.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./IP"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="W2_S1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1.23. </span>Exercise 2: Analyzing Ocean Floats Data using Numpy and Matplotlib</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="W2_S2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1.30. </span>Exercise 3: Replicating Plots using <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">Numpy</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.24. Figure and Axes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots">1.25. Subplots</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-into-axes">1.26. Drawing into Axes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#labeling-plots">1.27. Labeling Plots</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-line-plots">1.28. Customizing Line Plots</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-styles">1.28.1. Line Styles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colors">1.28.2. Colors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markers">1.28.3. Markers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#label-ticks-and-gridlines">1.28.4. Label, Ticks, and Gridlines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#axis-limits">1.28.5. Axis Limits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-annotations">1.28.6. Text Annotations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plots">1.28.7. Scatter Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plots">1.28.8. Bar Plots</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plotting-methods">1.29. 2D Plotting Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imshow">1.29.1. imshow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcolormesh">1.29.2. pcolormesh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contour-contourf">1.29.3. contour / contourf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiver">1.29.4. quiver</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamplot">1.29.5. streamplot</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,918 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Setup &#8212; Machine Learning for Earth and Environmental Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ML/S4_2_Clustering';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FML/S4_2_Clustering.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ML/S4_2_Clustering.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Setup</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Setup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-setup">Data Setup</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-with-kmeans">Clustering with KMeans</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><a href="https://colab.research.google.com/github/tbeucler/2022_ML_Earth_Env_Sci/blob/main/Lab_Notebooks/S4_2_Clustering.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EYCb6vvFoSlMoAfr_YXSg8UBoMRAF1cpIUTeUFFhBVYsZw?download=1'>
+<center> Photo Credits: <a href='https://unsplash.com/photos/PizD8punZsw'>Three Assorted-Color Garbage Cans</a> by <a href='https://unsplash.com/@julytheseventifirst'>Hamza Javaid</a> licensed under the <a href='https://unsplash.com/license'>Unsplash License</a> 
+</center>
+<p><em>Sorting takes a lot of effort - is there a way that we can get computers to do it automatically for us when we don’t even know where to begin?</em></p>
+<p>This notebook will be used in the lab session for week 4 of the course, covers Chapters 9 of Géron, and builds on the <a class="reference external" href="https://github.com/ageron/handson-ml2">notebooks made available on <em>Github</em></a>.</p>
+<p>Need a reminder of last week’s labs? Click <a class="reference external" href="https://colab.research.google.com/github/tbeucler/2022_ML_Earth_Env_Sci/blob/main/Lab_Notebooks/Week_3_Decision_Trees_Random_Forests_SVMs.ipynb"><em>here</em></a> to go to notebook for week 3 of the course.</p>
+<p>##<strong>Chapter 9 – Clustering</strong></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h1>
+<p>First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python ≥3.5 is required</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">assert</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Is this notebook running on Colab or Kaggle?</span>
+<span class="n">IS_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+
+<span class="c1"># Scikit-Learn ≥0.20 is required</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="k">assert</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;0.20&quot;</span>
+
+<span class="c1"># Common imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># to make this notebook&#39;s output stable across runs</span>
+<span class="n">rnd_seed</span> <span class="o">=</span> <span class="mi">2022</span>
+<span class="n">rnd_gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+
+<span class="c1"># To plot pretty figures</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Where to save the figures</span>
+<span class="n">PROJECT_ROOT_DIR</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+<span class="n">CHAPTER_ID</span> <span class="o">=</span> <span class="s2">&quot;classification&quot;</span>
+<span class="n">IMAGES_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT_DIR</span><span class="p">,</span> <span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="n">CHAPTER_ID</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">IMAGES_PATH</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">save_fig</span><span class="p">(</span><span class="n">fig_id</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fig_extension</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">IMAGES_PATH</span><span class="p">,</span> <span class="n">fig_id</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">fig_extension</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saving figure&quot;</span><span class="p">,</span> <span class="n">fig_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">tight_layout</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">fig_extension</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">IS_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Scikit-Learn ≥0.20 is required</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">assert</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;0.20&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># Common imports</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="data-setup">
+<h2>Data Setup<a class="headerlink" href="#data-setup" title="Permalink to this headline">#</a></h2>
+<p>We need to load the MNIST dataset from OpenML - we won’t be loading it as a Pandas dataframe, but will instead use the Dictionary / ndrray representation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Load the mnist dataset</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s1">&#39;mnist_784&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re going to subsample the digits in the dataset, choosing a random set of digit classes - we won’t even know the number of different digits we will chose; it will be somewhere between 4 and 8!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generating the random set of digit labels we will use to extract samples from</span>
+<span class="c1"># the MNIST handwritten digit dataset.</span>
+
+<span class="n">digits</span> <span class="o">=</span> <span class="n">rnd_gen</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="c1"># Digit Possibilities</span>
+                        <span class="nb">int</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span> <span class="n">rnd_gen</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">)</span> <span class="p">)</span> <span class="p">),</span> <span class="c1"># Number of digits to use</span>
+                        <span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># Can&#39;t repeat digits </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will learn on a total of 8000 digits, evenly distributed amongst the randomly selected digits in the dataset. Let’s store the number of samples to be taken from each class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s find a round number of digits to extract for each digit</span>
+<span class="n">num_samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">8000</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With that out of the way, let’s generate the dataset!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Placeholder Vars</span>
+<span class="n">sub_X</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">sub_y</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="c1"># Looping through digit types</span>
+<span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">digits</span><span class="p">:</span>
+  <span class="c1"># find indices where target is digit of interest</span>
+  <span class="n">y_idxs</span> <span class="o">=</span> <span class="n">y</span><span class="o">==</span><span class="n">digit</span>
+  
+  <span class="c1"># rnd_gen.choice chooses n = balanced_size indices from the set of digits </span>
+  <span class="c1"># available. Since we know the truth is an array with the same number of rows</span>
+  <span class="c1"># as the subset, full of the current digit </span>
+  <span class="n">X_subset</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">y_idxs</span><span class="p">][</span><span class="n">rnd_gen</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_idxs</span><span class="o">.</span><span class="n">sum</span><span class="p">()),(</span><span class="n">num_samples</span><span class="p">,))]</span>
+  <span class="n">y_subset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">X_subset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">digit</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">sub_X</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">sub_X</span> <span class="o">=</span> <span class="n">X_subset</span>
+    <span class="n">sub_y</span> <span class="o">=</span> <span class="n">y_subset</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">sub_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">sub_X</span><span class="p">,</span> <span class="n">X_subset</span><span class="p">])</span>
+    <span class="n">sub_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">sub_y</span><span class="p">,</span><span class="n">y_subset</span><span class="p">))</span>
+
+<span class="c1"># Shuffling the dataset, also limitting the number of digits to 8000 so we can&#39;t</span>
+<span class="c1"># cheat and tell how many digits there are by looking at the length of the array</span>
+<span class="n">shuffler</span> <span class="o">=</span> <span class="n">rnd_gen</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sub_X</span><span class="p">))</span>
+<span class="n">sub_X</span> <span class="o">=</span> <span class="n">sub_X</span><span class="p">[</span><span class="n">shuffler</span><span class="p">][:</span><span class="mi">8000</span><span class="p">]</span> 
+<span class="n">sub_y</span> <span class="o">=</span> <span class="n">sub_y</span><span class="p">[</span><span class="n">shuffler</span><span class="p">][:</span><span class="mi">8000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have a set of 8000 random samples that we know belong to somewhere between 4 and 8 clusters 😃 <br> Can we divide them into these groups without knowing the labels beforehand?</p>
+<p><strong>Warning</strong>: Don’t expect near perfect results this time.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="clustering-with-kmeans">
+<h1>Clustering with KMeans<a class="headerlink" href="#clustering-with-kmeans" title="Permalink to this headline">#</a></h1>
+<p>The first thing we need to do is to import the KMeans model from scikit learn. Let’s go ahead and do so.</p>
+<p>###<strong>Q1) Import the KMeans model from scikit learn.</strong></p>
+<p><em>Hint: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">Here is the documentation</a> for the Kmeans implementation in sklearn.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Write your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We don’t know how many clusters we should use to split the data. Our first instinct would be to use as many clusters as the number of digits we have, but even that is not necessarily optimal. Why dont we try all K’s between 4 and 40?</p>
+<p>To do so, we’ll need to begin by training a Kmeans algorithm for each value of K we’re interested in.</p>
+<p>How long does it take to train a single KMeans model with 10 initial centroid settings? This will give us an idea as to whether it may be a good idea to apply a dimensionality reduction algorithm before fitting our models.</p>
+<p>###<strong>Q2) Import python’s time library and measure how long it takes to train a single KMeans model with 3 clusters on the raw data subset.</strong></p>
+<p><em>Hint 1: <a class="reference external" href="https://docs.python.org/3/library/time.html#time.time">Here is the documetation</a> for the function used to get timestamps</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">______</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">_____</span><span class="o">.</span><span class="n">_____</span><span class="p">()</span>
+<span class="n">kmeans_test</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">_____</span><span class="p">,</span> <span class="c1"># Number of clusters to split into </span>
+                     <span class="n">random_state</span> <span class="o">=</span> <span class="n">_____</span><span class="p">)</span> <span class="c1"># Random seed</span>
+<span class="n">kmeans_test</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">_____</span><span class="p">)</span> <span class="c1"># Fitting to data subset</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">_____</span><span class="o">.</span><span class="n">_____</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Training took </span><span class="si">{</span><span class="p">(</span><span class="n">____</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">____</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This should seem like a bit longer than we want. (3.42 seconds during testing of the notebook). Doing this many times means there’s a possibility we’ll be sitting around doing <em>nothing</em>, possiblity for <em>several minutes</em>. <em><strong>Who has time for this?</strong></em></p>
+<p>Let’s reduce the dataset using PCA, capturing 99% of the variability in the data.</p>
+<p>###<strong>Q3) Import PCA from scikit and reduce the dimensionality of our input data. 99% of the variance in the data should be captured.</strong></p>
+<p><em>Hint 1: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">Here is the documentation</a> for PCA.</em></p>
+<p><em>Hint 2: <code class="docutils literal notranslate"><span class="pre">.fit_transform()</span></code> will be very useful</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn._____</span> <span class="kn">import</span> <span class="n">_____</span> <span class="c1"># Import PCA</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span> <span class="o">=</span> <span class="n">_____</span><span class="p">(</span><span class="n">_____</span><span class="p">)</span> <span class="c1"># Instantiate PCA, setting it to explain 95% of the variance</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduced_X</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">_____</span><span class="p">(</span><span class="n">_____</span><span class="p">)</span> <span class="c1"># Transform the data subset</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s try training a KMeans model on the reduced dataset and see if our training time improved…</p>
+<p>###<strong>Q5) Repeat Q2 using the reduced dataset</strong>
+<em>Hint 1: We’re still splitting the data into 3 clusters</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Complete the code</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="n">_____</span><span class="o">.</span><span class="n">_____</span><span class="p">()</span>
+<span class="n">kmeans_test</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">_____</span><span class="p">,</span> <span class="c1"># Number of clusters to split into </span>
+                     <span class="n">random_state</span> <span class="o">=</span> <span class="n">_____</span><span class="p">)</span> <span class="c1"># Random seed</span>
+<span class="n">kmeans_test</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">_____</span><span class="p">)</span> <span class="c1"># Fitting to reduced data subset</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">_____</span><span class="o">.</span><span class="n">_____</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Training took </span><span class="si">{</span><span class="p">(</span><span class="n">____</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">____</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s somewhat better (1.42 seconds during my testing). Let’s try training on this reduced dataset!</p>
+<p>###<strong>Q6) Train a KMeans model for <span class="math notranslate nohighlight">\(\; 2 \le k \le 20\)</span></strong></p>
+<p><em>Hint 1: Set up a range using python’s <a class="reference external" href="https://docs.python.org/3/library/functions.html#func-range"><code class="docutils literal notranslate"><span class="pre">range</span></code></a> function or numpy’s <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html"><code class="docutils literal notranslate"><span class="pre">arange</span></code></a></em></p>
+<p><em>Hint 2: You can store each trained model by appending it to a list as you iterate</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Complete the code</span>
+
+<span class="n">k_list</span> <span class="o">=</span> <span class="n">_____</span> <span class="c1"># Create a list of k values to test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans_models</span> <span class="o">=</span> <span class="n">_____</span> <span class="c1"># Create a variable in which to store the different models</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1"># Get a timestamp to keep track of time </span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">k_list</span><span class="p">:</span>
+    <span class="c1">#print out a statement stating which k value you are working on</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1"># Get a current timestamp</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2"> Currently working on k=</span><span class="si">{</span><span class="n">_____</span><span class="si">}</span><span class="s2">, elapsed time: </span><span class="si">{</span><span class="p">(</span><span class="n">t1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">________</span><span class="p">(</span><span class="n">_____</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="c1"># Set the number of clusters </span>
+                      <span class="n">_____</span><span class="o">=</span> <span class="n">rnd_seed</span> <span class="p">)</span> <span class="c1"># Set the random state</span>
+    <span class="n">kmeans</span><span class="o">.</span><span class="n">_____</span><span class="p">(</span><span class="n">_____</span><span class="p">)</span> <span class="c1"># Fit the model to the reduced data subset</span>
+
+    <span class="n">kmeans_models</span><span class="o">.</span><span class="n">_____</span><span class="p">(</span><span class="n">_____</span><span class="p">)</span> <span class="c1"># store the model trained to predict  k clusters</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2"> Finished training the models! It took: </span><span class="si">{</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should hopefully remember the silhouette score and inertia metrics from the reading. Let’s go ahead and make a <span class="math notranslate nohighlight">\(k\)</span> vs <span class="math notranslate nohighlight">\(silhouette\)</span> plot and a <span class="math notranslate nohighlight">\(k\)</span> vs <span class="math notranslate nohighlight">\(inertia\)</span> plot.</p>
+<p>###<strong>Q7) Import the silhouette score metric and generate a silhouette score value for each model we trained</strong></p>
+<p><em>Hint 1: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html">Here is the documentation</a> for the Silhouette score implementation in scikit learn</em></p>
+<p><em>Hint 2: The silhouette score needs the model input data and the model labels as arguments</em></p>
+<p>*Hint 3: The model labels are stored as an attribute in each model. Check the list of attributes in the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">sklearn KMeans documentation</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the code</span>
+<span class="kn">from</span> <span class="nn">sklearn.________</span> <span class="kn">import</span> <span class="n">______</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">silhouette_scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">_______</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">_______</span><span class="p">)</span>
+                     <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">_____</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>###<strong>Q8) Plot comparing <span class="math notranslate nohighlight">\(k\)</span> vs Silhouette Score. Highlight the maximum score</strong></p>
+<p><em>Hint 1: You’ll need to find the position of the best score in the silhouette score list. <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.argmax.html">Here is the documentation </a>to a numpy function that would be very useful for this.</em></p>
+<p><em>Hint 2: matplotlib’s pyplot has been imported as <code class="docutils literal notranslate"><span class="pre">plt</span></code>. <a class="reference external" href="https://matplotlib.org/3.5.0/api/_as_gen/matplotlib.pyplot.subplots.html">Here is the documentation</a> to the <code class="docutils literal notranslate"><span class="pre">subplots()</span></code> method.</em></p>
+<p><em>Hint 3: <a class="reference external" href="https://matplotlib.org/3.5.0/api/_as_gen/matplotlib.pyplot.plot.html">Here is the documentation</a> to the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> method in matplotlib’s pyplot. Note that it is also implemented as a method in the <code class="docutils literal notranslate"><span class="pre">axes</span></code> objects created with <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the code</span>
+<span class="n">best_index</span> <span class="o">=</span>  <span class="c1"># Find the index of the model with the highest score</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_k</span> <span class="o">=</span> <span class="n">_____</span><span class="p">[</span><span class="n">best_index</span><span class="p">]</span> <span class="c1"># Get the best K value, per the silhouette score</span>
+<span class="n">best_score</span> <span class="o">=</span> <span class="n">silhouette_scores</span><span class="p">[</span><span class="n">best_index</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a figure with size (18,6)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">___</span><span class="o">.</span><span class="n">______</span><span class="p">(</span><span class="n">____</span><span class="o">=</span><span class="n">____</span><span class="p">)</span>
+
+<span class="c1"># Make the plot with the K values in the horizontal axis and the silhouette</span>
+<span class="c1"># score in the vertical axis</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">_______</span><span class="p">,</span> <span class="n">______</span><span class="p">,</span> <span class="s2">&quot;bo-&quot;</span><span class="p">)</span> 
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$k$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Silhouette score&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">best_k</span><span class="p">,</span> <span class="n">best_score</span><span class="p">,</span> <span class="s2">&quot;rs&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’ll plot the value of <span class="math notranslate nohighlight">\(k\)</span> vs inertia</p>
+<p>###<strong>Q9) Plot comparing <span class="math notranslate nohighlight">\(k\)</span> vs Inertia. Highlight the inertia for the model with the highest silhouette score</strong></p>
+<p><em>Hint 1: If you followed the previous step as it was written, you have the index for the best model stored in</em><code class="docutils literal notranslate"><span class="pre">best_index</span></code>.</p>
+<p><em>Hint 2: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans">The KMeans documentation</a> details the attribute in which the model’s intertia is stored.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Complete the Code</span>
+<span class="n">inertias</span> <span class="o">=</span> <span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">_____</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">_____</span><span class="p">]</span> <span class="c1"># Iterate through list of kmeans models</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_inertia</span> <span class="o">=</span> <span class="c1"># Get the inertia for the model with the highest silhouette score</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a figure with size (18,6)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">()</span>
+
+<span class="c1"># Make the plot with the K values in the horizontal axis and the inertia in the</span>
+<span class="c1"># vertical axis</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">_______</span><span class="p">,</span> <span class="n">______</span><span class="p">,</span> <span class="s2">&quot;bo-&quot;</span><span class="p">)</span> 
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$k$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Inertia&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">best_k</span><span class="p">,</span> <span class="n">best_inertia</span><span class="p">,</span> <span class="s2">&quot;rs&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you ran the notebook with the default random seed, you may be surprised to see that the best performing KMeans model is the one that breaks it off into two clusters! The next best two will be those associated with <span class="math notranslate nohighlight">\(k=4\)</span> and <span class="math notranslate nohighlight">\(k=5\)</span>. Let’s get some plots to try to make sense of the results, since we have the actual labels.</p>
+<p>There aren’t any more questions to answer from here on out, but you <em>will</em> have to change the code if you started out from a different random seed! I’ll try to be good about pointing out what code you’ll need to change.</p>
+<p>Let’s begin by using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html">scikit’s TSNE implementation</a> to reduce the dimensionality of the dataset for plotting. This will take a bit of computation time!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
+
+<span class="n">tsne</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="c1"># We&#39;ll project onto 2D plane</span>
+            <span class="n">random_state</span><span class="o">=</span><span class="n">rnd_seed</span><span class="p">,</span> <span class="c1"># We need a random seed</span>
+            <span class="n">learning_rate</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span> <span class="c1">#Let the algorithm handle the learning rate</span>
+
+<span class="c1"># And now get the input data in 2-component reduced form</span>
+<span class="n">X_plot</span> <span class="o">=</span> <span class="n">tsne</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sub_X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s continue by making a list of the three best models.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_models</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># We get the best model ~automagically~</span>
+<span class="n">best_models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kmeans_models</span><span class="p">[</span><span class="n">best_index</span><span class="p">])</span> 
+
+<span class="c1"># But the 2nd and 3rd best are retrieved manually.</span>
+<span class="n">best_models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kmeans_models</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">best_models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kmeans_models</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now, let’s get a set of predictions for each model and store it in a list!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_labels</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">best_models</span><span class="p">:</span>
+    <span class="n">pred_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">reduced_X</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pandas will make producing a nice plot a lot simpler. Let’s import it and make a dataframe with the reduced input components, the truth labels, and the predicted cluster labels.</p>
+<p>Note that the predicted labels don’t correspond to the digit labels since this is an unsupervised model!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">plot_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">X_plot</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_plot</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">sub_y</span><span class="p">,</span> <span class="o">*</span><span class="n">pred_labels</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">plot_data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span><span class="s1">&#39;X2&#39;</span><span class="p">,</span><span class="s1">&#39;truth&#39;</span><span class="p">,</span><span class="s1">&#39;pred_1&#39;</span><span class="p">,</span><span class="s1">&#39;pred_2&#39;</span><span class="p">,</span><span class="s1">&#39;pred_3&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now we’ll make a nice, big 4x4 plot that allows us to see the true answers and how our algorithm clustered our data!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">16</span><span class="p">))</span>
+
+<span class="n">groups</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;truth&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">X1</span><span class="p">,</span> <span class="n">group</span><span class="o">.</span><span class="n">X2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">label</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Truth&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">groups</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;pred_1&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">X1</span><span class="p">,</span> <span class="n">group</span><span class="o">.</span><span class="n">X2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&quot;Best&quot; Clustering&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">groups</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;pred_2&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">X1</span><span class="p">,</span> <span class="n">group</span><span class="o">.</span><span class="n">X2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$2^</span><span class="si">{nd}</span><span class="s1">$ Best Clustering&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">groups</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;pred_3&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">X1</span><span class="p">,</span> <span class="n">group</span><span class="o">.</span><span class="n">X2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$3^</span><span class="si">{rd}</span><span class="s1">$ Best Clustering&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Assuming you started out from the intended random seed, you’ll be able to see that the “Best” model is trying to separate the 0 digits from the non-zero digits. The <span class="math notranslate nohighlight">\(2^{nd}\)</span> best model is able to separate the digits pretty well, but lumps 4s and 9s into a single cluster!</p>
+<p>The <span class="math notranslate nohighlight">\(3^{rd}\)</span> best model begins to group digits into clusters that may not have much significance to us at first glance, but whose metrics seem to indicate worse performance and whose results would need further analysis to try to understand.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ML"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Setup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-setup">Data Setup</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-with-kmeans">Clustering with KMeans</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
