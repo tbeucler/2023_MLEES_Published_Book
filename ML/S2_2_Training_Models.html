@@ -1,0 +1,1013 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notebook Setup &#8212; Machine Learning for Earth and Environmental Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ML/S2_2_Training_Models';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FML/S2_2_Training_Models.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ML/S2_2_Training_Models.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Notebook Setup</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Notebook Setup</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-setup">Data Setup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-extract-the-petal-length-and-petal-width-to-use-as-the-input-vector-x-and-store-the-label-i-e-the-target-data-in-y"><strong>Q1) Extract the petal length and petal width to use as the input vector <span class="math notranslate nohighlight">\(x\)</span>, and store the label (i.e., the target data) in <span class="math notranslate nohighlight">\(y\)</span></strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-filter-out-the-iris-setosa-data-from-the-input-and-label-data-to-produce-a-binary-classification-dataset"><strong>Q2) Filter out the Iris Setosa data from the input and label data to produce a binary classification dataset.</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges">Challenges</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><a href="https://colab.research.google.com/github/tbeucler/2022_ML_Earth_Env_Sci/blob/main/Lab_Notebooks/S2_2_Training_Models.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p>#<strong>Chapter 4 – Training Models</strong></p>
+<table align="left">
+  <td align=middle>
+    <a target="_blank" href="https://github.com/ageron/handson-ml2/blob/master/04_training_linear_models.ipynb"> Open the original notebook <br><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+  </td>
+</table><div class="section" id="notebook-setup">
+<h1>Notebook Setup<a class="headerlink" href="#notebook-setup" title="Permalink to this headline">#</a></h1>
+<p>Let’s begin like in the last notebook: importing a few common modules, ensuring MatplotLib plots figures inline and preparing a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so once again we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20.</p>
+<p>You don’t need to worry about understanding everything that is written in this section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python ≥3.5 is required</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">assert</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Is this notebook running on Colab or Kaggle?</span>
+<span class="n">IS_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+
+<span class="c1"># Scikit-Learn ≥0.20 is required</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="k">assert</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;0.20&quot;</span>
+
+<span class="c1"># Common imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># To make this notebook&#39;s output stable across runs</span>
+<span class="n">rnd_seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">rnd_gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+
+<span class="c1"># To plot pretty figures</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Where to save the figures</span>
+<span class="n">PROJECT_ROOT_DIR</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+<span class="n">CHAPTER_ID</span> <span class="o">=</span> <span class="s2">&quot;classification&quot;</span>
+<span class="n">IMAGES_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT_DIR</span><span class="p">,</span> <span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="n">CHAPTER_ID</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">IMAGES_PATH</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">save_fig</span><span class="p">(</span><span class="n">fig_id</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fig_extension</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">IMAGES_PATH</span><span class="p">,</span> <span class="n">fig_id</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">fig_extension</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saving figure&quot;</span><span class="p">,</span> <span class="n">fig_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">tight_layout</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">fig_extension</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">IS_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Scikit-Learn ≥0.20 is required</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">assert</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;0.20&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># Common imports</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-setup">
+<h1>Data Setup<a class="headerlink" href="#data-setup" title="Permalink to this headline">#</a></h1>
+<p>In this notebook we will be working with the <a class="reference external" href="https://en.wikipedia.org/wiki/Iris_flower_data_set"><em>Iris Flower Dataset</em></a>, in which the length and width of both the sepals and petals of three types of Iris flowes were recorded. For reference, these are pictures of the three flowers: <br></p>
+<center> In order: Iris Setosa,  Iris Versicolor, and Iris Virginica </center>
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Kosaciec_szczecinkowaty_Iris_setosa.jpg/360px-Kosaciec_szczecinkowaty_Iris_setosa.jpg' height=300 >
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Iris_versicolor_3.jpg/640px-Iris_versicolor_3.jpg' height=300></img>
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Iris_virginica.jpg/590px-Iris_virginica.jpg' height=300></img>
+<p>Photo Credits:<a class="reference external" href="https://en.wikipedia.org/wiki/File:Kosaciec_szczecinkowaty_Iris_setosa.jpg">Kosaciec szczecinkowaty Iris setosa</a> by <a class="reference external" href="https://commons.wikimedia.org/wiki/User:Radomil">Radomil Binek</a> licensed under <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY-SA 3.0</a>; <a class="reference external" href="https://en.wikipedia.org/wiki/File:Iris_versicolor_3.jpg">Blue flag flower close-up (Iris versicolor)</a>by Danielle Langlois licensed under <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY-SA 3.0</a>; <a class="reference external" href="https://en.wikipedia.org/wiki/File:Iris_virginica.jpg">image of Iris virginica shrevei</a> by <a class="reference external" href="https://www.flickr.com/photos/33397993&#64;N05">Frank Mayfield</a> licensed under <a class="reference external" href="https://creativecommons.org/licenses/by-sa/2.0/deed.en">CC BY-SA 2.0</a>.
+<br><br></p>
+<p>As you can imagine, this dataset is normally used to train <em>multiclass</em>/<em>multinomial</em> classification algorithms and not <em>binary</em> classification algorithms, since there <em>are</em> more than 2 classes.</p>
+<p>“<em>Three classes, even!</em>” - an observant TA</p>
+<p>For this exercise, however, we will implement the binary classification algorithm referred to as the <em>logistic regression</em> algorithm (also called logit regression).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s load the Iris Dataset</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+
+<span class="c1"># Print out some information about the data</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Keys in Iris dictionary: </span><span class="se">\n</span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">DESCR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have a dictionary with all the data that we need. Let’s go ahead and extract the petal length and width to use as input data, storing it in <span class="math notranslate nohighlight">\(x\)</span>. Then we’ll store the labels (i.e., the <em>targets</em>) in <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<div class="section" id="q1-extract-the-petal-length-and-petal-width-to-use-as-the-input-vector-x-and-store-the-label-i-e-the-target-data-in-y">
+<h2><strong>Q1) Extract the petal length and petal width to use as the input vector <span class="math notranslate nohighlight">\(x\)</span>, and store the label (i.e., the target data) in <span class="math notranslate nohighlight">\(y\)</span></strong><a class="headerlink" href="#q1-extract-the-petal-length-and-petal-width-to-use-as-the-input-vector-x-and-store-the-label-i-e-the-target-data-in-y" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: The “data” key is of the dictionary is used to access the features in the dataset.</em></p>
+<p><em>Hint 2: The ‘target’ key is used to access the label information in the dataset.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># And load the petal lengths and widths as our input data</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="p">[</span><span class="n">___</span><span class="p">][:,</span> <span class="p">(</span><span class="n">__</span><span class="p">,</span> <span class="n">__</span><span class="p">)]</span>  <span class="c1"># indices for petal length, petal width</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="p">[</span><span class="n">___</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The dataset originally has three classes - today we’ll only be performing <em>binary classification</em>. We need to filter out one of the classes - we’ll filter out the <em>iris setosa</em>.</p>
+</div>
+<div class="section" id="q2-filter-out-the-iris-setosa-data-from-the-input-and-label-data-to-produce-a-binary-classification-dataset">
+<h2><strong>Q2) Filter out the Iris Setosa data from the input and label data to produce a binary classification dataset.</strong><a class="headerlink" href="#q2-filter-out-the-iris-setosa-data-from-the-input-and-label-data-to-produce-a-binary-classification-dataset" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: The target label for iris setosa is 0, the one for iris versicolor is 1, and the one for virginica is 2.</em></p>
+<p><em>Hint 2: Numpy’s <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.logical_or.html">logical_or</a> function will let you combine two sets of conditions elementwise.</em></p>
+<p><em>Hint 3: Once you have a boolean array representing the indices where the data corresponds to versicolor and virginica, you can use it as an index for a numpy array to filter out the setosa samples</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the indices corresponding to versicolor and virginiza</span>
+<span class="n">bin_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">______</span><span class="p">(</span><span class="n">y</span><span class="o">==</span><span class="n">__</span><span class="p">,</span><span class="n">y</span><span class="o">==</span><span class="n">__</span><span class="p">)</span>
+
+<span class="c1"># Select the inputs for binary classification</span>
+<span class="n">bin_X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">____</span><span class="p">]</span>
+
+<span class="c1"># Select the labels for binary classification, and convert it to 0 and 1</span>
+<span class="n">bin_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">___</span><span class="p">]</span><span class="o">==</span><span class="n">___</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have a set of binary classification data we can use to train an algorithm.</p>
+<p>As we saw during our reading, we need to define three things in order to train our algorithm:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\cdot\)</span> the type of algorithm we will train, \
+<span class="math notranslate nohighlight">\(\cdot\)</span> the cost function (which will tell us how close our prediction is to the truth), and \
+<span class="math notranslate nohighlight">\(\cdot\)</span> a method for updating the parameters in our model according to the value of the cost function (e.g., the gradient descent method).</p>
+</div></blockquote>
+<p>Let’s begin by defining the type of algorithm we will use. We will train a logistic regression model to differentiate between two classes. A reminder of how the logistic regression algorithm works is given below.
+<br><br><br>
+The logistic regression algorithm will thus take an input <span class="math notranslate nohighlight">\(t\)</span> that is a linear combination of the features:</p>
+<p><a name="logit"></a></p>
+<center> $t_{\small{n}} = \beta_{\small{0}} + \beta_{\small{1}} \cdot X_{1,n} + \beta_{\small{2}} \cdot X_{2,n}$ </center>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> is the ID of the sample</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_{\small{0}}\)</span> represents the petal length</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_{\small{1}}\)</span> represents the petal width</p></li>
+</ul>
+<p>This input is then fed into the logistic function, <span class="math notranslate nohighlight">\(\sigma\)</span>:
+\begin{align}
+\sigma: t\mapsto \dfrac{1}{1+e^ {-t}}
+\end{align}</p>
+<p>Let’s define the logistic function for later use.</p>
+<p>###<strong>Q4) Define the logistic function</strong></p>
+<p><em>Hint: numpy includes the exponential function in its library as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.exp.html">np.exp</a>.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">logistic</span><span class="p">(</span><span class="n">in_val</span><span class="p">):</span>
+    <span class="c1"># Return the value of the logistic function</span>
+    <span class="n">out_value</span> <span class="o">=</span> <span class="n">_________</span> 
+    <span class="k">return</span> <span class="n">out_value</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that the logistic function has been defined, we can plot it (this will help us remember what it looks like!) Run the code below - you won’t have to fill anything in for this one 😀 But feel free to show the code and read through it - some of the functions used can be helpful to you down the line!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Run this to plot the logistic function!</span>
+<span class="c1"># Let&#39;s generate an array of 20 points with values from -4 to +4 </span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Initiate a figure and axes object using matplotlib</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Draw the X and Y axes</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Draw the threshold line (y_val=0,5) and asymptote (y=1)</span>
+<span class="p">[</span><span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">y_val</span> <span class="ow">in</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="c1"># Scale things to make the graph look nicer</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">autoscale</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Plot the logistic function. X values from the t vector, y values from logistic(t)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">logistic</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$t$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">sigma</span><span class="se">\\</span><span class="s1">  </span><span class="se">\\</span><span class="s1">left(t</span><span class="se">\\</span><span class="s1">right)$&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the logistic function, we define inputs resulting in <span class="math notranslate nohighlight">\(\sigma\geq0.5\)</span> as belonging to the <em><strong>one</strong></em> class, and any value below that is considered to belong to the <em><strong>zero</strong></em> class.</p>
+<p>We now have a function which lets us map the value of the petal length and width to the class to which the observation belongs (i.e., whether the length and width correspond to Iris Versicolor or Iris Virginica). However, there is a parameter vector <strong><span class="math notranslate nohighlight">\(\theta\)</span></strong> with a number of parameters that we do not have a value for: <br> <span class="math notranslate nohighlight">\(\theta = [ \beta_{\small{0}}, \beta_{\small{1}}\)</span>, <span class="math notranslate nohighlight">\(\beta_{\small{2}} ]\)</span></p>
+<p>###<strong>Q5) Set up an array of random numbers between 0 and 1 representing the <span class="math notranslate nohighlight">\(\theta\)</span> vector.</strong></p>
+<p><em>Hint 1:  Use <code class="docutils literal notranslate"><span class="pre">rnd_gen</span></code>! If you’re not sure how to use it, consult the <code class="docutils literal notranslate"><span class="pre">default_rng</span></code> documentation <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html">at this link</a>. For instance, you may use the <code class="docutils literal notranslate"><span class="pre">random</span></code> method of <code class="docutils literal notranslate"><span class="pre">rnd_gen</span></code>.</em></p>
+<p><em>Hint 2: The theta array should have 3 elements in it!</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint 3: Random Value Array Snippet </span>
+<span class="n">rnd_gen</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">___</span><span class="p">,))</span> <span class="c1"># length of array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="n">______</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to determine whether a set of <span class="math notranslate nohighlight">\(\beta\)</span> values is better than the other, we need to quantify well the values are able to predict the class. This is where the cost function comes in.</p>
+<p>The cost function, <span class="math notranslate nohighlight">\(c\)</span>, will return a value close to zero when the prediction, <span class="math notranslate nohighlight">\(\hat{p}\)</span>, is correct and a large value when it is wrong. In a binary classification problem, we can use the log loss function. For a single prediction and truth value, it is given by:
+\begin{align}
+\text{c}(\hat{p},y) = \left{
+\begin{array}{cl}
+-\log(\hat{p})&amp; \text{if}; y=1\
+-\log(1-\hat{p}) &amp; \text{if}; y=0
+\end{array}
+\right.
+\end{align}</p>
+<p>However, we want to apply the cost function to an n-dimensional set of predictions and truth values. Thankfully, we can find the average value of the log loss function <span class="math notranslate nohighlight">\(J\)</span> for an an-dimensional set of <span class="math notranslate nohighlight">\(\hat{y}\)</span> &amp; <span class="math notranslate nohighlight">\(y\)</span> as follows:</p>
+<p>\begin{align}
+\text{J}(\mathbf{\hat{p}},y) = - \dfrac{1}{n} \sum_{i=1}^{n}
+\left[ y_i\cdot \log\left( \hat{p}_i \right) \right] +
+\left[ \left( 1 - y_i \right) \cdot \log\left( 1-\hat{p}_i \right) \right]
+\end{align}</p>
+<p>We now have a formula that can be used to calculate the average cost over the training set of data.</p>
+<p>Now let’s code 💻</p>
+<p>###<strong>Q6) Define a log_loss function that takes in an arbitrarily large set of prediction and truths</strong></p>
+<p><em>Hint 1: You need to encode the function <span class="math notranslate nohighlight">\(J\)</span> above, for which Numpy’s functions may be quite convenient (e.g., <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.log.html"><code class="docutils literal notranslate"><span class="pre">log</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html"><code class="docutils literal notranslate"><span class="pre">mean</span></code></a>, etc.)</em></p>
+<p><em>Hint 2: Asserting the dimensions of the vector is a good way to check that your function is working correctly. <a class="reference external" href="https://swcarpentry.github.io/python-novice-inflammation/10-defensive/index.html#assertions">Here’s a tutorial on how to use <code class="docutils literal notranslate"><span class="pre">assert</span></code></a>. For instance, to assert that two vectors <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> have the same dimension, you may use:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="o">==</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint 3: Example code snippet</span>
+<span class="n">J_vector</span>  <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y_hat</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y_hat</span><span class="p">))</span>
+<span class="n">J</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">log_loss</span><span class="p">(</span><span class="n">p_hat</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
+  
+  <span class="c1"># Begin by calculating the two possibilities for the cost function, i.e.</span>
+  <span class="c1"># 1: -log(p_hat + epsilon), and 2: -log(1- p_hat). We added an epsilon term </span>
+  <span class="c1"># to -log(p_hat) because we can run into mathematical problems if p_hat = 0.</span>
+  <span class="n">term_1</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">___</span><span class="p">(</span> <span class="n">_____</span> <span class="o">+</span> <span class="n">_____</span> <span class="p">)</span>
+  <span class="n">term_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">___</span><span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">____</span> <span class="p">)</span>
+  
+  <span class="c1"># We can almost calculate J! We&#39;ll need to 1) multiply term_1 by y, and </span>
+  <span class="c1"># 2) multiply term_2 by (1-y). We then add the new terms together.</span>
+  <span class="c1"># Calculate the value of the cost function (i.e., what&#39;s inside the brackets)</span>
+  <span class="n">inside_brackets</span> <span class="o">=</span> <span class="p">(</span><span class="n">__</span><span class="p">)</span> <span class="o">*</span> <span class="n">term_1</span> <span class="o">+</span> <span class="p">(</span> <span class="n">___</span> <span class="o">+</span> <span class="n">___</span> <span class="p">)</span> <span class="o">*</span> <span class="n">term_2</span>
+
+  <span class="c1">#Verify the shape of inside_brackets. </span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The size of the term inside the brackets is </span><span class="si">{</span><span class="n">inside_brackets</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+  <span class="c1"># You should have a cost value for each one of your predictions. We won&#39;t</span>
+  <span class="c1"># use the individual values, though. We&#39;ll aggregate the information from</span>
+  <span class="c1"># all our predictions by calculating the mean! (i.e., 1/n_terms * terms_sum)</span>
+  <span class="c1"># This single value is J</span>
+  <span class="n">J</span> <span class="o">=</span> <span class="n">_____</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+  <span class="k">return</span> <span class="n">J</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have a way of quantifying how good our predictions are. The final thing needed for us to train our algorithm is figuring out a way to update the parameters in a way that improves the average quality of our predictions.</p>
+<p><br><br><strong>Warning</strong>: we’ll go into a bit of math below <br><br></p>
+<p>Let’s look at the change in a single parameter within <span class="math notranslate nohighlight">\(\theta\)</span>: <span class="math notranslate nohighlight">\(\beta_1\)</span> (given <span class="math notranslate nohighlight">\(X_{1,i} = X_1\)</span>, <span class="math notranslate nohighlight">\(\;\hat{p}_{i} = \hat{p}\)</span>, <span class="math notranslate nohighlight">\(\;y_{i} = y\)</span>). If we want to know what the effect of changing the value of <span class="math notranslate nohighlight">\(\beta_1\)</span> will have on the log loss function we can find this with the partial derivative:</p>
+<center>$
+        \dfrac{\partial J}{\partial \beta_1}
+$</center>
+<p>This may not seem very helpful by itself - after all, <span class="math notranslate nohighlight">\(\beta_1\)</span> isn’t even in the expression of <span class="math notranslate nohighlight">\(J\)</span>. But if we use the chain rule, we can rewrite the expression as:</p>
+<center>
+        $\dfrac{\partial J}{\partial \hat{p}} \cdot
+        \dfrac{\partial \hat{p}}{\partial \theta} \cdot
+        \dfrac{\partial \theta}{\partial \beta_1}$
+</center>
+<p>We’ll spare you the math (feel free to verify it youself, however!):</p>
+<center>$\dfrac{\partial J}{\partial \hat{p}} =  \dfrac{\hat{p} - y}{\hat{p}(1-\hat{p})}, \quad
+        \dfrac{\partial \hat{p}}{\partial \theta} = \hat{p} (1-\hat{p}), \quad
+        \dfrac{\partial \theta}{\partial \beta_1} = X_1 $
+</center>
+<p>and thus</p>
+<center>$
+        \dfrac{\partial J}{\partial \beta_1} = (\hat{p} - y) \cdot X_1
+$</center>
+<p>We can calculate the partial derivative for each parameter in <span class="math notranslate nohighlight">\(\theta\)</span> which, as you may have realized, is simply the <span class="math notranslate nohighlight">\(\theta\)</span> gradient of <span class="math notranslate nohighlight">\(J\)</span>: <span class="math notranslate nohighlight">\(\nabla_{\theta}(J)\)</span></p>
+<p>With all of this information, we can now write <span class="math notranslate nohighlight">\(\nabla_{\theta} J\)</span> in terms of the error, the feature vector, and the number of samples we’re training on!</p>
+<p><a name="grad_eq"></a></p>
+<center>$\nabla_{\mathbf{\theta}^{(k)}} \, J(\mathbf{\theta^{(k)}}) = \dfrac{1}{n} \sum\limits_{i=1}^{n}{ \left ( \hat{p}^{(k)}_{i} - y_{i} \right ) \mathbf{X}_{i}}$</center>
+<p>Note that here <span class="math notranslate nohighlight">\(k\)</span> represents the iteration of the parameters we are currently on.</p>
+<p>We now have a gradient we can calculate and use in the batch gradient descent method! The updated parameters will thus be:</p>
+<p><a name="grad_descent"></a></p>
+<p>\begin{align}
+{\mathbf{\theta}^{(k+1)}} = {\mathbf{\theta}^{(k)}} - \eta,\nabla_{\theta^{(k)}}J(\theta^{(k)})
+\end{align}</p>
+<p>Where <span class="math notranslate nohighlight">\(\eta\)</span> is the learning rate parameter. It’s also worth pointing out that <span class="math notranslate nohighlight">\(\;\hat{p}^{(k)}_i = \sigma\left(\theta^{(k)}, X_i\right) \)</span></p>
+<p>In order to easily calculate the input to the logistic regression, we’ll multiply the <span class="math notranslate nohighlight">\(\theta\)</span> vector with the X data, and as we have a non-zero bias  <span class="math notranslate nohighlight">\(\beta_0\)</span> we’d like to have an X matrix whose first column is filled with ones.</p>
+<p>\begin{align}
+X_{\small{with\ bias}} = \begin{pmatrix}
+1 &amp; X_{1,0} &amp; X_{2,0}\
+1 &amp; X_{1,1} &amp; X_{2,1}\
+&amp;…&amp;\
+1 &amp; X_{1,n} &amp; X_{2,n}
+\end{pmatrix}
+\end{align}
+<br></p>
+<p>###<strong>Q7) Prepare the <code class="docutils literal notranslate"><span class="pre">X_with_bias</span></code> matrix (remember to use the <code class="docutils literal notranslate"><span class="pre">bin_X</span></code> data and not just <code class="docutils literal notranslate"><span class="pre">X</span></code>). Write a function called <code class="docutils literal notranslate"><span class="pre">predict</span></code> that takes in the parameter vector <span class="math notranslate nohighlight">\(\theta\)</span> and the <code class="docutils literal notranslate"><span class="pre">X_with_bias</span></code> matrix and evaluates the logistic function for each of the samples.</strong></p>
+<p><em>Hint 1: You recently learned how to initialize arrays in the <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> notebook <a class="reference external" href="https://nbviewer.org/github/tbeucler/2022_ML_Earth_Env_Sci/blob/main/Lab_Notebooks/S1_2_Numpy.ipynb">at this link</a>. There are many ways to add a columns of 1 to <code class="docutils literal notranslate"><span class="pre">bin_X</span></code>, for instance using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html"><code class="docutils literal notranslate"><span class="pre">np.concatenate</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.append.html"><code class="docutils literal notranslate"><span class="pre">np.append</span></code></a>.</em></p>
+<p><em>Hint 2:  To clarify, the function <code class="docutils literal notranslate"><span class="pre">predict</span></code> calculates <span class="math notranslate nohighlight">\(\hat{p}\)</span> from <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{X}\)</span>.</em></p>
+<p><em>Hint 3: In practice, to calculate the logistic function for each sample, you may follow the equations <span class="xref myst">higher up in the notebook</span> and (1) calculate <span class="math notranslate nohighlight">\(t\)</span> from <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{X_{\mathrm{with\ bias}}}\)</span> before (2) applying the logistic function <span class="math notranslate nohighlight">\(\sigma\)</span> to <span class="math notranslate nohighlight">\(t\)</span>.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint 4: Pseudocode Snippet</span>
+
+<span class="n">define</span> <span class="n">predict_function</span><span class="p">(</span><span class="n">x_with_bias</span><span class="p">,</span> <span class="n">theta_vector</span><span class="p">):</span>
+  <span class="n">argument_for_logistic_function</span> <span class="o">=</span> <span class="n">dot_product</span><span class="p">(</span><span class="n">x_with_bias</span><span class="p">,</span> <span class="n">theta_vector</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">logistic_function</span><span class="p">(</span><span class="n">argument_for_logistic_function</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prepare the X_with_bias matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your function predict here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>###<strong>Q8) Now that you have a <code class="docutils literal notranslate"><span class="pre">predict</span></code> function, write a <code class="docutils literal notranslate"><span class="pre">gradient_calc</span></code> function that calculates the gradient for the logistic function.</strong></p>
+<p><em>Hint 1: You’ll have to feed <code class="docutils literal notranslate"><span class="pre">theta</span></code>, <code class="docutils literal notranslate"><span class="pre">X</span></code>, and <code class="docutils literal notranslate"><span class="pre">y</span></code> to the <code class="docutils literal notranslate"><span class="pre">gradient_calc</span></code> function.</em></p>
+<p><em>Hint 2: You can use <span class="xref myst">this equation</span> to calculate the gradient of the cost function.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint 3: Pseudocode Snippet</span>
+
+<span class="n">define</span> <span class="n">gradient_calculator_function</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X_with_bias</span><span class="p">,</span> <span class="n">theta_vector</span><span class="p">):</span>
+  <span class="c1"># predicted values using theta and inputs</span>
+  <span class="n">prediction</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">x_with_bias</span><span class="p">,</span><span class="n">theta_vector</span><span class="p">)</span>
+  
+  <span class="n">error</span> <span class="o">=</span> <span class="n">prediction</span> <span class="o">-</span> <span class="n">y</span>
+
+  <span class="n">X_transpose</span> <span class="o">=</span> <span class="n">transpose</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+  <span class="n">number_of_predictions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">predict</span><span class="p">)</span>
+
+  <span class="k">assert</span> <span class="n">number_of_predictions</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">dot_product</span><span class="p">(</span><span class="n">X_transpose</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="o">/</span> <span class="n">number_of_predictions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now write a function that will train a logistic regression algorithm!</p>
+<p>Your <code class="docutils literal notranslate"><span class="pre">logistic_regression</span></code> function needs to:</p>
+<ul class="simple">
+<li><p>Take in a set of training input/output data, validation input/output data, a number of iterations to train for, a set of initial parameters <span class="math notranslate nohighlight">\(\theta\)</span>, and a learning rate <span class="math notranslate nohighlight">\(\eta\)</span></p></li>
+<li><p>At each iteration:</p></li>
+<li><p>Generate a set of predictions on the training data. Hint: You may use your function <code class="docutils literal notranslate"><span class="pre">predict</span></code> on inputs <code class="docutils literal notranslate"><span class="pre">X_train</span></code> from the training set.</p></li>
+<li><p>Calculate and store the loss function for the training data at each iteration. Hint: You may use your function <code class="docutils literal notranslate"><span class="pre">log_loss</span></code> on inputs <code class="docutils literal notranslate"><span class="pre">X_train</span></code> and outputs <code class="docutils literal notranslate"><span class="pre">y_train</span></code> from the training set.</p></li>
+<li><p>Calculate the gradient. Hint: You may use your function <code class="docutils literal notranslate"><span class="pre">grad_calc</span></code>.</p></li>
+<li><p>Update the <span class="math notranslate nohighlight">\(\theta\)</span> parameters. Hint: You need to implement <span class="xref myst">this equation</span>.</p></li>
+<li><p>Generate a set of predictions on the validation data using the updated parameters. Hint: You may use your function <code class="docutils literal notranslate"><span class="pre">predict</span></code> on inputs <code class="docutils literal notranslate"><span class="pre">X_valid</span></code> from the validation set.</p></li>
+<li><p>Calculate and store the loss function for the validation data. Hint: You may use your function <code class="docutils literal notranslate"><span class="pre">log_loss</span></code> on inputs <code class="docutils literal notranslate"><span class="pre">X_valid</span></code> and outputs <code class="docutils literal notranslate"><span class="pre">y_valid</span></code> from the validation set.</p></li>
+<li><p>Bonus: Calculate and store the accuracy of the model on the training and validation data as a metric!</p></li>
+<li><p>Return the final set of parameters <span class="math notranslate nohighlight">\(\theta\)</span> &amp; the stored training/validation loss function values (and the accuracy, if you did the bonus)</p></li>
+</ul>
+<p>###<strong>Q9) Write the <code class="docutils literal notranslate"><span class="pre">logistic_regression</span></code> function</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint: Pseudocode Snippet</span>
+
+<span class="n">define</span> <span class="n">logistic_regression</span><span class="p">(</span>
+                           <span class="n">X_test</span><span class="p">,</span>
+                           <span class="n">y_test</span><span class="p">,</span>
+                           <span class="n">X_validation</span><span class="p">,</span>
+                           <span class="n">y_validation</span><span class="p">,</span>
+                           <span class="n">theta_vector</span>
+                           <span class="n">number_of_iterations</span><span class="p">,</span>
+                           <span class="n">learning_rate_eta</span>
+                          <span class="p">):</span>
+  <span class="c1">#initialize the list of losses</span>
+  <span class="n">training_losses</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+  <span class="n">validation_losses</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+  <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_of_iterations</span><span class="p">):</span>
+    <span class="n">train_set_predictions</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">theta_vector</span><span class="p">)</span>
+    <span class="n">train_loss</span> <span class="o">=</span> <span class="n">log_loss</span><span class="p">(</span><span class="n">train_set_predictions</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">training_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_loss</span><span class="p">)</span>
+
+    <span class="n">gradient</span> <span class="o">=</span> <span class="n">gradient_calculator</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">theta_vector</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="n">gradient</span> <span class="o">*</span> <span class="n">learning_rate_eta</span>
+
+    <span class="n">validation_set_predictions</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">X_validation</span><span class="p">,</span> <span class="n">theta_vector</span><span class="p">)</span>
+    <span class="n">validation_loss</span> <span class="o">=</span> <span class="n">log_loss</span><span class="p">(</span><span class="n">validation_set_predictions</span><span class="p">,</span> <span class="n">y_validation</span><span class="p">)</span>
+    <span class="n">validation_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">validation_loss</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">Completed</span> <span class="p">(</span><span class="n">iteration</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">number_of_iterations</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="o">%</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">train_loss</span><span class="p">,</span> <span class="n">validation_loss</span><span class="p">,</span> <span class="n">theta</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>¡¡¡Important Note!!!</strong></p>
+<p>The notebook assumes that you will return</p>
+<ol class="arabic simple">
+<li><p>a Losses list, where Losses[0] is the training loss and Losses[1] is the validation loss</p></li>
+<li><p>a tuple with the 3 final coefficients (<span class="math notranslate nohighlight">\(\beta_0\)</span>, <span class="math notranslate nohighlight">\(\beta_1\)</span>, <span class="math notranslate nohighlight">\(\beta_2\)</span>)</p></li>
+</ol>
+<p>The code for visualizing the bonus accuracy is not included - but it should be simple enough to do in a way similar to that which is done with the losses.</p>
+<hr class="docutils" />
+<p>Now that we have our logistic regression function, we’re all set to train our algorithm! Or are we?</p>
+<p>There’s an important data step that we’ve neglected up to this point - we need to split the data into the train, validation, and test datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_ratio</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">validation_ratio</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">total_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_with_bias</span><span class="p">)</span>
+
+<span class="n">test_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">total_size</span> <span class="o">*</span> <span class="n">test_ratio</span><span class="p">)</span>
+<span class="n">validation_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">total_size</span> <span class="o">*</span> <span class="n">validation_ratio</span><span class="p">)</span>
+<span class="n">train_size</span> <span class="o">=</span> <span class="n">total_size</span> <span class="o">-</span> <span class="n">test_size</span> <span class="o">-</span> <span class="n">validation_size</span>
+
+<span class="n">rnd_indices</span> <span class="o">=</span> <span class="n">rnd_gen</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">total_size</span><span class="p">)</span>
+
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_with_bias</span><span class="p">[</span><span class="n">rnd_indices</span><span class="p">[:</span><span class="n">train_size</span><span class="p">]]</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">bin_y</span><span class="p">[</span><span class="n">rnd_indices</span><span class="p">[:</span><span class="n">train_size</span><span class="p">]]</span>
+<span class="n">X_valid</span> <span class="o">=</span> <span class="n">X_with_bias</span><span class="p">[</span><span class="n">rnd_indices</span><span class="p">[</span><span class="n">train_size</span><span class="p">:</span><span class="o">-</span><span class="n">test_size</span><span class="p">]]</span>
+<span class="n">y_valid</span> <span class="o">=</span> <span class="n">bin_y</span><span class="p">[</span><span class="n">rnd_indices</span><span class="p">[</span><span class="n">train_size</span><span class="p">:</span><span class="o">-</span><span class="n">test_size</span><span class="p">]]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_with_bias</span><span class="p">[</span><span class="n">rnd_indices</span><span class="p">[</span><span class="o">-</span><span class="n">test_size</span><span class="p">:]]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">bin_y</span><span class="p">[</span><span class="n">rnd_indices</span><span class="p">[</span><span class="o">-</span><span class="n">test_size</span><span class="p">:]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’re ready!</p>
+<p>###<strong>Q10) Train your logistic regression algorithm. Use 1400 iterations, <span class="math notranslate nohighlight">\(\eta\)</span>=0.1</strong></p>
+<p><em>Hint: It’s time to use the <code class="docutils literal notranslate"><span class="pre">logistic_regression</span></code> function you defined in Q5.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the code</span>
+<span class="n">losses</span><span class="p">,</span> <span class="n">coeffs</span> <span class="o">=</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see how our model did while learning!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Produce the Loss Function Visualization Graphs</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">losses</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">losses</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Log Loss&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Iterations&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Loss Function Graph&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">autoscale</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+
+<span class="c1"># Let&#39;s get predictions from our model for the training, validation, and testing</span>
+<span class="c1"># datasets</span>
+<span class="n">y_hat_train</span> <span class="o">=</span> <span class="p">(</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">)</span><span class="o">&gt;=</span><span class="mf">.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">y_hat_valid</span> <span class="o">=</span> <span class="p">(</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">)</span><span class="o">&gt;=</span><span class="mf">.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">y_hat_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">coeffs</span><span class="p">)</span><span class="o">&gt;=</span><span class="mf">.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">y_sets</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="n">y_hat_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">],</span>
+           <span class="p">[</span><span class="n">y_hat_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">],</span>
+           <span class="p">[</span><span class="n">y_hat_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">]</span> <span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">accuracy_score</span><span class="p">(</span><span class="n">y_hat</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">y_hat</span><span class="o">.</span><span class="n">size</span><span class="o">==</span><span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">y_hat</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">y</span><span class="o">.</span><span class="n">size</span>
+
+<span class="p">[</span><span class="n">accuracies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_set</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y_set</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="k">for</span> <span class="n">y_set</span> <span class="ow">in</span> <span class="n">y_sets</span><span class="p">]</span>
+
+<span class="n">printout</span><span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Training Accuracy:</span><span class="si">{</span><span class="n">accuracies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.1%</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span>
+           <span class="sa">f</span><span class="s1">&#39;Validation Accuracy:</span><span class="si">{</span><span class="n">accuracies</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.1%</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add the testing accuracy only once you&#39;re sure that your model works!</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">printout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Congratulations on training a logistic regression algorithm from scratch!</p>
+<p>Your loss function graph should look something similar to this…
+<img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EQBRz0U01L9BuBld6H8lnUoBVJMbCctgbFK5WVFp3d4SYw?download=1'></p>
+<p>Once you’re done with the upcoming environmental science applications notebook, feel free to come back to take a look at the challenges 😀</p>
+</div>
+</div>
+<div class="section" id="challenges">
+<h1>Challenges<a class="headerlink" href="#challenges" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><strong>C1)</strong> Add L2 Regularization to training function</p></li>
+<li><p><strong>C2)</strong> Add early stopping to the training algorithm! Stop training when the accuracy is &gt;=90%</p></li>
+<li><p><strong>C3)</strong> Implement a softmax regression model (It’s multiclass logistic regression 🙂)</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ML"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Notebook Setup</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-setup">Data Setup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-extract-the-petal-length-and-petal-width-to-use-as-the-input-vector-x-and-store-the-label-i-e-the-target-data-in-y"><strong>Q1) Extract the petal length and petal width to use as the input vector <span class="math notranslate nohighlight">\(x\)</span>, and store the label (i.e., the target data) in <span class="math notranslate nohighlight">\(y\)</span></strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-filter-out-the-iris-setosa-data-from-the-input-and-label-data-to-produce-a-binary-classification-dataset"><strong>Q2) Filter out the Iris Setosa data from the input and label data to produce a binary classification dataset.</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges">Challenges</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,897 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.4. The EuroSAT dataset &#8212; Machine Learning for Earth and Environmental Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DL/S5_2_CNN_and_EuroSAT';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. Recurrent Neural Networks and Hydrological Modeling" href="Week_6_Recurrent_NN.html" />
+    <link rel="prev" title="6.1. Notebook Setup" href="S5_1_CNNs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Machine Learning for Earth and Environmental Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Milton/00_Running_Python_Scripts.html">Running Python scripts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../IP/intro_python.html">1. Basics of Scientific Programming for Applied Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1_Tutorial.html">1.1. Variables, Control Flow, and File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1.html">1.2. (Exercises) Text and Tabular Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2_Tutorial.html">1.3. Data Structure, Functions, and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2.html">1.4. (Exercises) Simple Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1_Tutorial.html">1.5. Scientific Computing with Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1.html">1.6. (Exercise) Ocean Floats Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2_Tutorial.html">1.7. Visualization with Matplotlib and Cartopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2.html">1.8. (Exercises) Replicating plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1_Tutorial.html">1.9. Tabular Data with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1.html">1.10. (Exercise) Earthquake Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2_Tutorial.html">1.11. Geospatial Data with Geopandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2.html">1.12. (Exercise) Hurricane Track Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1_Tutorial.html">1.13. Regression, Classification, and Clustering with Scikit-learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1.html">1.14. (Exercises) Multivariate linear regression and clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2_Tutorial.html">1.15. Statistical Graphics with Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2.html">1.16. (Exercise) Marathon Data Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression and Logistic Regression for Classification</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2.html">2.1. Classification and Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_1_Classification.html">2.2. Notebook Setup</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_2_Training_Models.html">2.6. Notebook Setup</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_3_Statistical_Forecasting.html">2.9. (Exercises) Statistical Forecasting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S2_1_SVM.html">3.1. <strong>Exercise 1: Comparing Different Types of Support Vector Machines for Classification</strong></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../ML/S2_2_Decision_Trees.html">3.3. Exercise 2: Training and Fine-Tuning a Decision Tree for the Moons Dataset</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../ML/S2_3_Ensemble_Learning_Random_Forests.html">3.5. Exercise 3: Comparing (Ensemble of) Classifiers on MNIST Data</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../ML/S2_4_Wildfire_Risk_Italy.html">3.7. Exercise 4: Mapping Wildfire Susceptibility in the Liguria Region with Simple Machine Learning Classifiers</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_3_THOR.html">4.4. (Exercise) Ocean Regimes Identification</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Deep Learning for the Geosciences</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S4_1_NNs_with_Keras.html">5.1. (Exercise) Artificial Neural Networks with Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4_2_Physically_informed_parameterization.html">5.2. (Exercise) Physically-Informed Climate Modeling.ipynb</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Week_5_Convolutional_NN.html">6. Convolutional Neural Networks and Remote Sensing</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="S5_1_CNNs.html">6.1. Notebook Setup</a></li>
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.4. The EuroSAT dataset</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S6_1_Composing_Music_With_RNNs_CNNs.html">7.1. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_2_LSTM.html">7.2. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FDL/S5_2_CNN_and_EuroSAT.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/DL/S5_2_CNN_and_EuroSAT.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The EuroSAT dataset</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">6.4. The EuroSAT dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">6.5. Import the data</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><a href="https://colab.research.google.com/github/tbeucler/2022_ML_EES/blob/main/Labs/S7_2_CNN.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p>Source: <a class="reference external" href="https://www.coursera.org/learn/getting-started-with-tensor-flow2">https://www.coursera.org/learn/getting-started-with-tensor-flow2</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### PACKAGE IMPORTS ####</span>
+
+<span class="c1"># Run this cell first to import all required packages. Do not make any imports elsewhere in the notebook</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing.image</span> <span class="kn">import</span> <span class="n">load_img</span><span class="p">,</span> <span class="n">img_to_array</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span><span class="p">,</span> <span class="n">load_model</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPooling2D</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">ModelCheckpoint</span><span class="p">,</span> <span class="n">EarlyStopping</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># If you would like to make further imports from tensorflow, add them here</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#### PACKAGE IMPORTS ####</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Run this cell first to import all required packages. Do not make any imports elsewhere in the notebook</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing.image</span> <span class="kn">import</span> <span class="n">load_img</span><span class="p">,</span> <span class="n">img_to_array</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span><span class="p">,</span> <span class="n">load_model</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tensorflow&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### DOWNLOAD DATA ####</span>
+<span class="o">!</span>gdown<span class="w"> </span>1qojXiBPdOOkH-kUGxe4vhx20-z7yyq2M
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading...
+From: https://drive.google.com/uc?id=1qojXiBPdOOkH-kUGxe4vhx20-z7yyq2M
+To: /content/data_cnn.zip
+100% 55.2M/55.2M [00:00&lt;00:00, 90.6MB/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>unzip<span class="w"> </span><span class="s1">&#39;/content/data_cnn.zip&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Archive:  /content/data_cnn.zip
+   creating: data_cnn/
+  inflating: data_cnn/eurosat_overview.jpg  
+  inflating: data_cnn/x_test.npy     
+  inflating: data_cnn/x_train.npy    
+  inflating: data_cnn/y_test.npy     
+  inflating: data_cnn/y_train.npy    
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="EuroSAT overview image" src="DL/content/data_cnn/eurosat_overview.jpg" /></p>
+<div class="section" id="the-eurosat-dataset">
+<h1><span class="section-number">6.4. </span>The EuroSAT dataset<a class="headerlink" href="#the-eurosat-dataset" title="Permalink to this headline">#</a></h1>
+<p>In this assignment, you will use the <a class="reference external" href="https://github.com/phelber/EuroSAT">EuroSAT dataset</a>. It consists of 27000 labelled Sentinel-2 satellite images of different land uses: residential, industrial, highway, river, forest, pasture, herbaceous vegetation, annual crop, permanent crop and sea/lake. For a reference, see the following papers:</p>
+<ul class="simple">
+<li><p>Eurosat: A novel dataset and deep learning benchmark for land use and land cover classification. Patrick Helber, Benjamin Bischke, Andreas Dengel, Damian Borth. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2019.</p></li>
+<li><p>Introducing EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification. Patrick Helber, Benjamin Bischke, Andreas Dengel. 2018 IEEE International Geoscience and Remote Sensing Symposium, 2018.</p></li>
+</ul>
+<p>Your goal is to construct a neural network that classifies a satellite image into one of these 10 classes, as well as applying some of the saving and loading techniques you have learned in the previous sessions.</p>
+</div>
+<div class="section" id="import-the-data">
+<h1><span class="section-number">6.5. </span>Import the data<a class="headerlink" href="#import-the-data" title="Permalink to this headline">#</a></h1>
+<p>The dataset you will train your model on is a subset of the total data, with 4000 training images and 1000 testing images, with roughly equal numbers of each class. The code to import the data is provided below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell to import the Eurosat data</span>
+
+<span class="k">def</span> <span class="nf">load_eurosat_data</span><span class="p">():</span>
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;/content/data_cnn&#39;</span>
+    <span class="n">x_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;x_train.npy&#39;</span><span class="p">))</span>
+    <span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;y_train.npy&#39;</span><span class="p">))</span>
+    <span class="n">x_test</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;x_test.npy&#39;</span><span class="p">))</span>
+    <span class="n">y_test</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;y_test.npy&#39;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">load_eurosat_data</span><span class="p">()</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span> <span class="o">/</span> <span class="mf">255.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>####Q1 Build the neural network model</p>
+<p>You can now construct a model to fit to the data. Using the Sequential API, build your model according to the following specifications:</p>
+<ul class="simple">
+<li><p>The model should use the input_shape in the function argument to set the input size in the first layer.</p></li>
+<li><p>The first layer should be a Conv2D layer with 16 filters, a 3x3 kernel size, a ReLU activation function and ‘SAME’ padding. Name this layer ‘conv_1’.</p></li>
+<li><p>The second layer should also be a Conv2D layer with 8 filters, a 3x3 kernel size, a ReLU activation function and ‘SAME’ padding. Name this layer ‘conv_2’.</p></li>
+<li><p>The third layer should be a MaxPooling2D layer with a pooling window size of 8x8. Name this layer ‘pool_1’.</p></li>
+<li><p>The fourth layer should be a Flatten layer, named ‘flatten’.</p></li>
+<li><p>The fifth layer should be a Dense layer with 32 units, a ReLU activation. Name this layer ‘dense_1’.</p></li>
+<li><p>The sixth and final layer should be a Dense layer with 10 units and softmax activation. Name this layer ‘dense_2’.</p></li>
+</ul>
+<p>In total, the network should have 6 layers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following function. </span>
+<span class="c1"># Make sure to not change the function name or arguments.</span>
+
+<span class="k">def</span> <span class="nf">get_new_model</span><span class="p">(</span><span class="n">input_shape</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function should build a Sequential model according to the above specification. Ensure the </span>
+<span class="sd">    weights are initialised by providing the input_shape argument in the first layer, given by the</span>
+<span class="sd">    function argument.</span>
+<span class="sd">    Your function should also compile the model with the Adam optimiser, sparse categorical cross</span>
+<span class="sd">    entropy loss function, and a single accuracy metric.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p>####Q2 Compile and evaluate the model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run your function to create the model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">get_new_model</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell to define a function to evaluate a model&#39;s test accuracy</span>
+<span class="k">def</span> <span class="nf">get_test_accuracy</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test model classification accuracy&quot;&quot;&quot;</span>
+    <span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy: </span><span class="si">{acc:0.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">acc</span><span class="o">=</span><span class="n">test_acc</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the model summary and calculate its initialised test accuracy</span>
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="n">get_test_accuracy</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>####Q3 Create checkpoints to save model during training, with a criterion</p>
+<p>You will now create three callbacks:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">checkpoint_every_epoch</span></code>: checkpoint that saves the model weights every epoch during training</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">checkpoint_best_only</span></code>: checkpoint that saves only the weights with the highest validation accuracy. Use the testing data as the validation data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">early_stopping</span></code>: early stopping object that ends training if the validation accuracy has not improved in 3 epochs.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following functions. </span>
+<span class="c1"># Make sure to not change the function names or arguments.</span>
+
+<span class="k">def</span> <span class="nf">get_checkpoint_every_epoch</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function should return a ModelCheckpoint object that:</span>
+<span class="sd">    - saves the weights only at the end of every epoch</span>
+<span class="sd">    - saves into a directory called &#39;checkpoints_every_epoch&#39; inside the current working directory</span>
+<span class="sd">    - generates filenames in that directory like &#39;checkpoint_XXX&#39; where</span>
+<span class="sd">      XXX is the epoch number formatted to have three digits, e.g. 001, 002, 003, etc.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    
+
+
+<span class="k">def</span> <span class="nf">get_checkpoint_best_only</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function should return a ModelCheckpoint object that:</span>
+<span class="sd">    - saves only the weights that generate the highest validation (testing) accuracy</span>
+<span class="sd">    - saves into a directory called &#39;checkpoints_best_only&#39; inside the current working directory</span>
+<span class="sd">    - generates a file called &#39;checkpoints_best_only/checkpoint&#39; </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following function. </span>
+<span class="c1"># Make sure to not change the function name or arguments.</span>
+
+<span class="k">def</span> <span class="nf">get_early_stopping</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function should return an EarlyStopping callback that stops training when</span>
+<span class="sd">    the validation (testing) accuracy has not improved in the last 3 epochs.</span>
+<span class="sd">    HINT: use the EarlyStopping callback with the correct &#39;monitor&#39; and &#39;patience&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+     
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell to create the callbacks</span>
+
+<span class="n">checkpoint_every_epoch</span> <span class="o">=</span> <span class="n">get_checkpoint_every_epoch</span><span class="p">()</span>
+<span class="n">checkpoint_best_only</span> <span class="o">=</span> <span class="n">get_checkpoint_best_only</span><span class="p">()</span>
+<span class="n">early_stopping</span> <span class="o">=</span> <span class="n">get_early_stopping</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>####Q4 Train model using the callbacks</p>
+<p>Now, you will train the model using the three callbacks you created. If you created the callbacks correctly, three things should happen:</p>
+<ul class="simple">
+<li><p>At the end of every epoch, the model weights are saved into a directory called <code class="docutils literal notranslate"><span class="pre">checkpoints_every_epoch</span></code></p></li>
+<li><p>At the end of every epoch, the model weights are saved into a directory called <code class="docutils literal notranslate"><span class="pre">checkpoints_best_only</span></code> <strong>only</strong> if those weights lead to the highest test accuracy</p></li>
+<li><p>Training stops when the testing accuracy has not improved in three epochs.</p></li>
+</ul>
+<p>You should then have two directories:</p>
+<ul class="simple">
+<li><p>A directory called <code class="docutils literal notranslate"><span class="pre">checkpoints_every_epoch</span></code> containing filenames that include <code class="docutils literal notranslate"><span class="pre">checkpoint_001</span></code>, <code class="docutils literal notranslate"><span class="pre">checkpoint_002</span></code>, etc with the <code class="docutils literal notranslate"><span class="pre">001</span></code>, <code class="docutils literal notranslate"><span class="pre">002</span></code> corresponding to the epoch</p></li>
+<li><p>A directory called <code class="docutils literal notranslate"><span class="pre">checkpoints_best_only</span></code> containing filenames that include <code class="docutils literal notranslate"><span class="pre">checkpoint</span></code>, which contain only the weights leading to the highest testing accuracy</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train model using the callbacks you just created</span>
+
+<span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span><span class="n">checkpoint_every_epoch</span><span class="p">,</span> <span class="n">checkpoint_best_only</span><span class="p">,</span> <span class="n">early_stopping</span><span class="p">]</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>####Q5 Create new instance of model and load on both sets of weights</p>
+<p>Now you will use the weights you just saved in a fresh model. You should create two functions, both of which take a freshly instantiated model instance:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">model_last_epoch</span></code> should contain the weights from the latest saved epoch</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model_best_epoch</span></code> should contain the weights from the saved epoch with the highest testing accuracy</p></li>
+</ul>
+<p><em>Hint: use the</em> <code class="docutils literal notranslate"><span class="pre">tf.train.latest_checkpoint</span></code> <em>function to get the filename of the latest saved checkpoint file. Check the docs</em> <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/train/latest_checkpoint"><em>here</em></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following functions. </span>
+<span class="c1"># Make sure to not change the function name or arguments.</span>
+
+<span class="k">def</span> <span class="nf">get_model_last_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function should create a new instance of the CNN you created earlier,</span>
+<span class="sd">    load on the weights from the last training epoch, and return this model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    
+    
+    
+<span class="k">def</span> <span class="nf">get_model_best_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function should create a new instance of the CNN you created earlier, load </span>
+<span class="sd">    on the weights leading to the highest validation accuracy, and return this model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell to create two models: one with the weights from the last training</span>
+<span class="c1"># epoch, and one with the weights leading to the highest validation (testing) accuracy.</span>
+<span class="c1"># Verify that the second has a higher validation (testing) accuarcy.</span>
+
+<span class="n">model_last_epoch</span> <span class="o">=</span> <span class="n">get_model_last_epoch</span><span class="p">(</span><span class="n">get_new_model</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">model_best_epoch</span> <span class="o">=</span> <span class="n">get_model_best_epoch</span><span class="p">(</span><span class="n">get_new_model</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model with last epoch weights:&#39;</span><span class="p">)</span>
+<span class="n">get_test_accuracy</span><span class="p">(</span><span class="n">model_last_epoch</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model with best epoch weights:&#39;</span><span class="p">)</span>
+<span class="n">get_test_accuracy</span><span class="p">(</span><span class="n">model_best_epoch</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>####Q6 Load, from scratch, a model trained on the EuroSat dataset.</p>
+<p>In your workspace, you will find another model trained on the <code class="docutils literal notranslate"><span class="pre">EuroSAT</span></code> dataset in <code class="docutils literal notranslate"><span class="pre">.h5</span></code> format. This model is trained on a larger subset of the EuroSAT dataset and has a more complex architecture. The path to the model is <code class="docutils literal notranslate"><span class="pre">models/EuroSatNet.h5</span></code>. See how its testing accuracy compares to your model!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following functions. </span>
+<span class="c1"># Make sure to not change the function name or arguments.</span>
+
+<span class="k">def</span> <span class="nf">get_model_eurosatnet</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function should return the pretrained EuroSatNet.h5 model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell to print a summary of the EuroSatNet model, along with its validation accuracy.</span>
+
+<span class="n">model_eurosatnet</span> <span class="o">=</span> <span class="n">get_model_eurosatnet</span><span class="p">()</span>
+<span class="n">model_eurosatnet</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="n">get_test_accuracy</span><span class="p">(</span><span class="n">model_eurosatnet</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./DL"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="S5_1_CNNs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6.1. </span>Notebook Setup</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Week_6_Recurrent_NN.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Recurrent Neural Networks and Hydrological Modeling</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">6.4. The EuroSAT dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">6.5. Import the data</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
