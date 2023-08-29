@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>12.4. Setup &#8212; Machine Learning for Earth and Environmental Sciences</title>
+    <title>4.4. Exercise 3: Application to Dynamical Regime Identification - Tracking the impact of global Heating on Ocean Regimes (THOR) &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'ML/S3_3_THOR';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="13. Welcome to the fourth lab: Artificial Neural Networks and Surrogate Modeling" href="../DL/Week_4_Artificial_Neural_Networks.html" />
-    <link rel="prev" title="12.2. Setup" href="S3_2_Clustering.html" />
+    <link rel="next" title="5. Artificial Neural Networks and Surrogate Modeling" href="../DL/Week_4_Artificial_Neural_Networks.html" />
+    <link rel="prev" title="4.3. Exercise 2: Clustering" href="S3_2_Clustering.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -152,87 +152,92 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../index.html">
-                    Welcome to your Jupyter Book
+                    Welcome to Machine Learning for Earth and Environmental Sciences
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Milton/00_Running_Python_Scripts.html">Running Python scripts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../IP/intro_python.html">1. Basics of Scientific Programming for Applied Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1_Tutorial.html">1.1. <strong>Python Introduction</strong></a></li>
-
-
-<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1.html">1.4. (Exercises) Text and Tabular Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2_Tutorial.html">1.5. <strong>Data Structure</strong></a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2.html">1.7. List</a></li>
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1_Tutorial.html">1.14. Importing and Examining a New Package</a></li>
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1.html">1.23. (Exercise) Ocean Floats Data Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2_Tutorial.html">1.24. Figure and Axes</a></li>
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2.html">1.30. (Exercises) Replicating plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1_Tutorial.html">1.31. Introduction</a></li>
-
-
-
-
-
-
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1.html">1.42. (Exercise) Earthquake Data Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2_Tutorial.html">1.43. GeoPandas</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1_Tutorial.html">1.45. <strong>Linear Regression</strong></a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1.html">1.47. (Exercises) Multivariate linear regression and clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1_Tutorial.html">1.1. Variables, Control Flow, and File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1.html">1.2. (Exercises) Text and Tabular Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2_Tutorial.html">1.3. Data Structure, Functions, and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2.html">1.4. (Exercises) Simple Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1_Tutorial.html">1.5. Scientific Computing with Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1.html">1.6. (Exercise) Ocean Floats Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2_Tutorial.html">1.7. Visualization with Matplotlib and Cartopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2.html">1.8. (Exercises) Replicating plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1_Tutorial.html">1.9. Tabular Data with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1.html">1.10. (Exercise) Earthquake Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2_Tutorial.html">1.11. Geospatial Data with Geopandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2.html">1.12. (Exercise) Hurricane Track Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1_Tutorial.html">1.13. Regression, Classification, and Clustering with Scikit-learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1.html">1.14. (Exercises) Multivariate linear regression and clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2_Tutorial.html">1.15. Statistical Graphics with Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2.html">1.16. (Exercise) Marathon Data Analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Week_1_Linear%26Logistic_Regression.html">2. Welcome to “Machine Learning for Earth and Environmental Sciences”</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="Week_2_Decision_Trees_Random_Forests_SVMs.html">5. <strong>Welcome to the second lab: Support vector machines, Decision trees, Random forests &amp; Environmental risk analysis</strong></a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="Week_3_Dimensionality_Reduction_Clustering.html">9. <strong>Welcome to the third lab: Dimensionality Reduction, Clustering, and Regime Identification</strong></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression and Logistic Regression for Classification</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2.html">2.1. Classification and Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1_1_Classification.html">2.2. Notebook Setup</a></li>
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="S1_2_Training_Models.html">2.6. Notebook Setup</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="S1_3_Statistical_Forecasting.html">2.9. (Exercises) Statistical Forecasting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S2_1_SVM.html">3.1. <strong>Exercise 1: Comparing Different Types of Support Vector Machines for Classification</strong></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="S2_2_Decision_Trees.html">3.3. Exercise 2: Training and Fine-Tuning a Decision Tree for the Moons Dataset</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="S2_3_Ensemble_Learning_Random_Forests.html">3.5. Exercise 3: Comparing (Ensemble of) Classifiers on MNIST Data</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="S2_4_Wildfire_Risk_Italy.html">3.7. Exercise 4: Mapping Wildfire Susceptibility in the Liguria Region with Simple Machine Learning Classifiers</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.4. (Exercise) Ocean Regimes Identification</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Deep Learning for the Geosciences</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../DL/Week_4_Artificial_Neural_Networks.html">13. <strong>Welcome to the fourth lab: Artificial Neural Networks and Surrogate Modeling</strong></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S4_1_NNs_with_Keras.html">5.1. (Exercise) Artificial Neural Networks with Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S4_2_Physically_informed_parameterization.html">5.2. (Exercise) Physically-Informed Climate Modeling.ipynb</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_5_Convolutional_NN.html">6. Convolutional Neural Networks and Remote Sensing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_1_CNNs.html">6.1. Notebook Setup</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_2_CNN_and_EuroSAT.html">6.4. The EuroSAT dataset</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.1. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.2. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../DL/Week_5_Convolutional_NN.html">17. Notebook Setup</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="../DL/Week_6_Recurrent_NN.html">20. <strong>Welcome to the sixth lab: Recurrent Neural Networks and Long-Short Term Memory (LSTM) Networks!</strong></a></li>
 
 
 
+</ul>
+</li>
 </ul>
 
     </div>
@@ -416,7 +421,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Setup</h1>
+    <h1>Exercise 3: Application to Dynamical Regime Identification - Tracking the impact of global Heating on Ocean Regimes (THOR)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -426,13 +431,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">12.4. Setup</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">12.5. Data Preprocessing</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reformatting-as-xarray">12.5.1. Reformatting as Xarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reformatting-as-xarray">4.4.1. Reformatting as Xarray</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-make-a-blank-xarray-dataset-br">4.4.1.1. Q1) Make a blank xarray dataset.<br/></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-visualize-the-data-using-a-plot-and-printing-the-shape-of-the-data-to-the-console-output">4.4.1.2. Q2) Visualize the data using a plot and printing the shape of the data to the console output.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-prepare-the-latitude-and-longitude-arrays-to-be-used-as-axes-for-our-dataset">4.4.1.3. Q3) Prepare the latitude and longitude arrays to be used as axes for our dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-define-a-function-that-takes-in-1-an-array-name-2-a-numpy-array-3-a-lat-vector-and-4-a-lon-vector-the-function-should-return-a-dataarray-with-lat-lon-as-the-coordinate-dimensions">4.4.1.4. Q4) Define a function that takes in: 1) an array name, 2) a numpy array, 3) a lat vector, and 4) a lon vector. The function should return a dataArray with lat-lon as the coordinate dimensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-build-the-dataset-from-the-data-dictionary">4.4.1.5. Q5) Build the dataset from the data dictionary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-store-a-flattened-version-of-our-dataset">4.4.1.6. Q6) Store a flattened version of our dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-load-the-datapoints-into-a-numpy-array-following-the-convention-where-the-0th-axis-corresponds-to-the-samples-and-the-1st-axis-corresponds-to-the-features">4.4.1.7. Q7) Load the datapoints into a numpy array following the convention where the 0th axis corresponds to the samples and the 1st axis corresponds to the features.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">4.4.2. Kmeans clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-scale-the-input-data">4.4.2.1. Q8) Scale the input data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-instantiate-the-kmeans-clustering-algorithm-and-then-fit-it-using-50-clusters-trying-out-10-different-initial-centroids">4.4.2.2. Q9) Instantiate the kmeans clustering algorithm, and then fit it using 50 clusters, trying out 10 different initial centroids.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">4.4.3. Visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-turn-the-flattened-xarray-back-into-a-set-of-2d-fields">4.4.3.1. Q10) Turn the flattened xarray back into a set of 2D fields</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-plot-the-cluster-variable-using-the-built-in-xarray-function">4.4.3.2. Q11) Plot the ‘cluster’ variable using the built-in xarray function</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -443,19 +462,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p><a href="https://colab.research.google.com/github/tbeucler/2022_ML_EES/blob/main/Labs/S3_3_THOR.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+  <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/ML/S3_3_THOR.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="exercise-3-application-to-dynamical-regime-identification-tracking-the-impact-of-global-heating-on-ocean-regimes-thor">
+<h1><span class="section-number">4.4. </span>Exercise 3: Application to Dynamical Regime Identification - Tracking the impact of global Heating on Ocean Regimes (THOR)<a class="headerlink" href="#exercise-3-application-to-dynamical-regime-identification-tracking-the-impact-of-global-heating-on-ocean-regimes-thor" title="Permalink to this headline">#</a></h1>
 <img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/ESLP1e1BfUxKu-hchh7wZKcBZiG3bJnNbnt0PDDm3BK-9g?download=1'>
-<center> 
-Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by <a href="https://unsplash.com/@unstable_affliction">Ivan Bandura</a> licensed under the <a href='https://unsplash.com/license'>Unsplash License</a> 
+<center>
+Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by <a href="https://unsplash.com/@unstable_affliction">Ivan Bandura</a> licensed under the <a href='https://unsplash.com/license'>Unsplash License</a>
 </center>
 <blockquote>
 <div><p><em>A frequently asked question related to this work is “Which mixing processes matter most for climate?” As with many alluringly comprehensive sounding questions, the answer is “it depends.”</em> <br>
 <span class="math notranslate nohighlight">\(\qquad\)</span> MacKinnon, Jennifer A., et al. <br><span class="math notranslate nohighlight">\(\qquad\)</span>”Climate process team on internal wave–driven ocean mixing.” <br><span class="math notranslate nohighlight">\(\qquad\)</span> Bulletin of the American Meteorological Society 98.11 (2017): 2429-2454.</p>
 </div></blockquote>
-<p>In week 4’s final notebook, we will perform clustering to identify regimes in data taken from the realistic numerical ocean model <a class="reference external" href="https://www.ecco-group.org/products-ECCO-V4r4.htm">Estimating the Circulation and Climate of the Ocean</a>. Sonnewald et al. point out that finding robust regimes is intractable with a naïve approach, so we will be using using reduced dimensionality data.</p>
+<p>In week 4’s final notebook, we will perform clustering to identify regimes in data taken from the realistic numerical ocean model <a class="reference external" href="https://www.ecco-group.org/products-ECCO-V4r4.htm">Estimating the Circulation and Climate of the Ocean</a>. Sonnewald et al. point out that finding robust regimes is intractable with a naïve approach, so we will be using reduced dimensionality data.</p>
 <p>It is worth pointing out, however, that the reduction was done with an equation instead of one of the algorithms we discussed this week. If you’re interested in the full details, you can check out <a class="reference external" href="https://doi.org/10.1029/2018EA000519">Sonnewald et al. (2019)</a></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="setup">
-<h1><span class="section-number">12.4. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h1>
+<p><strong>Setup</strong></p>
 <p>First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -528,9 +548,7 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 </div>
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="data-preprocessing">
-<h1><span class="section-number">12.5. </span>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">#</a></h1>
+<p><strong>Data Preprocessing</strong></p>
 <p>The first thing we need to do is retrieve the list of files we’ll be working on. We’ll rely on pooch to access the files hosted on the cloud.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -556,7 +574,7 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">var_names</span><span class="p">):</span>
     <span class="n">data_dict</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
 
-<span class="c1">#We&#39;ll print the name of the variable loaded and the associated shape </span>
+<span class="c1">#We&#39;ll print the name of the variable loaded and the associated shape</span>
 <span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Varname: </span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">&lt;15</span><span class="si">}</span><span class="s1"> Shape: </span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()];</span>
 </pre></div>
 </div>
@@ -579,10 +597,11 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 </div>
 </div>
 <div class="section" id="reformatting-as-xarray">
-<h2><span class="section-number">12.5.1. </span>Reformatting as Xarray<a class="headerlink" href="#reformatting-as-xarray" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.4.1. </span>Reformatting as Xarray<a class="headerlink" href="#reformatting-as-xarray" title="Permalink to this headline">#</a></h2>
 <p>In the original paper, this data was loaded as numpy arrays. However, we’ll take this opportunity to demonstrate the same procedure while relying on xarray. First, let’s instantiate a blank dataset.<br><br></p>
-<p>###<strong>Q1) Make a blank xarray dataset.</strong><br>
-<em>Hint: Look at the xarray <a class="reference external" href="https://duckduckgo.com/?q=xarray+dataset">documentation</a></em></p>
+<div class="section" id="q1-make-a-blank-xarray-dataset-br">
+<h3><span class="section-number">4.4.1.1. </span>Q1) Make a blank xarray dataset.<br><a class="headerlink" href="#q1-make-a-blank-xarray-dataset-br" title="Permalink to this headline">#</a></h3>
+<p><em>Hint: Look at the xarray <a class="reference external" href="https://duckduckgo.com/?q=xarray+dataset">documentation</a></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make your blank dataset here! Instantiate the class without passing any parameters.</span>
@@ -594,7 +613,9 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 <center> Image taken from the xarray <a href='https://xarray.pydata.org/en/stable/user-guide/data-structures.html#:~:text=Dataset-,xarray.,from%20the%20netCDF%20file%20format.'> <i>Data Structure documentation</i> </a> </center>
 <p>In order to build the dataset, we’re going to need a set of coordinate vectors that help us map out our data! For our data, we have two axes corresponding to longitude (<span class="math notranslate nohighlight">\(\lambda\)</span>) and latitude (<span class="math notranslate nohighlight">\(\phi\)</span>).</p>
 <p>We don’t know much about how many lat/lon points we have, so let’s explore one of the variables to make sense of the data the shape of one of the numpy arrays.</p>
-<p>###<strong>Q2) Visualize the data using a plot and printing the shape of the data to the console output.</strong></p>
+</div>
+<div class="section" id="q2-visualize-the-data-using-a-plot-and-printing-the-shape-of-the-data-to-the-console-output">
+<h3><span class="section-number">4.4.1.2. </span>Q2) Visualize the data using a plot and printing the shape of the data to the console output.<a class="headerlink" href="#q2-visualize-the-data-using-a-plot-and-printing-the-shape-of-the-data-to-the-console-output" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Complete the code</span>
@@ -614,35 +635,39 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 </div>
 </div>
 <p>Now that we know how the resolution of our data, we can prepare a set of axis arrays. We will use these to organize the data we will feed into the dataset.</p>
-<p>###<strong>Q3) Prepare the latitude and longitude arrays to be used as axes for our dataset</strong></p>
+</div>
+<div class="section" id="q3-prepare-the-latitude-and-longitude-arrays-to-be-used-as-axes-for-our-dataset">
+<h3><span class="section-number">4.4.1.3. </span>Q3) Prepare the latitude and longitude arrays to be used as axes for our dataset<a class="headerlink" href="#q3-prepare-the-latitude-and-longitude-arrays-to-be-used-as-axes-for-our-dataset" title="Permalink to this headline">#</a></h3>
 <p><em>Hint 1: You can build ordered numpy arrays using, e.g., <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">numpy.linspace</a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html">numpy.arange</a></em></p>
 <p><em>Hint 2: You can rely on the data_shape variable we loaded previously to know how many points you need along each axis</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Complete the code</span>
 <span class="c1"># Let&#39;s prepare the lat and lon axes for our data.</span>
-<span class="n">lat</span> <span class="o">=</span> 
-<span class="n">lon</span> <span class="o">=</span> 
+<span class="n">lat</span> <span class="o">=</span>
+<span class="n">lon</span> <span class="o">=</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Now that we have the axes we need, we can build xarray <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.html"><em>data arrays</em></a> for each data variable. Since we’ll be doing it several times, let’s go ahead and defined a function that does this for us!</p>
-<p>###<strong>Q4) Define a function that takes in: 1) an array name, 2) a numpy array, 3) a lat vector, and 4) a lon vector. The function should return a dataArray with lat-lon as the coordinate dimensions</strong></p>
+</div>
+<div class="section" id="q4-define-a-function-that-takes-in-1-an-array-name-2-a-numpy-array-3-a-lat-vector-and-4-a-lon-vector-the-function-should-return-a-dataarray-with-lat-lon-as-the-coordinate-dimensions">
+<h3><span class="section-number">4.4.1.4. </span>Q4) Define a function that takes in: 1) an array name, 2) a numpy array, 3) a lat vector, and 4) a lon vector. The function should return a dataArray with lat-lon as the coordinate dimensions<a class="headerlink" href="#q4-define-a-function-that-takes-in-1-an-array-name-2-a-numpy-array-3-a-lat-vector-and-4-a-lon-vector-the-function-should-return-a-dataarray-with-lat-lon-as-the-coordinate-dimensions" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Complete the code</span>
 <span class="k">def</span> <span class="nf">np_to_xr</span><span class="p">(</span><span class="n">array_name</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
     <span class="c1">#building the xarrray</span>
     <span class="n">da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">_______</span><span class="p">,</span> <span class="c1"># Data to be stored</span>
-                  
-                  <span class="c1">#set the name of dimensions for the dataArray </span>
+
+                  <span class="c1">#set the name of dimensions for the dataArray</span>
                   <span class="n">dims</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;_______&#39;</span><span class="p">],</span>
-                  
-                  <span class="c1">#Set the dictionary pointing the name dimensions to np arrays </span>
+
+                  <span class="c1">#Set the dictionary pointing the name dimensions to np arrays</span>
                   <span class="n">coords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lat&#39;</span><span class="p">:</span><span class="n">_______</span><span class="p">,</span>
                             <span class="s1">&#39;_______&#39;</span><span class="p">:</span><span class="n">_______</span><span class="p">},</span>
-                      
+
                   <span class="n">name</span><span class="o">=</span><span class="n">_______</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">_______</span>
 </pre></div>
@@ -650,11 +675,13 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 </div>
 </div>
 <p>We’re now ready to build our data array! Let’s iterate through the items and merge our blank dataset with the data arrays we create.</p>
-<p>###<strong>Q5) Build the dataset from the data dictionary</strong></p>
+</div>
+<div class="section" id="q5-build-the-dataset-from-the-data-dictionary">
+<h3><span class="section-number">4.4.1.5. </span>Q5) Build the dataset from the data dictionary<a class="headerlink" href="#q5-build-the-dataset-from-the-data-dictionary" title="Permalink to this headline">#</a></h3>
 <p><em>Hint: We’ll be using the xarray merge command to put everything together.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The code in the notebook assumes you named your dataset ds. Change it to </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The code in the notebook assumes you named your dataset ds. Change it to</span>
 <span class="c1"># whatever you used!</span>
 
 <span class="c1"># Complete the code</span>
@@ -682,7 +709,9 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 </div>
 <p>Now we want to find clusters of data considering each grid point as a datapoint with 5 dimensional data. However, we went through a lot of work to get the data nicely associated with a lat and lon - do we really want to undo that?</p>
 <p>Luckily, xarray developers foresaw the need to group dimensions together. Let’s create a ‘flat’ version of our dataset using the <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.stack.html"><code class="docutils literal notranslate"><span class="pre">stack</span></code></a> method. Let’s make a flattened version of our dataset.</p>
-<p>###<strong>Q6) Store a flattened version of our dataset</strong></p>
+</div>
+<div class="section" id="q6-store-a-flattened-version-of-our-dataset">
+<h3><span class="section-number">4.4.1.6. </span>Q6) Store a flattened version of our dataset<a class="headerlink" href="#q6-store-a-flattened-version-of-our-dataset" title="Permalink to this headline">#</a></h3>
 <p><em>Hint 1: You’ll need to pass a dictionary with the ‘new’ stacked dimension name as the key and the ‘flattened’ dimensions as the values.</em></p>
 <p><em>Hint 2: xarrays have a <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.values.html">‘.values’ attribute</a> that return their data as a numpy array.</em></p>
 <div class="cell docutils container">
@@ -734,12 +763,14 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 <p>We now have several thousand points which we want to divide into clusters using the kmeans clustering algorithm (you can check out the documentation for scikit’s implementation of kmeans <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">here</a>).</p>
 <p>You’ll note that the algorithm expects the input data <code class="docutils literal notranslate"><span class="pre">X</span></code> to be fed as <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_features)</span></code>. This is the opposite of what we have! Let’s go ahead and make a copy to a numpy array has the axes in the right order.</p>
 <p>You’ll need xarray’s <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.Dataset.to_array.html"><code class="docutils literal notranslate"><span class="pre">.to_array()</span></code></a> method and <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.values.html"><code class="docutils literal notranslate"><span class="pre">.values</span></code></a> parameter, as well as numpy’s <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.moveaxis.html"><code class="docutils literal notranslate"><span class="pre">.moveaxis</span></code></a> method.</p>
-<p>###<strong>Q7) Load the datapoints into a numpy array following the convention where the 0th axis corresponds to the samples and the 1st axis corresponds to the features.</strong></p>
+</div>
+<div class="section" id="q7-load-the-datapoints-into-a-numpy-array-following-the-convention-where-the-0th-axis-corresponds-to-the-samples-and-the-1st-axis-corresponds-to-the-features">
+<h3><span class="section-number">4.4.1.7. </span>Q7) Load the datapoints into a numpy array following the convention where the 0th axis corresponds to the samples and the 1st axis corresponds to the features.<a class="headerlink" href="#q7-load-the-datapoints-into-a-numpy-array-following-the-convention-where-the-0th-axis-corresponds-to-the-samples-and-the-1st-axis-corresponds-to-the-features" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the code</span>
 <span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">_______</span><span class="p">(</span><span class="n">stacked</span><span class="o">.</span><span class="n">_______</span><span class="p">(</span><span class="n">_______</span><span class="p">)</span><span class="o">.</span><span class="n">_______</span><span class="p">()</span><span class="o">.</span><span class="n">_______</span><span class="p">,</span>  <span class="c1"># data to reshape. Note that cluster is dropped since not needed for training</span>
-                         <span class="n">_______</span><span class="p">,</span>          <span class="c1"># source axis as integer, </span>
+                         <span class="n">_______</span><span class="p">,</span>          <span class="c1"># source axis as integer,</span>
                          <span class="n">_______</span><span class="p">)</span>          <span class="c1"># destination axis as integer</span>
 </pre></div>
 </div>
@@ -753,8 +784,13 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="kmeans-clustering">
+<h2><span class="section-number">4.4.2. </span>Kmeans clustering<a class="headerlink" href="#kmeans-clustering" title="Permalink to this headline">#</a></h2>
 <p>In previous classes we discussed the importance of the scaling the data before implementing our algorithms. Now that our data is all but ready to be fed into an algorithm, let’s make sure that it’s been scaled.</p>
-<p>###<strong>Q8) Scale the input data</strong></p>
+<div class="section" id="q8-scale-the-input-data">
+<h3><span class="section-number">4.4.2.1. </span>Q8) Scale the input data<a class="headerlink" href="#q8-scale-the-input-data" title="Permalink to this headline">#</a></h3>
 <p><em>Hint 1: Import the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html"><code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code></a> class from scikit and instantiate it</em></p>
 <p><em>Hint 2: Update the input array to the one returned by the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler.fit_transform"><code class="docutils literal notranslate"><span class="pre">.fit_transform(X)</span></code></a> method</em></p>
 <div class="cell docutils container">
@@ -765,7 +801,9 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 </div>
 </div>
 <p>Now we’re finally ready to train our algorithm! Let’s load up the kmeans model and find clusters in our data.</p>
-<p>###<strong>Q9) Instantiate the kmeans clustering algorithm, and then fit it using 50 clusters, trying out 10 different initial centroids.</strong></p>
+</div>
+<div class="section" id="q9-instantiate-the-kmeans-clustering-algorithm-and-then-fit-it-using-50-clusters-trying-out-10-different-initial-centroids">
+<h3><span class="section-number">4.4.2.2. </span>Q9) Instantiate the kmeans clustering algorithm, and then fit it using 50 clusters, trying out 10 different initial centroids.<a class="headerlink" href="#q9-instantiate-the-kmeans-clustering-algorithm-and-then-fit-it-using-50-clusters-trying-out-10-different-initial-centroids" title="Permalink to this headline">#</a></h3>
 <p><em>Hint 1: <code class="docutils literal notranslate"><span class="pre">sklearn.cluster</span></code> was imported as <code class="docutils literal notranslate"><span class="pre">cluser</span></code> during the notebook setup! <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">Here is the scikit <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> documentation</a>.</em></p>
 <p><em>Hint 2: Use the <code class="docutils literal notranslate"><span class="pre">fit_predict</span></code> method to organize the data into clusters</em></p>
 <p>*Warning! : Fitting the data may take some time (under a minute during the testing of the notebook)</p>
@@ -796,9 +834,14 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="visualization">
+<h2><span class="section-number">4.4.3. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">#</a></h2>
 <p>We now have a set of labels, but they’re stored in a flattened array. Since we’d like to see the data as a map, we still have some work to do. Let’s go back to a 2D representation of our values.</p>
-<p>###<strong>Q10) Turn the flattened xarray back into a set of 2D fields</strong>
-<em>Hint</em>: xarrays have an <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.unstack.html"><code class="docutils literal notranslate"><span class="pre">.unstack</span></code> method</a> that you will find to be very useful for this.</p>
+<div class="section" id="q10-turn-the-flattened-xarray-back-into-a-set-of-2d-fields">
+<h3><span class="section-number">4.4.3.1. </span>Q10) Turn the flattened xarray back into a set of 2D fields<a class="headerlink" href="#q10-turn-the-flattened-xarray-back-into-a-set-of-2d-fields" title="Permalink to this headline">#</a></h3>
+<p><em>Hint</em>: xarrays have an <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.unstack.html"><code class="docutils literal notranslate"><span class="pre">.unstack</span></code> method</a> that you will find to be very useful for this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the code:</span>
@@ -808,8 +851,10 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 </div>
 </div>
 <p>Now we have an unstacked dataset, and can now easily plot out the clusters we found!</p>
-<p>###<strong>Q11) Plot the ‘cluster’ variable using the built-in xarray function</strong>
-<em>Hint: <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.plot.html">link text</a> let’s you access the xarray implementations of <a class="reference external" href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.pcolormesh.html"><code class="docutils literal notranslate"><span class="pre">pcolormesh</span></code></a> and <a class="reference external" href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.imshow.html"><code class="docutils literal notranslate"><span class="pre">imshow</span></code></a>.</em></p>
+</div>
+<div class="section" id="q11-plot-the-cluster-variable-using-the-built-in-xarray-function">
+<h3><span class="section-number">4.4.3.2. </span>Q11) Plot the ‘cluster’ variable using the built-in xarray function<a class="headerlink" href="#q11-plot-the-cluster-variable-using-the-built-in-xarray-function" title="Permalink to this headline">#</a></h3>
+<p><em>Hint: <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.plot.html">link text</a> let’s you access the xarray implementations of <a class="reference external" href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.pcolormesh.html"><code class="docutils literal notranslate"><span class="pre">pcolormesh</span></code></a> and <a class="reference external" href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.imshow.html"><code class="docutils literal notranslate"><span class="pre">imshow</span></code></a>.</em></p>
 <p>Compare your results to those from the paper:
 <img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EdLh6Ds0yVlFivyfIOXlV74B_G35dVz87GFagzylIG-gZA?download=1'></p>
 <p>We now want to find the 5 most common regimes, and group the rest. This isn’t straightforward, so we’ve gone ahead and prepared the code for you. Run through it and try to understand what the code is doing!</p>
@@ -840,7 +885,7 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Feel free to use this space </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Feel free to use this space</span>
 </pre></div>
 </div>
 </div>
@@ -849,6 +894,7 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
 <img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EehuR9cUfaJImrw4DCAzDPoBiGuG7R3Ys6453Umi1cN_OQ?download=1'></p>
 <p>The authors then went on to train neural networks <em><strong>to infer in-depth dynamics from data that is largely readily available from for example CMIP6 models, using NN methods to infer the source of predictive skill</strong></em> and <em><strong>to apply the trained Ensemble MLP to a climate model in order to assess circulation changes under global heating</strong></em>.</p>
 <p>For our purposes, however, we will say goodbye to <em>THOR</em> at this point 😃</p>
+</div>
 </div>
 </div>
 
@@ -889,7 +935,7 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">12.2. </span>Setup</p>
+        <p class="prev-next-title"><span class="section-number">4.3. </span>Exercise 2: Clustering</p>
       </div>
     </a>
     <a class="right-next"
@@ -897,7 +943,7 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">13. </span><strong>Welcome to the fourth lab: Artificial Neural Networks and Surrogate Modeling</strong></p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Artificial Neural Networks and Surrogate Modeling</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -919,13 +965,27 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">12.4. Setup</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">12.5. Data Preprocessing</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reformatting-as-xarray">12.5.1. Reformatting as Xarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reformatting-as-xarray">4.4.1. Reformatting as Xarray</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-make-a-blank-xarray-dataset-br">4.4.1.1. Q1) Make a blank xarray dataset.<br/></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-visualize-the-data-using-a-plot-and-printing-the-shape-of-the-data-to-the-console-output">4.4.1.2. Q2) Visualize the data using a plot and printing the shape of the data to the console output.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-prepare-the-latitude-and-longitude-arrays-to-be-used-as-axes-for-our-dataset">4.4.1.3. Q3) Prepare the latitude and longitude arrays to be used as axes for our dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-define-a-function-that-takes-in-1-an-array-name-2-a-numpy-array-3-a-lat-vector-and-4-a-lon-vector-the-function-should-return-a-dataarray-with-lat-lon-as-the-coordinate-dimensions">4.4.1.4. Q4) Define a function that takes in: 1) an array name, 2) a numpy array, 3) a lat vector, and 4) a lon vector. The function should return a dataArray with lat-lon as the coordinate dimensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-build-the-dataset-from-the-data-dictionary">4.4.1.5. Q5) Build the dataset from the data dictionary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-store-a-flattened-version-of-our-dataset">4.4.1.6. Q6) Store a flattened version of our dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-load-the-datapoints-into-a-numpy-array-following-the-convention-where-the-0th-axis-corresponds-to-the-samples-and-the-1st-axis-corresponds-to-the-features">4.4.1.7. Q7) Load the datapoints into a numpy array following the convention where the 0th axis corresponds to the samples and the 1st axis corresponds to the features.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">4.4.2. Kmeans clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-scale-the-input-data">4.4.2.1. Q8) Scale the input data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-instantiate-the-kmeans-clustering-algorithm-and-then-fit-it-using-50-clusters-trying-out-10-different-initial-centroids">4.4.2.2. Q9) Instantiate the kmeans clustering algorithm, and then fit it using 50 clusters, trying out 10 different initial centroids.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">4.4.3. Visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-turn-the-flattened-xarray-back-into-a-set-of-2d-fields">4.4.3.1. Q10) Turn the flattened xarray back into a set of 2D fields</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-plot-the-cluster-variable-using-the-built-in-xarray-function">4.4.3.2. Q11) Plot the ‘cluster’ variable using the built-in xarray function</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>
@@ -939,7 +999,7 @@ Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by
   <div class="footer-item">
     
 <p class="component-author">
-By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S
 </p>
 
   </div>

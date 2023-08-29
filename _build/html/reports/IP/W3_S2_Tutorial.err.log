@@ -15,24 +15,24 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-### Create a GeoDataFrame from a DataFrame with coordiantes
+### Create a GeoPandas GeoDataFrame from a Pandas DataFrame with coordiantes
 ### Tutorial: https://geopandas.org/en/stable/gallery/create_geopandas_from_pandas.html
 
-# Create DataFrame from csv
-path = r'data\usgs_earthquakes_2014.csv'
-df_earthquakes = pd.read_csv(path)  
+# Create Pandas DataFrame from csv used in the Pandas exercise
+path = r'/content/data/usgs_earthquakes_2014.csv'
+df_earthquakes = pd.read_csv(path)
 ------------------
 
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [1;32mIn[4], line 6[0m
-[0;32m      1[0m [38;5;66;03m### Create a GeoDataFrame from a DataFrame with coordiantes[39;00m
+Cell [1;32mIn[6], line 6[0m
+[0;32m      1[0m [38;5;66;03m### Create a GeoPandas GeoDataFrame from a Pandas DataFrame with coordiantes[39;00m
 [0;32m      2[0m [38;5;66;03m### Tutorial: https://geopandas.org/en/stable/gallery/create_geopandas_from_pandas.html[39;00m
 [0;32m      3[0m 
-[0;32m      4[0m [38;5;66;03m# Create DataFrame from csv[39;00m
-[0;32m      5[0m path [38;5;241m=[39m [38;5;124mr[39m[38;5;124m'[39m[38;5;124mdata[39m[38;5;124m\[39m[38;5;124musgs_earthquakes_2014.csv[39m[38;5;124m'[39m
-[1;32m----> 6[0m df_earthquakes [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_csv[49m[43m([49m[43mpath[49m[43m)[49m  
+[0;32m      4[0m [38;5;66;03m# Create Pandas DataFrame from csv used in the Pandas exercise[39;00m
+[0;32m      5[0m path [38;5;241m=[39m [38;5;124mr[39m[38;5;124m'[39m[38;5;124m/content/data/usgs_earthquakes_2014.csv[39m[38;5;124m'[39m
+[1;32m----> 6[0m df_earthquakes [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_csv[49m[43m([49m[43mpath[49m[43m)[49m
 
 File [1;32m~\.conda\envs\JB\lib\site-packages\pandas\io\parsers\readers.py:912[0m, in [0;36mread_csv[1;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)[0m
 [0;32m    899[0m kwds_defaults [38;5;241m=[39m _refine_defaults_read(
@@ -89,5 +89,5 @@ File [1;32m~\.conda\envs\JB\lib\site-packages\pandas\io\common.py:859[0m, in 
 [0;32m    867[0m         [38;5;66;03m# Binary mode[39;00m
 [0;32m    868[0m         handle [38;5;241m=[39m [38;5;28mopen[39m(handle, ioargs[38;5;241m.[39mmode)
 
-[1;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'data\\usgs_earthquakes_2014.csv'
+[1;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/content/data/usgs_earthquakes_2014.csv'
 

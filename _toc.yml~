@@ -4,6 +4,11 @@
 format: jb-book
 root: index
 parts:
+- caption: Introduction
+  numbered: false
+  chapters:
+    - file: Milton/00_Running_Python_Scripts.md
+      title: Running Python scripts
 - caption: (Part I) Basics of Machine Learning for Earth and Environmental Sciences
   numbered: true
   chapters: 
@@ -33,9 +38,9 @@ parts:
         - file: IP/W3_S2_Tutorial.ipynb
           title: Geospatial Data with Geopandas
         - file: IP/W3_S2.ipynb
-          title: Hurricane Track Analysis
+          title: (Exercise) Hurricane Track Analysis
         - file: IP/W4_S1_Tutorial.ipynb
-          title: Regression/Classification/Clustering with Scikit-learn
+          title: Regression, Classification, and Clustering with Scikit-learn
         - file: IP/W4_S1.ipynb
           title: (Exercises) Multivariate linear regression and clustering
         - file: IP/W4_S2_Tutorial.ipynb
@@ -45,6 +50,8 @@ parts:
     - file: ML/Week_1_Linear&Logistic_Regression.ipynb
       title: Linear Regression for Regression and Logistic Regression for Classification
       sections:
+        - file: Saranya/W1_2.ipynb
+          title: Classification and Regression
         - file: ML/S1_1_Classification.ipynb
           title: (Exercises) Classification
         - file: ML/S1_2_Training_Models.ipynb
@@ -65,6 +72,8 @@ parts:
     - file: ML/Week_3_Dimensionality_Reduction_Clustering.ipynb
       title: Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity
       sections:
+        - file: Jingyan/Chapter4-UnsupervisedLearning.ipynb
+          title: Unsupervised Learning for Clustering and Dimensionality Reduction
         - file: ML/S3_1_Dimensionality.ipynb
           title: (Exercise) Dimensionality Reduction
         - file: ML/S3_2_Clustering.ipynb
@@ -81,7 +90,7 @@ parts:
           title: (Exercise) Artificial Neural Networks with Keras
         - file: DL/S4_2_Physically_informed_parameterization.ipynb
           title: (Exercise) Physically-Informed Climate Modeling.ipynb
-    - file: DL/S5_1_CNNs.ipynb
+    - file: DL/Week_5_Convolutional_NN.ipynb
       title: Convolutional Neural Networks and Remote Sensing
       sections:
         - file: DL/S5_1_CNNs.ipynb

@@ -21,7 +21,7 @@ import pooch
 import numpy as np
 import matplotlib.pyplot as plt
 
-# In order to keep our code concise and readable, we'll use a variable that 
+# In order to keep our code concise and readable, we'll use a variable that
 # stores the common part of the URL where the data is hosted. Then, we'll store
 # the full URL for each file in its own variable
 base_url = 'https://unils-my.sharepoint.com/:u:/g/personal/tom_beucler_unil_ch/'
@@ -30,14 +30,14 @@ lat_url =  f'{base_url}EbMAwn26etZPjxw4F3akRt8BmPef3PMQPn751e6tF0Xi-Q?download=1
 temp_url = f'{base_url}EfUOMGrJNtVMgJUtfP9137sB9d64M_osBRPa0iQRSCHKGg?download=1'
 
 # Let's go ahead and cache each file
-lon_filename  = pooch.retrieve(lon_url, 
+lon_filename  = pooch.retrieve(lon_url,
                                known_hash='eaf54b88dd89279d3034da17fe8470dc2c841bf9fa89b2aa741dacff9c326cdb'
                                )
 
-lat_filename  = pooch.retrieve(lat_url, 
+lat_filename  = pooch.retrieve(lat_url,
                                known_hash='af1f438080460e1fca4583b2ec19b44285a3d3776e4d21b8da9b6e162906c88a'
                                )
-temp_filename = pooch.retrieve(temp_url, 
+temp_filename = pooch.retrieve(temp_url,
                                known_hash='e040ca257334708b43e86398e09a5669fcf051179ecf5dcd278f758d67beed20'
                                )
 
