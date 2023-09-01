@@ -48,7 +48,7 @@ parts:
         - file: IP/W4_S2.ipynb
           title: (Exercise) Marathon Data Analysis
     - file: ML/Week_1_Linear&Logistic_Regression.ipynb
-      title: Linear Regression for Regression and Logistic Regression for Classification
+      title: Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting
       sections:
         - file: Saranya/W1_2.ipynb
           title: Classification and Regression

@@ -46,7 +46,7 @@ parts:
         - file: IP/W4_S2_Tutorial.ipynb
           title: Statistical Graphics with Seaborn
         - file: IP/W4_S2.ipynb
-          title: Marathon Data Analysis
+          title: (Exercise) Marathon Data Analysis
     - file: ML/Week_1_Linear&Logistic_Regression.ipynb
       title: Linear Regression for Regression and Logistic Regression for Classification
       sections:
