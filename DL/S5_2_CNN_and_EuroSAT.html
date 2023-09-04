@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.4. The EuroSAT dataset &#8212; Machine Learning for Earth and Environmental Sciences</title>
+    <title>6.3. Land Cover Classification &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -63,7 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="7. Recurrent Neural Networks and Hydrological Modeling" href="Week_6_Recurrent_NN.html" />
-    <link rel="prev" title="6.1. Notebook Setup" href="S5_1_CNNs.html" />
+    <link rel="prev" title="6.2. Deep Computer Vision" href="S5_1_CNNs.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -158,9 +158,9 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Milton/00_Running_Python_Scripts.html">Running Python scripts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Scientific Programming for Applied Machine Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../IP/intro_python.html">1. Basics of Scientific Programming for Applied Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../IP/intro_python.html">1. Introduction to Python for Earth and Environmental Sciences</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1_Tutorial.html">1.1. Variables, Control Flow, and File I/O</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1.html">1.2. (Exercises) Text and Tabular Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2_Tutorial.html">1.3. Data Structure, Functions, and Classes</a></li>
@@ -179,27 +179,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2.html">1.16. (Exercise) Marathon Data Analysis</a></li>
 </ul>
 </li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2.html">2.1. Classification and Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ML/S1_1_Classification.html">2.2. Notebook Setup</a></li>
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../ML/S1_2_Training_Models.html">2.6. Notebook Setup</a></li>
-
-
-<li class="toctree-l2"><a class="reference internal" href="../ML/S1_3_Statistical_Forecasting.html">2.9. (Exercises) Statistical Forecasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2_Stat.html">2.4. Statistical Forecasting in Environmental Sciences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ML/S2_1_SVM.html">3.1. <strong>Exercise 1: Comparing Different Types of Support Vector Machines for Classification</strong></a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="../ML/S2_2_Decision_Trees.html">3.3. Exercise 2: Training and Fine-Tuning a Decision Tree for the Moons Dataset</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="../ML/S2_3_Ensemble_Learning_Random_Forests.html">3.5. Exercise 3: Comparing (Ensemble of) Classifiers on MNIST Data</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="../ML/S2_4_Wildfire_Risk_Italy.html">3.7. Exercise 4: Mapping Wildfire Susceptibility in the Liguria Region with Simple Machine Learning Classifiers</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Support_Vector_Machines.html">3.2. (Exercises) Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Decision_Trees_and_Random_Forest.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Ensemble_Modeling_and_Stacking.html">3.4. Ensemble Modeling and Stacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Wildfire_Susceptibility_Mapping.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -210,19 +206,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Deep Learning for the Geosciences</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part III) Deep Learning for the Geosciences</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S4_1_NNs_with_Keras.html">5.1. (Exercise) Artificial Neural Networks with Keras</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S4_2_Physically_informed_parameterization.html">5.2. (Exercise) Physically-Informed Climate Modeling.ipynb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4_2_Physically_informed_parameterization.html">5.2. (Exercise) Physically-Informed Climate Modeling</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Week_5_Convolutional_NN.html">6. Convolutional Neural Networks and Remote Sensing</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="S5_1_CNNs.html">6.1. Notebook Setup</a></li>
-
-
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.4. The EuroSAT dataset</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.html">6.1. Convolutional Neural Networks and Remote Sensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S5_1_CNNs.html">6.2. (Exercise) Deep Computer Vision</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.3. (Exercise) Land Cover Classification</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -419,7 +413,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>The EuroSAT dataset</h1>
+    <h1>Land Cover Classification</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -429,10 +423,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">6.4. The EuroSAT dataset</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">6.5. Import the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-eurosat-dataset">6.3.1. The EuroSAT dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">6.3.2. Import the data</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -443,7 +436,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p><a href="https://colab.research.google.com/github/tbeucler/2022_ML_EES/blob/main/Labs/S7_2_CNN.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+  <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/DL/S5_2_CNN_and_EuroSAT.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="land-cover-classification">
+<h1><span class="section-number">6.3. </span>Land Cover Classification<a class="headerlink" href="#land-cover-classification" title="Permalink to this headline">#</a></h1>
 <p>Source: <a class="reference external" href="https://www.coursera.org/learn/getting-started-with-tensor-flow2">https://www.coursera.org/learn/getting-started-with-tensor-flow2</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -514,9 +509,9 @@ To: /content/data_cnn.zip
 </div>
 </div>
 </div>
-<p><img alt="EuroSAT overview image" src="DL/content/data_cnn/eurosat_overview.jpg" /></p>
+<p><img alt="EuroSAT overview image" src="https://github.com/tbeucler/2022_ML_EES/blob/main/Labs/content/data_cnn/eurosat_overview.jpg?raw=1" /></p>
 <div class="section" id="the-eurosat-dataset">
-<h1><span class="section-number">6.4. </span>The EuroSAT dataset<a class="headerlink" href="#the-eurosat-dataset" title="Permalink to this headline">#</a></h1>
+<h2><span class="section-number">6.3.1. </span>The EuroSAT dataset<a class="headerlink" href="#the-eurosat-dataset" title="Permalink to this headline">#</a></h2>
 <p>In this assignment, you will use the <a class="reference external" href="https://github.com/phelber/EuroSAT">EuroSAT dataset</a>. It consists of 27000 labelled Sentinel-2 satellite images of different land uses: residential, industrial, highway, river, forest, pasture, herbaceous vegetation, annual crop, permanent crop and sea/lake. For a reference, see the following papers:</p>
 <ul class="simple">
 <li><p>Eurosat: A novel dataset and deep learning benchmark for land use and land cover classification. Patrick Helber, Benjamin Bischke, Andreas Dengel, Damian Borth. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2019.</p></li>
@@ -525,7 +520,7 @@ To: /content/data_cnn.zip
 <p>Your goal is to construct a neural network that classifies a satellite image into one of these 10 classes, as well as applying some of the saving and loading techniques you have learned in the previous sessions.</p>
 </div>
 <div class="section" id="import-the-data">
-<h1><span class="section-number">6.5. </span>Import the data<a class="headerlink" href="#import-the-data" title="Permalink to this headline">#</a></h1>
+<h2><span class="section-number">6.3.2. </span>Import the data<a class="headerlink" href="#import-the-data" title="Permalink to this headline">#</a></h2>
 <p>The dataset you will train your model on is a subset of the total data, with 4000 training images and 1000 testing images, with roughly equal numbers of each class. The code to import the data is provided below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -546,7 +541,7 @@ To: /content/data_cnn.zip
 </div>
 </div>
 </div>
-<p>####Q1 Build the neural network model</p>
+<p>##Q1 Build the neural network model</p>
 <p>You can now construct a model to fit to the data. Using the Sequential API, build your model according to the following specifications:</p>
 <ul class="simple">
 <li><p>The model should use the input_shape in the function argument to set the input size in the first layer.</p></li>
@@ -560,25 +555,22 @@ To: /content/data_cnn.zip
 <p>In total, the network should have 6 layers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following function. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following function.</span>
 <span class="c1"># Make sure to not change the function name or arguments.</span>
 
 <span class="k">def</span> <span class="nf">get_new_model</span><span class="p">(</span><span class="n">input_shape</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This function should build a Sequential model according to the above specification. Ensure the </span>
+<span class="sd">    This function should build a Sequential model according to the above specification. Ensure the</span>
 <span class="sd">    weights are initialised by providing the input_shape argument in the first layer, given by the</span>
 <span class="sd">    function argument.</span>
 <span class="sd">    Your function should also compile the model with the Adam optimiser, sparse categorical cross</span>
 <span class="sd">    entropy loss function, and a single accuracy metric.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
-    
-    
 </pre></div>
 </div>
 </div>
 </div>
-<p>####Q2 Compile and evaluate the model</p>
+<p>##Q2 Compile and evaluate the model</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run your function to create the model</span>
@@ -607,7 +599,7 @@ To: /content/data_cnn.zip
 </div>
 </div>
 </div>
-<p>####Q3 Create checkpoints to save model during training, with a criterion</p>
+<p>##Q3 Create checkpoints to save model during training, with a criterion</p>
 <p>You will now create three callbacks:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">checkpoint_every_epoch</span></code>: checkpoint that saves the model weights every epoch during training</p></li>
@@ -616,7 +608,7 @@ To: /content/data_cnn.zip
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following functions. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following functions.</span>
 <span class="c1"># Make sure to not change the function names or arguments.</span>
 
 <span class="k">def</span> <span class="nf">get_checkpoint_every_epoch</span><span class="p">():</span>
@@ -627,8 +619,8 @@ To: /content/data_cnn.zip
 <span class="sd">    - generates filenames in that directory like &#39;checkpoint_XXX&#39; where</span>
 <span class="sd">      XXX is the epoch number formatted to have three digits, e.g. 001, 002, 003, etc.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
-    
+
+
 
 
 <span class="k">def</span> <span class="nf">get_checkpoint_best_only</span><span class="p">():</span>
@@ -636,17 +628,15 @@ To: /content/data_cnn.zip
 <span class="sd">    This function should return a ModelCheckpoint object that:</span>
 <span class="sd">    - saves only the weights that generate the highest validation (testing) accuracy</span>
 <span class="sd">    - saves into a directory called &#39;checkpoints_best_only&#39; inside the current working directory</span>
-<span class="sd">    - generates a file called &#39;checkpoints_best_only/checkpoint&#39; </span>
+<span class="sd">    - generates a file called &#39;checkpoints_best_only/checkpoint&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
-    
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following function. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following function.</span>
 <span class="c1"># Make sure to not change the function name or arguments.</span>
 
 <span class="k">def</span> <span class="nf">get_early_stopping</span><span class="p">():</span>
@@ -655,7 +645,6 @@ To: /content/data_cnn.zip
 <span class="sd">    the validation (testing) accuracy has not improved in the last 3 epochs.</span>
 <span class="sd">    HINT: use the EarlyStopping callback with the correct &#39;monitor&#39; and &#39;patience&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-     
 </pre></div>
 </div>
 </div>
@@ -671,7 +660,7 @@ To: /content/data_cnn.zip
 </div>
 </div>
 </div>
-<p>####Q4 Train model using the callbacks</p>
+<p>##Q4 Train model using the callbacks</p>
 <p>Now, you will train the model using the three callbacks you created. If you created the callbacks correctly, three things should happen:</p>
 <ul class="simple">
 <li><p>At the end of every epoch, the model weights are saved into a directory called <code class="docutils literal notranslate"><span class="pre">checkpoints_every_epoch</span></code></p></li>
@@ -693,7 +682,7 @@ To: /content/data_cnn.zip
 </div>
 </div>
 </div>
-<p>####Q5 Create new instance of model and load on both sets of weights</p>
+<p>##Q5 Create new instance of model and load on both sets of weights</p>
 <p>Now you will use the weights you just saved in a fresh model. You should create two functions, both of which take a freshly instantiated model instance:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">model_last_epoch</span></code> should contain the weights from the latest saved epoch</p></li>
@@ -702,7 +691,7 @@ To: /content/data_cnn.zip
 <p><em>Hint: use the</em> <code class="docutils literal notranslate"><span class="pre">tf.train.latest_checkpoint</span></code> <em>function to get the filename of the latest saved checkpoint file. Check the docs</em> <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/train/latest_checkpoint"><em>here</em></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following functions. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following functions.</span>
 <span class="c1"># Make sure to not change the function name or arguments.</span>
 
 <span class="k">def</span> <span class="nf">get_model_last_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
@@ -710,17 +699,15 @@ To: /content/data_cnn.zip
 <span class="sd">    This function should create a new instance of the CNN you created earlier,</span>
 <span class="sd">    load on the weights from the last training epoch, and return this model.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
-    
-    
-    
+
+
+
+
 <span class="k">def</span> <span class="nf">get_model_best_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This function should create a new instance of the CNN you created earlier, load </span>
+<span class="sd">    This function should create a new instance of the CNN you created earlier, load</span>
 <span class="sd">    on the weights leading to the highest validation accuracy, and return this model.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
-    
 </pre></div>
 </div>
 </div>
@@ -742,18 +729,17 @@ To: /content/data_cnn.zip
 </div>
 </div>
 </div>
-<p>####Q6 Load, from scratch, a model trained on the EuroSat dataset.</p>
+<p>##Q6 Load, from scratch, a model trained on the EuroSat dataset.</p>
 <p>In your workspace, you will find another model trained on the <code class="docutils literal notranslate"><span class="pre">EuroSAT</span></code> dataset in <code class="docutils literal notranslate"><span class="pre">.h5</span></code> format. This model is trained on a larger subset of the EuroSAT dataset and has a more complex architecture. The path to the model is <code class="docutils literal notranslate"><span class="pre">models/EuroSatNet.h5</span></code>. See how its testing accuracy compares to your model!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following functions. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the following functions.</span>
 <span class="c1"># Make sure to not change the function name or arguments.</span>
 
 <span class="k">def</span> <span class="nf">get_model_eurosatnet</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function should return the pretrained EuroSatNet.h5 model.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
 </pre></div>
 </div>
 </div>
@@ -766,6 +752,7 @@ To: /content/data_cnn.zip
 <span class="n">model_eurosatnet</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 <span class="n">get_test_accuracy</span><span class="p">(</span><span class="n">model_eurosatnet</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -808,7 +795,7 @@ To: /content/data_cnn.zip
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6.1. </span>Notebook Setup</p>
+        <p class="prev-next-title"><span class="section-number">6.2. </span>Deep Computer Vision</p>
       </div>
     </a>
     <a class="right-next"
@@ -838,10 +825,9 @@ To: /content/data_cnn.zip
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">6.4. The EuroSAT dataset</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">6.5. Import the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-eurosat-dataset">6.3.1. The EuroSAT dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-data">6.3.2. Import the data</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
