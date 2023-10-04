@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2.1. Summary - Chapter 3 and 4 - Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow. &#8212; Machine Learning for Earth and Environmental Sciences</title>
+    <title>2.1. Classification and Regression &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -62,7 +62,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Saranya/W1_2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.2. Notebook Setup" href="../ML/S1_1_Classification.html" />
+    <link rel="next" title="2.2. (Exercises) Classification" href="../ML/S1_1_Classification.html" />
     <link rel="prev" title="2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting" href="../ML/Week_1_Linear%26Logistic_Regression.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -158,9 +158,9 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Milton/00_Running_Python_Scripts.html">Running Python scripts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../IP/intro_python.html">1. Basics of Scientific Programming for Applied Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Scientific Programming for Applied Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../IP/intro_python.html">1. Introduction to Python for Earth and Environmental Sciences</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1_Tutorial.html">1.1. Variables, Control Flow, and File I/O</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1.html">1.2. (Exercises) Text and Tabular Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2_Tutorial.html">1.3. Data Structure, Functions, and Classes</a></li>
@@ -179,27 +179,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2.html">1.16. (Exercise) Marathon Data Analysis</a></li>
 </ul>
 </li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../ML/Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Classification and Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ML/S1_1_Classification.html">2.2. Notebook Setup</a></li>
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../ML/S1_2_Training_Models.html">2.6. Notebook Setup</a></li>
-
-
-<li class="toctree-l2"><a class="reference internal" href="../ML/S1_3_Statistical_Forecasting.html">2.9. (Exercises) Statistical Forecasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="W1_2_Stat.html">2.4. Statistical Forecasting in Environmental Sciences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ML/S2_1_SVM.html">3.1. <strong>Exercise 1: Comparing Different Types of Support Vector Machines for Classification</strong></a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="../ML/S2_2_Decision_Trees.html">3.3. Exercise 2: Training and Fine-Tuning a Decision Tree for the Moons Dataset</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="../ML/S2_3_Ensemble_Learning_Random_Forests.html">3.5. Exercise 3: Comparing (Ensemble of) Classifiers on MNIST Data</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="../ML/S2_4_Wildfire_Risk_Italy.html">3.7. Exercise 4: Mapping Wildfire Susceptibility in the Liguria Region with Simple Machine Learning Classifiers</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Support_Vector_Machines.html">3.2. (Exercises) Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Decision_Trees_and_Random_Forest.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Ensemble_Modeling_and_Stacking.html">3.4. Ensemble Modeling and Stacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Wildfire_Susceptibility_Mapping.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -210,24 +206,23 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Deep Learning for the Geosciences</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part III) Deep Learning for the Geosciences</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../DL/S4_1_NNs_with_Keras.html">5.1. (Exercise) Artificial Neural Networks with Keras</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DL/S4_2_Physically_informed_parameterization.html">5.2. (Exercise) Physically-Informed Climate Modeling.ipynb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S4_2_Physically_informed_parameterization.html">5.2. (Exercise) Physically-Informed Climate Modeling</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_5_Convolutional_NN.html">6. Convolutional Neural Networks and Remote Sensing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../DL/S5_1_CNNs.html">6.1. Notebook Setup</a></li>
-
-
-<li class="toctree-l2"><a class="reference internal" href="../DL/S5_2_CNN_and_EuroSAT.html">6.4. The EuroSAT dataset</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.html">6.1. Convolutional Neural Networks and Remote Sensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_1_CNNs.html">6.2. (Exercise) Deep Computer Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_2_CNN_and_EuroSAT.html">6.3. (Exercise) Land Cover Classification</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.1. (Exercise) Composing Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.2. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.1. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.2. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.3. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
 
 
 
@@ -419,7 +414,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Summary - Chapter 3 and 4 - Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow.</h1>
+    <h1>Classification and Regression</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -429,31 +424,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-summary-will-give-you-a-brief-overview-of-third-and-fourth-chapter-of-the-reading">2.1.1. This summary will give you a brief overview of third and fourth chapter of the reading.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">2.1.2. 1. Classification:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#here-are-some-practical-application-of-classification-in-environmental-sciences">2.1.2.1. Here are some practical application of classification in Environmental Sciences!</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarking-evaluating-classification-models">2.1.2.2. Benchmarking/Evaluating Classification Models:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-binary-classifier-logistic-regression">2.1.2.3. Training a Binary Classifier: Logistic Regression</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-logistic-regression-is-used-for-binary-classification-tasks-predicting-probabilities-for-each-class">2.1.2.4. Logistic Regression: Logistic regression is used for binary classification tasks, predicting probabilities for each class.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiclass-classification">2.1.2.5. Multiclass Classification:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multilabel-classification">2.1.2.6. Multilabel Classification:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multioutput-classification-or-multioutput-regression">2.1.2.7. Multioutput Classification (or Multioutput Regression):</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cost-function">2.1.2.8. Cost Function :</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-multiclass-classifier">2.1.2.9. Training a Multiclass Classifier:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-analysis">2.1.2.10. Error Analysis</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">2.1.3. 2. Regression</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">2.1.3.1. Linear Regression:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-linear-regression">2.1.3.2. Multiple Linear Regression:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-regression-methods">2.1.3.3. Other Regression Methods:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-an-optimization-technique-used-to-minimize-the-cost-function-and-find-the-optimal-model-parameters">2.1.3.4. Gradient Descent: An optimization technique used to minimize the cost function and find the optimal model parameters.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting-high-degree-polynomials-can-lead-to-overfitting-the-training-data">2.1.3.5. Overfitting: High-degree polynomials can lead to overfitting the training data.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-gradient-descent-vs-stochastic-gradient-descent-sgd">2.1.3.6. Batch Gradient Descent vs. Stochastic Gradient Descent (SGD):</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-models">2.1.3.7. Fine-Tuning Models:</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#here-are-some-practical-examples-for-regression-tasks-in-environmental-sciences">2.1.3.7.1. Here are some practical examples for regression tasks in Environmental Sciences:</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">2.1.1. Classification:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">2.1.2. Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">2.1.2.1. Linear Regression:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-linear-regression">2.1.2.2. Multiple Linear Regression:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-regression-methods">2.1.2.3. Other Regression Methods:</a></li>
 </ul>
 </li>
 </ul>
@@ -467,25 +442,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="summary-chapter-3-and-4-hands-on-machine-learning-with-scikit-learn-keras-and-tensorflow">
-<h1><span class="section-number">2.1. </span>Summary - Chapter 3 and 4 - Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow.<a class="headerlink" href="#summary-chapter-3-and-4-hands-on-machine-learning-with-scikit-learn-keras-and-tensorflow" title="Permalink to this headline">#</a></h1>
-<div class="section" id="this-summary-will-give-you-a-brief-overview-of-third-and-fourth-chapter-of-the-reading">
-<h2><span class="section-number">2.1.1. </span>This summary will give you a brief overview of third and fourth chapter of the reading.<a class="headerlink" href="#this-summary-will-give-you-a-brief-overview-of-third-and-fourth-chapter-of-the-reading" title="Permalink to this headline">#</a></h2>
-<p>The Learning objectives are:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="classification-and-regression">
+<h1><span class="section-number">2.1. </span>Classification and Regression<a class="headerlink" href="#classification-and-regression" title="Permalink to this headline">#</a></h1>
+<p>This summary will give you a brief introduction to classification and regression tacks in Machine Learning</p>
+<p>Learning objectives:</p>
 <ol class="arabic simple">
 <li><p>Distinguish classification from regression</p></li>
 <li><p>Define a loss/cost function</p></li>
 <li><p>Understand how to train a logistic/softmax regression for binary/multiclass classification</p></li>
 <li><p>Know how to benchmark a classifier</p></li>
 </ol>
-</div>
 <div class="section" id="classification">
-<h2><span class="section-number">2.1.2. </span>1. Classification:<a class="headerlink" href="#classification" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.1.1. </span>Classification:<a class="headerlink" href="#classification" title="Permalink to this headline">#</a></h2>
 <p>Classification is a supervised learning task where the model learns to classify instances into predefined classes or categories.
 Binary Classification: Classifying instances into two classes (e.g., spam vs. non-spam emails).
 Multiclass Classification: Classifying instances into multiple classes (e.g., digit recognition, where each digit is a class).</p>
-<div class="section" id="here-are-some-practical-application-of-classification-in-environmental-sciences">
-<h3><span class="section-number">2.1.2.1. </span>Here are some practical application of classification in Environmental Sciences!<a class="headerlink" href="#here-are-some-practical-application-of-classification-in-environmental-sciences" title="Permalink to this headline">#</a></h3>
+<p>Here are some practical application of classification in Environmental Sciences!</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li><p>Wildlife Identification: Classification techniques can be used to identify animal species from images or audio recordings, supporting wildlife monitoring projects.</p></li>
@@ -494,43 +466,37 @@ Multiclass Classification: Classifying instances into multiple classes (e.g., di
 <li><p>Water Quality Assessment: Using classification algorithms to determine the quality of water bodies based on factors like chemical concentrations and biological indicators.</p></li>
 </ol>
 </div></blockquote>
-</div>
-<div class="section" id="benchmarking-evaluating-classification-models">
-<h3><span class="section-number">2.1.2.2. </span>Benchmarking/Evaluating Classification Models:<a class="headerlink" href="#benchmarking-evaluating-classification-models" title="Permalink to this headline">#</a></h3>
+<p>Benchmarking/Evaluating Classification Models:</p>
 <blockquote>
 <div><p>Confusion Matrix: A table that summarizes the model’s performance, showing true positives, true negatives, false positives, and false negatives.
 Accuracy: The ratio of correct predictions to the total number of instances.
 Precision and Recall: Metrics for assessing the model’s performance on positive instances.
 F1 Score: The harmonic mean of precision and recall, providing a balanced measure.</p>
 </div></blockquote>
-</div>
-<div class="section" id="training-a-binary-classifier-logistic-regression">
-<h3><span class="section-number">2.1.2.3. </span>Training a Binary Classifier: Logistic Regression<a class="headerlink" href="#training-a-binary-classifier-logistic-regression" title="Permalink to this headline">#</a></h3>
-<p>A popular algorithm for binary classification, providing probabilities for each class.</p>
-</div>
-<div class="section" id="logistic-regression-logistic-regression-is-used-for-binary-classification-tasks-predicting-probabilities-for-each-class">
-<h3><span class="section-number">2.1.2.4. </span>Logistic Regression: Logistic regression is used for binary classification tasks, predicting probabilities for each class.<a class="headerlink" href="#logistic-regression-logistic-regression-is-used-for-binary-classification-tasks-predicting-probabilities-for-each-class" title="Permalink to this headline">#</a></h3>
-<p>Log Loss (Cross-Entropy): The cost function used to evaluate the performance of logistic regression models.</p>
-<p>Training Logistic Regression: Iteratively optimize the model’s parameters using gradient descent.</p>
-</div>
-<div class="section" id="multiclass-classification">
-<h3><span class="section-number">2.1.2.5. </span>Multiclass Classification:<a class="headerlink" href="#multiclass-classification" title="Permalink to this headline">#</a></h3>
-<p>Multiclass classification, also known as multinomial classification, refers to a classification problem where instances are categorized into three or more distinct classes.</p>
-<p>Example: Classifying images of animals into categories like “dog,” “cat,” “elephant,” and “lion.”</p>
-</div>
-<div class="section" id="multilabel-classification">
-<h3><span class="section-number">2.1.2.6. </span>Multilabel Classification:<a class="headerlink" href="#multilabel-classification" title="Permalink to this headline">#</a></h3>
-<p>Multilabel classification deals with instances that can belong to multiple classes simultaneously. In other words, an instance can have multiple labels associated with it.</p>
-<p>Example: Tagging a news article with multiple categories like “politics,” “economy,” and “technology” to capture its diverse content.</p>
-</div>
-<div class="section" id="multioutput-classification-or-multioutput-regression">
-<h3><span class="section-number">2.1.2.7. </span>Multioutput Classification (or Multioutput Regression):<a class="headerlink" href="#multioutput-classification-or-multioutput-regression" title="Permalink to this headline">#</a></h3>
-<p>Multioutput classification (or regression) involves predicting multiple output variables simultaneously for each instance. Each output variable can have multiple possible values or classes.</p>
-<p>Example: Predicting both the color and size of a piece of fruit, where color could be “red,” “green,” or “yellow,” and size could be “small,” “medium,” or “large.”</p>
-</div>
-<div class="section" id="cost-function">
-<h3><span class="section-number">2.1.2.8. </span>Cost Function :<a class="headerlink" href="#cost-function" title="Permalink to this headline">#</a></h3>
-<p>Cost Function quantifies how well a machine learning model’s predictions align with the actual target values. It measures the discrepancy between the predicted values generated by the model and the true values from the training dataset. The objective of a machine learning algorithm is to minimize this cost function, which essentially means improving the model’s accuracy and precision in making predictions.</p>
+<blockquote>
+<div><p>Training a Binary Classifier: Logistic Regression</p>
+</div></blockquote>
+<p>A popular algorithm for binary classification, providing probabilities for each class.
+Logistic Regression: Logistic regression is used for binary classification tasks, predicting probabilities for each class.
+Log Loss (Cross-Entropy): The cost function used to evaluate the performance of logistic regression models.
+Training Logistic Regression: Iteratively optimize the model’s parameters using gradient descent.</p>
+<blockquote>
+<div><p>Multiclass Classification:
+Multiclass classification, also known as multinomial classification, refers to a classification problem where instances are categorized into three or more distinct classes.
+Example: Classifying images of animals into categories like “dog,” “cat,” “elephant,” and “lion.”</p>
+</div></blockquote>
+<blockquote>
+<div><p>Multilabel Classification:
+Multilabel classification deals with instances that can belong to multiple classes simultaneously. In other words, an instance can have multiple labels associated with it.
+Example: Tagging a news article with multiple categories like “politics,” “economy,” and “technology” to capture its diverse content.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Multioutput Classification (or Multioutput Regression):
+Multioutput classification (or regression) involves predicting multiple output variables simultaneously for each instance. Each output variable can have multiple possible values or classes.
+Example: Predicting both the color and size of a piece of fruit, where color could be “red,” “green,” or “yellow,” and size could be “small,” “medium,” or “large.”</p>
+</div></blockquote>
+<p><strong>Cost Function :</strong>
+Cost Function quantifies how well a machine learning model’s predictions align with the actual target values. It measures the discrepancy between the predicted values generated by the model and the true values from the training dataset. The objective of a machine learning algorithm is to minimize this cost function, which essentially means improving the model’s accuracy and precision in making predictions.</p>
 <p>The choice of a cost function depends on the nature of the problem—whether it’s a classification, regression, or other type of task—and the desired properties of the model’s predictions. Different algorithms and tasks require different types of cost functions.</p>
 <p>Examples:</p>
 <blockquote>
@@ -542,9 +508,7 @@ F1 Score: The harmonic mean of precision and recall, providing a balanced measur
 <blockquote>
 <div><p>Absolute Error (L1 Loss): Similar to MSE, but it computes the absolute difference between predicted and actual values. It’s less sensitive to outliers compared to MSE.</p>
 </div></blockquote>
-</div>
-<div class="section" id="training-a-multiclass-classifier">
-<h3><span class="section-number">2.1.2.9. </span>Training a Multiclass Classifier:<a class="headerlink" href="#training-a-multiclass-classifier" title="Permalink to this headline">#</a></h3>
+<p><strong>Training a Multiclass Classifier:</strong></p>
 <blockquote>
 <div><p>Support Vector Machines (SVM): Effective for both binary and multiclass classification tasks.</p>
 </div></blockquote>
@@ -558,25 +522,22 @@ F1 Score: The harmonic mean of precision and recall, providing a balanced measur
 <div><p>Softmax Regression (Multinomial Logistic Regression): Softmax regression is used for multiclass classification tasks, predicting probabilities for multiple classes. The Softmax function ensures the predicted probabilities sum up to 1.
 Cross-Entropy Loss: The cost function used to evaluate softmax regression models.</p>
 </div></blockquote>
-</div>
-<div class="section" id="error-analysis">
-<h3><span class="section-number">2.1.2.10. </span>Error Analysis<a class="headerlink" href="#error-analysis" title="Permalink to this headline">#</a></h3>
+<p><strong>Error Analysis</strong></p>
 <p>Analyze misclassified instances to gain insights into model weaknesses and potential data issues.
 Explore the Confusion Matrix: Understand common confusion patterns and how they impact the model’s performance.</p>
 </div>
-</div>
 <div class="section" id="regression">
-<h2><span class="section-number">2.1.3. </span>2. Regression<a class="headerlink" href="#regression" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.1.2. </span>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">#</a></h2>
 <div class="section" id="linear-regression">
-<h3><span class="section-number">2.1.3.1. </span>Linear Regression:<a class="headerlink" href="#linear-regression" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.1.2.1. </span>Linear Regression:<a class="headerlink" href="#linear-regression" title="Permalink to this headline">#</a></h3>
 <p>Linear regression is a supervised machine learning algorithm used for predicting a continuous numerical output based on one or more input features. It assumes a linear relationship between the inputs and the target variable. The goal of linear regression is to find the best-fitting line (or hyperplane in higher dimensions) that minimizes the difference between the predicted values and the actual target values. The most common cost function used in linear regression is the Mean Squared Error (MSE).</p>
 </div>
 <div class="section" id="multiple-linear-regression">
-<h3><span class="section-number">2.1.3.2. </span>Multiple Linear Regression:<a class="headerlink" href="#multiple-linear-regression" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.1.2.2. </span>Multiple Linear Regression:<a class="headerlink" href="#multiple-linear-regression" title="Permalink to this headline">#</a></h3>
 <p>Multiple linear regression is an extension of linear regression that deals with multiple input features. Instead of just one input, there are multiple independent variables influencing the target variable. The algorithm estimates the coefficients for each feature, determining their individual impact on the target variable while considering their interrelationships.</p>
 </div>
 <div class="section" id="other-regression-methods">
-<h3><span class="section-number">2.1.3.3. </span>Other Regression Methods:<a class="headerlink" href="#other-regression-methods" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.1.2.3. </span>Other Regression Methods:<a class="headerlink" href="#other-regression-methods" title="Permalink to this headline">#</a></h3>
 <blockquote>
 <div><p>Polynomial Regression: This type of regression extends linear regression to capture nonlinear relationships by introducing polynomial terms of the input features. It fits a curve to the data instead of a straight line.</p>
 </div></blockquote>
@@ -602,15 +563,13 @@ Explore the Confusion Matrix: Understand common confusion patterns and how they 
 <div><p>Gradient Boosting Regression: A boosting technique that builds an additive model in a forward stage-wise manner. It combines the predictions of weak learners (often decision trees) to create a strong predictive model.</p>
 </div></blockquote>
 <p>Each regression method has its own strengths, weaknesses, and applicability to different types of data and problem domains. The choice of which method to use depends on the nature of the data, the problem’s requirements, and the desired level of interpretability and predictive accuracy.</p>
-</div>
-<div class="section" id="gradient-descent-an-optimization-technique-used-to-minimize-the-cost-function-and-find-the-optimal-model-parameters">
-<h3><span class="section-number">2.1.3.4. </span>Gradient Descent: An optimization technique used to minimize the cost function and find the optimal model parameters.<a class="headerlink" href="#gradient-descent-an-optimization-technique-used-to-minimize-the-cost-function-and-find-the-optimal-model-parameters" title="Permalink to this headline">#</a></h3>
-</div>
-<div class="section" id="overfitting-high-degree-polynomials-can-lead-to-overfitting-the-training-data">
-<h3><span class="section-number">2.1.3.5. </span>Overfitting: High-degree polynomials can lead to overfitting the training data.<a class="headerlink" href="#overfitting-high-degree-polynomials-can-lead-to-overfitting-the-training-data" title="Permalink to this headline">#</a></h3>
-</div>
-<div class="section" id="batch-gradient-descent-vs-stochastic-gradient-descent-sgd">
-<h3><span class="section-number">2.1.3.6. </span>Batch Gradient Descent vs. Stochastic Gradient Descent (SGD):<a class="headerlink" href="#batch-gradient-descent-vs-stochastic-gradient-descent-sgd" title="Permalink to this headline">#</a></h3>
+<p><strong>Gradient Descent: An optimization technique used to minimize the cost function and find the optimal model parameters.</strong><br />
+An optimization technique to minimize the cost function and determine the optimal model parameters. It relies on the partial derivative of the cost function with respect to the model parameters to iteratively improve those parameters. An important parameter of Gradient Descent is the learning rate hyperparameter.</p>
+<p><img alt="gradient.png" src="https://github.com/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Saranya/Figures/gradient.png?raw=1" /></p>
+<p>A suitable learning rate is very important and directly affects the likelihood for the ML model to reach the true minima. A small learning rate will result in a slow convergence, whereas a learning rate that is too large might render the model unable to reach the true minima.</p>
+<p>Figure credit: An Easy Guide to Gradient Descent in Machine Learning, Great Learning. (<a class="reference external" href="https://www.mygreatlearning.com/blog/gradient-descent/">link</a>)</p>
+<p><strong>Overfitting: High-degree polynomials can lead to overfitting the training data.</strong></p>
+<p>The optimization techniques using Gradient Descent include the following approaches:</p>
 <blockquote>
 <div><p>Batch Gradient Descent: Updates model parameters using the entire training set.</p>
 </div></blockquote>
@@ -620,22 +579,50 @@ Explore the Confusion Matrix: Understand common confusion patterns and how they 
 <blockquote>
 <div><p>Mini-batch Gradient Descent: A compromise between batch and SGD, updating parameters using a small batch of instances.</p>
 </div></blockquote>
-</div>
-<div class="section" id="fine-tuning-models">
-<h3><span class="section-number">2.1.3.7. </span>Fine-Tuning Models:<a class="headerlink" href="#fine-tuning-models" title="Permalink to this headline">#</a></h3>
-<p>Learning Rate Scheduling: Adjusting the learning rate during training to converge faster and prevent overshooting.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Category</p></th>
+<th class="head"><p>Advantages</p></th>
+<th class="head"><p>Disadvantages</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Batch Gradient Descent</p></td>
+<td><p>Stable error gradient</p></td>
+<td><p>Requires entire training data in memory</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Parallelizable</p></td>
+<td><p>Slow model updates and convergence</p></td>
+</tr>
+<tr class="row-even"><td><p>Stochastic Gradient Descent</p></td>
+<td><p>Avoids stucking in local minimas</p></td>
+<td><p>Noisy gradient and large variance during training</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Improvements in every model update</p></td>
+<td><p>Computationally intensive</p></td>
+</tr>
+<tr class="row-even"><td><p>Mini-batch Gradient Descent</p></td>
+<td><p>Computationally efficient</p></td>
+<td><p>Extra hyperparameter to tune</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Smoother learning curves than SGD</p></td>
+<td><p>Need to accumulate error over batches</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Less memory intensive</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="batch-1.png" src="https://github.com/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Saranya/Figures/batch-1.png?raw=1" /></p>
+<p>The above figure shows the different ways the three gradient descent methods summarized above approaches the true minima. The SGD can have a very noisy learning process, whereas mini-batch is a compromise between SGD and the smooth batch method.</p>
+<p>Figure credit: Relation between Learning Rate and Batch Size, Baeldung. (<a class="reference external" href="https://www.baeldung.com/cs/learning-rate-batch-size">link</a>)</p>
+<p><strong>Fine-Tuning Models:</strong>
+Learning Rate Scheduling: Adjusting the learning rate during training to converge faster and prevent overshooting.</p>
 <p>Early Stopping: Stopping training when the model’s performance on the validation set no longer improves to prevent overfitting.</p>
-<div class="section" id="here-are-some-practical-examples-for-regression-tasks-in-environmental-sciences">
-<h4><span class="section-number">2.1.3.7.1. </span>Here are some practical examples for regression tasks in Environmental Sciences:<a class="headerlink" href="#here-are-some-practical-examples-for-regression-tasks-in-environmental-sciences" title="Permalink to this headline">#</a></h4>
-<blockquote>
-<div><ol class="arabic simple">
-<li><p>Air Quality Prediction: Developing regression models that predict air pollutant levels based on factors like meteorological conditions and emissions data.</p></li>
-<li><p>Carbon Footprint Estimation: Creating regression models to estimate carbon emissions based on various factors, aiding individuals and businesses in understanding their environmental impact.</p></li>
-<li><p>Soil Moisture Prediction: Regression models can help predict soil moisture levels, essential for efficient irrigation and agriculture management.</p></li>
-<li><p>Deforestation Monitoring: Developing regression models to predict deforestation rates based on satellite imagery, contributing to conservation efforts.</p></li>
-</ol>
-</div></blockquote>
-</div>
 </div>
 </div>
 </div>
@@ -685,7 +672,7 @@ Explore the Confusion Matrix: Understand common confusion patterns and how they 
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.2. </span>Notebook Setup</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>(Exercises) Classification</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -707,31 +694,11 @@ Explore the Confusion Matrix: Understand common confusion patterns and how they 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-summary-will-give-you-a-brief-overview-of-third-and-fourth-chapter-of-the-reading">2.1.1. This summary will give you a brief overview of third and fourth chapter of the reading.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">2.1.2. 1. Classification:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#here-are-some-practical-application-of-classification-in-environmental-sciences">2.1.2.1. Here are some practical application of classification in Environmental Sciences!</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarking-evaluating-classification-models">2.1.2.2. Benchmarking/Evaluating Classification Models:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-binary-classifier-logistic-regression">2.1.2.3. Training a Binary Classifier: Logistic Regression</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-logistic-regression-is-used-for-binary-classification-tasks-predicting-probabilities-for-each-class">2.1.2.4. Logistic Regression: Logistic regression is used for binary classification tasks, predicting probabilities for each class.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiclass-classification">2.1.2.5. Multiclass Classification:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multilabel-classification">2.1.2.6. Multilabel Classification:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multioutput-classification-or-multioutput-regression">2.1.2.7. Multioutput Classification (or Multioutput Regression):</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cost-function">2.1.2.8. Cost Function :</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-a-multiclass-classifier">2.1.2.9. Training a Multiclass Classifier:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-analysis">2.1.2.10. Error Analysis</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">2.1.3. 2. Regression</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">2.1.3.1. Linear Regression:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-linear-regression">2.1.3.2. Multiple Linear Regression:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-regression-methods">2.1.3.3. Other Regression Methods:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-an-optimization-technique-used-to-minimize-the-cost-function-and-find-the-optimal-model-parameters">2.1.3.4. Gradient Descent: An optimization technique used to minimize the cost function and find the optimal model parameters.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting-high-degree-polynomials-can-lead-to-overfitting-the-training-data">2.1.3.5. Overfitting: High-degree polynomials can lead to overfitting the training data.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-gradient-descent-vs-stochastic-gradient-descent-sgd">2.1.3.6. Batch Gradient Descent vs. Stochastic Gradient Descent (SGD):</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fine-tuning-models">2.1.3.7. Fine-Tuning Models:</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#here-are-some-practical-examples-for-regression-tasks-in-environmental-sciences">2.1.3.7.1. Here are some practical examples for regression tasks in Environmental Sciences:</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">2.1.1. Classification:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">2.1.2. Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">2.1.2.1. Linear Regression:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-linear-regression">2.1.2.2. Multiple Linear Regression:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-regression-methods">2.1.2.3. Other Regression Methods:</a></li>
 </ul>
 </li>
 </ul>

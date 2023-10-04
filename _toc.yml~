@@ -9,11 +9,11 @@ parts:
   chapters:
     - file: Milton/00_Running_Python_Scripts.md
       title: Running Python scripts
-- caption: (Part I) Basics of Machine Learning for Earth and Environmental Sciences
+- caption: (Part I) Basics of Scientific Programming for Applied Machine Learning
   numbered: true
   chapters: 
     - file: IP/intro_python.ipynb
-      title: Basics of Scientific Programming for Applied Machine Learning
+      title: Introduction to Python for Earth and Environmental Sciences
       sections: 
         - file: IP/W1_S1_Tutorial.ipynb
           title: Variables, Control Flow, and File I/O
@@ -47,8 +47,11 @@ parts:
           title: Statistical Graphics with Seaborn
         - file: IP/W4_S2.ipynb
           title: (Exercise) Marathon Data Analysis
+- caption: (Part II) Basics of Machine Learning for Earth and Environmental Sciences
+  numbered: true
+  chapters:
     - file: ML/Week_1_Linear&Logistic_Regression.ipynb
-      title: Linear Regression for Regression and Logistic Regression for Classification
+      title: Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting
       sections:
         - file: Saranya/W1_2.ipynb
           title: Classification and Regression
@@ -56,18 +59,22 @@ parts:
           title: (Exercises) Classification
         - file: ML/S1_2_Training_Models.ipynb
           title: (Exercises) Training Models
+        - file: Saranya/W1_2_Stat.ipynb
+          title: Statistical Forecasting in Environmental Sciences
         - file: ML/S1_3_Statistical_Forecasting.ipynb
           title: (Exercises) Statistical Forecasting
     - file: ML/Week_2_Decision_Trees_Random_Forests_SVMs.ipynb
       title: Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis
       sections:
-        - file: ML/S2_1_SVM.ipynb
+        - file: Frederick/S2.ipynb
+          title: Simple Machine Learning Algorithms for Classification Tasks
+        - file: Frederick/S2_1_SVM.ipynb
           title: (Exercises) Support Vector Machines
-        - file: ML/S2_2_Decision_Trees.ipynb
+        - file: Frederick/S2_2_Decision_Trees.ipynb
           title: (Exercises) Decision Trees and Random Forest
-        - file: ML/S2_3_Ensemble_Learning_Random_Forests.ipynb
+        - file: Frederick/S2_3_Ensemble_Learning_Random_Forests.ipynb
           title: Ensemble Modeling and Stacking
-        - file: ML/S2_4_Wildfire_Risk_Italy.ipynb
+        - file: Frederick/S2_4_Wildfire_Risk_Italy.ipynb
           title: (Exercises) Wildfire Susceptibility Mapping
     - file: ML/Week_3_Dimensionality_Reduction_Clustering.ipynb
       title: Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity
@@ -80,9 +87,11 @@ parts:
           title: (Exercise) Clustering
         - file: ML/S3_3_THOR.ipynb
           title: (Exercise) Ocean Regimes Identification
-- caption: (Part II) Deep Learning for the Geosciences
+- caption: (Part III) Deep Learning for the Geosciences
   numbered: True
   chapters:
+    - file: Saranya/W4_ANNetworks.ipynb
+      title: Introduction to Artificial Neural Networks
     - file: DL/Week_4_Artificial_Neural_Networks.ipynb
       title: Artificial Neural Networks and Surrogate Modeling
       sections:
@@ -93,6 +102,8 @@ parts:
     - file: DL/Week_5_Convolutional_NN.ipynb
       title: Convolutional Neural Networks and Remote Sensing
       sections:
+        - file: Jingyan/Ch5 Convolutional Neural Networks & Remote Sensing.ipynb
+          title: Convolutional Neural Networks and Remote Sensing
         - file: DL/S5_1_CNNs.ipynb
           title: (Exercise) Deep Computer Vision
         - file: DL/S5_2_CNN_and_EuroSAT.ipynb
@@ -104,4 +115,3 @@ parts:
           title: (Exercise) Composing Music
         - file: DL/S6_2_LSTM.ipynb
           title: (Exercise) Hydrological Modeling
-
