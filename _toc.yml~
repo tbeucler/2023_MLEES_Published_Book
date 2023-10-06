@@ -66,15 +66,15 @@ parts:
     - file: ML/Week_2_Decision_Trees_Random_Forests_SVMs.ipynb
       title: Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis
       sections:
-        - file: Frederick/S2.ipynb
+        - file: Frederick/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.ipynb
           title: Simple Machine Learning Algorithms for Classification Tasks
-        - file: Frederick/S2_1_SVM.ipynb
+        - file: Frederick/(Exercises)_Support_Vector_Machines.ipynb
           title: (Exercises) Support Vector Machines
-        - file: Frederick/S2_2_Decision_Trees.ipynb
+        - file: Frederick/(Exercises)_Decision_Trees_and_Random_Forest.ipynb
           title: (Exercises) Decision Trees and Random Forest
-        - file: Frederick/S2_3_Ensemble_Learning_Random_Forests.ipynb
+        - file: Frederick/(Exercises)_Ensemble_Modeling_and_Stacking.ipynb
           title: Ensemble Modeling and Stacking
-        - file: Frederick/S2_4_Wildfire_Risk_Italy.ipynb
+        - file: Frederick/(Exercises)_Wildfire_Susceptibility_Mapping.ipynb
           title: (Exercises) Wildfire Susceptibility Mapping
     - file: ML/Week_3_Dimensionality_Reduction_Clustering.ipynb
       title: Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity
@@ -98,7 +98,7 @@ parts:
         - file: DL/S4_1_NNs_with_Keras.ipynb
           title: (Exercise) Artificial Neural Networks with Keras
         - file: DL/S4_2_Physically_informed_parameterization.ipynb
-          title: (Exercise) Physically-Informed Climate Modeling.ipynb
+          title: (Exercise) Physically-Informed Climate Modeling
     - file: DL/Week_5_Convolutional_NN.ipynb
       title: Convolutional Neural Networks and Remote Sensing
       sections:
@@ -111,6 +111,8 @@ parts:
     - file: DL/Week_6_Recurrent_NN.ipynb
       title: Recurrent Neural Networks and Hydrological Modeling
       sections:
+        - file: Frederick/Neural_Networks_for_Time_Series_Predictions.ipynb
+          title: Neural Networks for Time Series Predictions
         - file: DL/S6_1_Composing_Music_With_RNNs_CNNs.ipynb
           title: (Exercise) Composing Music
         - file: DL/S6_2_LSTM.ipynb

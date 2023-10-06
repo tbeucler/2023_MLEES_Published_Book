@@ -466,12 +466,37 @@ Multiclass Classification: Classifying instances into multiple classes (e.g., di
 <li><p>Water Quality Assessment: Using classification algorithms to determine the quality of water bodies based on factors like chemical concentrations and biological indicators.</p></li>
 </ol>
 </div></blockquote>
-<p>Benchmarking/Evaluating Classification Models:</p>
+<p>In Machine Learning, it is critical to make sure that your model is well trained and can generalize well to unseen data during training. For this purpose, we rely on different performance metrics as quantifiable measures for model skills.</p>
+<p>The most simple skill score for classification models is the <em>Accuracy Score</em>, which is the ratio between correct predictions and the total number of instances.</p>
+<p><strong>The balancing act between precision and recall :</strong></p>
+<p>The accuracy score is intuitive and straight-forward, but using it to benchmark your classification models can be problematic for real data, particularly if you are dealing with unbalanced data.</p>
+<p>Assuming that 90% of your data belongs to the positive class, then the model can have no skills on preddicting negative class and still have a good precision score. It is definitely not ideal that your classification model can only give you one answer no matter how your samples look like!</p>
+<p>Fortunately, we have skill scores that are useful for unbalanced data. These scores balance the precision and the recall of a model.</p>
 <blockquote>
-<div><p>Confusion Matrix: A table that summarizes the model’s performance, showing true positives, true negatives, false positives, and false negatives.
-Accuracy: The ratio of correct predictions to the total number of instances.
-Precision and Recall: Metrics for assessing the model’s performance on positive instances.
-F1 Score: The harmonic mean of precision and recall, providing a balanced measure.</p>
+<div><p>Precision: The ratio between correctly-predicted positives (True Positive; TP) and the number of instances the model predicted positive (True Positive + False Positive). \
+Recall: The ratio between TP and the number of real positives in the data (True Positive + False Negative).</p>
+</div></blockquote>
+<p>We can use a Confusion Matrix table to summary these information in an attractive visual format.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True Positive</p></td>
+<td><p>False Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>False Negative</p></td>
+<td><p>True Negative</p></td>
+</tr>
+</tbody>
+</table>
+<p>Scikit-learn provides a function to access the confusion matrix: \
+sklearn.metrics.confusion_matrix(y_true, y_pred)</p>
+<p>The other metric that balances precision and recall is the F1 Score.</p>
+<blockquote>
+<div><p>F1 Score: The harmonic mean of precision and recall, providing a balanced measure. \</p>
 </div></blockquote>
 <blockquote>
 <div><p>Training a Binary Classifier: Logistic Regression</p>
@@ -563,6 +588,10 @@ Explore the Confusion Matrix: Understand common confusion patterns and how they 
 <div><p>Gradient Boosting Regression: A boosting technique that builds an additive model in a forward stage-wise manner. It combines the predictions of weak learners (often decision trees) to create a strong predictive model.</p>
 </div></blockquote>
 <p>Each regression method has its own strengths, weaknesses, and applicability to different types of data and problem domains. The choice of which method to use depends on the nature of the data, the problem’s requirements, and the desired level of interpretability and predictive accuracy.</p>
+<p><strong>Normal Equation vs Gradient Descent</strong></p>
+<blockquote>
+<div><p>The normal equation provides a closed-form solution to find the optimal parameters that minimize the cost function in linear regression. It is particularly useful when dealing with small to moderately sized datasets as it efficiently computes the optimal parameters directly. On the other hand, gradient descent is an iterative optimization algorithm that works well with large datasets and complex models. It iteratively updates model parameters in the direction of steepest descent, making it suitable for high-dimensional spaces and non-linear models. The two methods complement each other in machine learning. While the normal equation offers a straightforward analytical solution for simple cases, gradient descent shines in handling more complex scenarios, where computational efficiency and adaptability to various models and data sizes are paramount.</p>
+</div></blockquote>
 <p><strong>Gradient Descent: An optimization technique used to minimize the cost function and find the optimal model parameters.</strong><br />
 An optimization technique to minimize the cost function and determine the optimal model parameters. It relies on the partial derivative of the cost function with respect to the model parameters to iteratively improve those parameters. An important parameter of Gradient Descent is the learning rate hyperparameter.</p>
 <p><img alt="gradient.png" src="https://github.com/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Saranya/Figures/gradient.png?raw=1" /></p>
@@ -623,6 +652,25 @@ An optimization technique to minimize the cost function and determine the optima
 <p><strong>Fine-Tuning Models:</strong>
 Learning Rate Scheduling: Adjusting the learning rate during training to converge faster and prevent overshooting.</p>
 <p>Early Stopping: Stopping training when the model’s performance on the validation set no longer improves to prevent overfitting.</p>
+<p><strong>Learning Rate</strong> is a small positive scalar value that controls the step size at each iteration during model training. It scales the gradient (derivative) of the loss function with respect to the model parameters.</p>
+<p>Impact on Training: A high learning rate can lead to rapid convergence but risks overshooting the optimal solution, potentially causing the model to diverge. Conversely, a low learning rate can lead to slow convergence and might get stuck in local minima.</p>
+<p>Learning rate is a crucial hyperparameter in machine learning algorithms, especially those that involve optimization techniques like gradient descent. It determines the size of the steps taken when updating model parameters during the training process. Understanding and setting an appropriate learning rate is vital, as it can significantly impact the training convergence, model performance, and the ability to find the optimal solution. In environmental science, where machine learning is applied to various prediction and forecasting tasks, choosing an appropriate learning rate is essential for achieving accurate and efficient models.</p>
+<p>Some examples:</p>
+<blockquote>
+<div><p>Air Quality Forecasting: In predicting air quality levels, machine learning models may require careful tuning of the learning rate. An appropriately chosen learning rate can help the model converge to an accurate representation of air quality based on historical data.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Climate Modeling: Climate models often involve complex optimization problems. Setting the learning rate correctly can accelerate the training process and enable better understanding of climate patterns.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Hydrological Forecasting: When predicting river flows or flood levels, an optimal learning rate can ensure that hydrological models converge to accurate predictions, improving early warning systems.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Land Cover Classification: In tasks like land cover classification using remote sensing data, a well-tuned learning rate can help neural networks efficiently learn the intricate relationships between spectral bands and land cover types.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Ecosystem Modeling: Learning rates are essential in ecosystem models, where they affect the speed and stability of parameter estimation, allowing researchers to gain insights into ecosystem dynamics.</p>
+</div></blockquote>
 </div>
 </div>
 </div>

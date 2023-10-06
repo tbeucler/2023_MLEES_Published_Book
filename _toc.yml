@@ -73,7 +73,7 @@ parts:
         - file: Frederick/(Exercises)_Decision_Trees_and_Random_Forest.ipynb
           title: (Exercises) Decision Trees and Random Forest
         - file: Frederick/(Exercises)_Ensemble_Modeling_and_Stacking.ipynb
-          title: Ensemble Modeling and Stacking
+          title: (Exercises) Ensemble Modeling and Stacking
         - file: Frederick/(Exercises)_Wildfire_Susceptibility_Mapping.ipynb
           title: (Exercises) Wildfire Susceptibility Mapping
     - file: ML/Week_3_Dimensionality_Reduction_Clustering.ipynb

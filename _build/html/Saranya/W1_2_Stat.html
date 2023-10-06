@@ -220,8 +220,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.1. (Exercise) Composing Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.2. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.1. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.2. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.3. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
 
 
 
@@ -423,8 +424,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-output-statistics-mos">2.4.1. Model Output Statistics (MOS)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-of-regression-models-in-environmental-sciences">2.4.2. Application of Regression Models in Environmental Sciences:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-feature-selection-in-environmental-forecasting">2.4.1. Preprocessing: Feature Selection in Environmental Forecasting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postprocessing-enhancing-forecast-reliability">2.4.2. Postprocessing: Enhancing Forecast Reliability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction-intervals">2.4.3. Prediction Intervals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-output-statistics-mos">2.4.4. Model Output Statistics (MOS)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-of-regression-models-in-environmental-sciences">2.4.5. Application of Regression Models in Environmental Sciences:</a></li>
 </ul>
             </nav>
         </div>
@@ -445,8 +449,26 @@ document.write(`
 Definition: PCA is a dimensionality reduction technique that identifies the most important variables (principal components) in a dataset while reducing redundancy.
 Example: In climate science, PCA can be used to reduce a large set of meteorological variables (temperature, humidity, pressure) into a smaller set of principal components that capture the most variability in weather patterns.</p>
 </div></blockquote>
+<div class="section" id="preprocessing-feature-selection-in-environmental-forecasting">
+<h2><span class="section-number">2.4.1. </span>Preprocessing: Feature Selection in Environmental Forecasting<a class="headerlink" href="#preprocessing-feature-selection-in-environmental-forecasting" title="Permalink to this headline">#</a></h2>
+<p>Feature selection involves choosing a subset of the most relevant and informative features (variables) from the original dataset for forecasting. In environmental sciences, datasets can be vast and include numerous variables, some of which may not contribute significantly to the forecast’s accuracy. Feature selection methods help streamline the modeling process and improve model performance by reducing noise and overfitting.</p>
+<p>For example, when predicting air quality, a machine learning model may consider various factors like temperature, humidity, wind speed, and pollutant levels. Feature selection helps identify which of these variables are the most influential in making accurate forecasts. This not only simplifies the model but also reduces the risk of including irrelevant or redundant information.</p>
+</div>
+<div class="section" id="postprocessing-enhancing-forecast-reliability">
+<h2><span class="section-number">2.4.2. </span>Postprocessing: Enhancing Forecast Reliability<a class="headerlink" href="#postprocessing-enhancing-forecast-reliability" title="Permalink to this headline">#</a></h2>
+<p>Postprocessing involves refining the output of a forecasting model to improve its reliability and applicability. In environmental forecasting, postprocessing can be especially valuable because it allows for the incorporation of domain-specific knowledge and adjustments to account for unique environmental conditions.</p>
+<p>For instance, in hydrological forecasting, a machine learning model may predict river water levels based on various meteorological and hydrological data. Postprocessing can involve correcting the model’s predictions based on local topography, historical flood records, or expert insights to provide more accurate and actionable forecasts.</p>
+<p>Moreover, postprocessing can involve the creation of prediction intervals, as mentioned earlier, which quantify the uncertainty associated with the forecasts. This information is critical for making decisions related to environmental management, risk assessment, and emergency response.</p>
+</div>
+<div class="section" id="prediction-intervals">
+<h2><span class="section-number">2.4.3. </span>Prediction Intervals<a class="headerlink" href="#prediction-intervals" title="Permalink to this headline">#</a></h2>
+<p>Temporal dependency in statistical forecasting is a fundamental concept that underscores the inherent relationship between data points in a time series. As phenomena observed in a time series get closer in time, they tend to exhibit a stronger connection and dependence than those further apart. This notion is crucial in understanding the dynamics of time series data and forms the bedrock of forecasting methodologies. When dealing with time series forecasting, it becomes apparent that forecasting events or values closer in time often results in considerably less variability and, consequently, higher accuracy than attempting predictions further into the future. This principle echoes the idea that phenomena evolve over time and are influenced by recent observations. Therefore, considering temporal dependency is essential when delving into time series analysis, as it provides valuable insights into the patterns and trends that can drive accurate forecasts, making it a vital concept in the field of statistical forecasting.</p>
+<p><img alt="austa.png" src="https://github.com/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Saranya/Figures/austa.png?raw=1" /></p>
+<p>Total international visitors to Australia (1980–2015) along with 10-year forecasts and 80% and 95% prediction intervals.The width of a prediction interval reflects the level of uncertainty associated with the forecast – narrower intervals indicate greater confidence, while wider intervals signify higher uncertainty. Thus, prediction intervals are a vital component of forecasting as they not only provide a point estimate but also convey the degree of uncertainty associated with the forecasted values.</p>
+<p>Figure credit: An Easy Guide to Gradient Descent in Machine Learning, Great Learning. (<a class="reference external" href="https://www.mygreatlearning.com/blog/gradient-descent/">link</a>)</p>
+</div>
 <div class="section" id="model-output-statistics-mos">
-<h2><span class="section-number">2.4.1. </span>Model Output Statistics (MOS)<a class="headerlink" href="#model-output-statistics-mos" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.4.4. </span>Model Output Statistics (MOS)<a class="headerlink" href="#model-output-statistics-mos" title="Permalink to this headline">#</a></h2>
 <p>MOS is a statistical technique used in meteorology and atmospheric science to improve the accuracy of numerical weather predictions (NWP) by statistically post-processing the output of numerical weather models. MOS aims to correct systematic biases and errors present in raw model output and produce more accurate and reliable weather forecasts. It’s especially important for short- to medium-range forecasts, where the impact of model biases can be significant.</p>
 <p>Here’s how MOS works:</p>
 <blockquote>
@@ -468,7 +490,7 @@ Example: In climate science, PCA can be used to reduce a large set of meteorolog
 <p>Regression models are widely used in environmental sciences for statistical forecasting and prediction. They allow researchers to analyze and model the relationships between various environmental variables, leading to a better understanding of natural systems and improved forecasts.</p>
 </div>
 <div class="section" id="application-of-regression-models-in-environmental-sciences">
-<h2><span class="section-number">2.4.2. </span>Application of Regression Models in Environmental Sciences:<a class="headerlink" href="#application-of-regression-models-in-environmental-sciences" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.4.5. </span>Application of Regression Models in Environmental Sciences:<a class="headerlink" href="#application-of-regression-models-in-environmental-sciences" title="Permalink to this headline">#</a></h2>
 <blockquote>
 <div><p>Climate Modeling: Predicting global temperature changes based on historical climate data.
 Regression Type: Time Series Regression
@@ -575,8 +597,11 @@ Application: Regression models, such as decision tree regression, can be employe
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-output-statistics-mos">2.4.1. Model Output Statistics (MOS)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-of-regression-models-in-environmental-sciences">2.4.2. Application of Regression Models in Environmental Sciences:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-feature-selection-in-environmental-forecasting">2.4.1. Preprocessing: Feature Selection in Environmental Forecasting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postprocessing-enhancing-forecast-reliability">2.4.2. Postprocessing: Enhancing Forecast Reliability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction-intervals">2.4.3. Prediction Intervals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-output-statistics-mos">2.4.4. Model Output Statistics (MOS)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-of-regression-models-in-environmental-sciences">2.4.5. Application of Regression Models in Environmental Sciences:</a></li>
 </ul>
   </nav></div>
 
