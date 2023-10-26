@@ -220,15 +220,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.1. Neural Networks for Time Series Predictions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.2. (Exercise) Composing Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.3. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
-
-
-
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.5. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.6. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.7. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
 </ul>
@@ -476,21 +470,8 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyshp in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (2.3.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: shapely in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (2.0.1)
-Collecting shapely
-  Downloading shapely-2.0.2-cp39-cp39-win_amd64.whl (1.4 MB)
-                                              0.0/1.4 MB ? eta -:--:--
-                                              0.0/1.4 MB 660.6 kB/s eta 0:00:03
-     ---                                      0.1/1.4 MB 1.4 MB/s eta 0:00:01
-     ------------------------                 0.9/1.4 MB 7.0 MB/s eta 0:00:01
-     ---------------------------------------- 1.4/1.4 MB 9.2 MB/s eta 0:00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: shapely in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (2.0.2)
 Requirement already satisfied: numpy&gt;=1.14 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from shapely) (1.25.1)
-Installing collected packages: shapely
-  Attempting uninstall: shapely
-    Found existing installation: shapely 2.0.1
-    Uninstalling shapely-2.0.1:
-      Successfully uninstalled shapely-2.0.1
-Successfully installed shapely-2.0.2
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: descartes in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (1.1.0)
@@ -509,19 +490,7 @@ Requirement already satisfied: zipp&gt;=3.1.0 in c:\users\tbeucler\.conda\envs\j
 Requirement already satisfied: six&gt;=1.5 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;descartes) (1.16.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: rtree in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (1.0.1)
-Collecting rtree
-  Downloading Rtree-1.1.0-py3-none-win_amd64.whl (435 kB)
-                                              0.0/435.7 kB ? eta -:--:--
-                                              10.2/435.7 kB ? eta -:--:--
-     ------                                81.9/435.7 kB 907.3 kB/s eta 0:00:01
-     -------------------------------------- 435.7/435.7 kB 3.9 MB/s eta 0:00:00
-Installing collected packages: rtree
-  Attempting uninstall: rtree
-    Found existing installation: Rtree 1.0.1
-    Uninstalling Rtree-1.0.1:
-      Successfully uninstalled Rtree-1.0.1
-Successfully installed rtree-1.1.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: rtree in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (1.1.0)
 </pre></div>
 </div>
 </div>
@@ -535,14 +504,7 @@ Successfully installed rtree-1.1.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: geopandas in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (0.13.2)
-Collecting geopandas
-  Downloading geopandas-0.14.0-py3-none-any.whl (1.1 MB)
-                                              0.0/1.1 MB ? eta -:--:--
-                                              0.0/1.1 MB ? eta -:--:--
-     --                                       0.1/1.1 MB 825.8 kB/s eta 0:00:02
-     ----------------------                   0.6/1.1 MB 4.8 MB/s eta 0:00:01
-     ---------------------------------------- 1.1/1.1 MB 7.8 MB/s eta 0:00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: geopandas in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (0.14.0)
 Requirement already satisfied: fiona&gt;=1.8.21 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (1.9.4.post1)
 Requirement already satisfied: packaging in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (23.1)
 Requirement already satisfied: pandas&gt;=1.4.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (2.0.3)
@@ -561,12 +523,6 @@ Requirement already satisfied: tzdata&gt;=2022.1 in c:\users\tbeucler\.conda\env
 Requirement already satisfied: numpy&gt;=1.20.3 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pandas&gt;=1.4.0-&gt;geopandas) (1.25.1)
 Requirement already satisfied: colorama in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from click~=8.0-&gt;fiona&gt;=1.8.21-&gt;geopandas) (0.4.6)
 Requirement already satisfied: zipp&gt;=0.5 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from importlib-metadata-&gt;fiona&gt;=1.8.21-&gt;geopandas) (3.16.0)
-Installing collected packages: geopandas
-  Attempting uninstall: geopandas
-    Found existing installation: geopandas 0.13.2
-    Uninstalling geopandas-0.13.2:
-      Successfully uninstalled geopandas-0.13.2
-Successfully installed geopandas-0.14.0
 </pre></div>
 </div>
 </div>

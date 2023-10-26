@@ -218,15 +218,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Neural_Networks_for_Time_Series_Predictions.html">7.1. Neural Networks for Time Series Predictions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.2. (Exercise) Composing Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.3. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
-
-
-
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="Neural_Networks_for_Time_Series_Predictions.html">7.5. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.6. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.7. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
 </ul>
@@ -472,30 +466,29 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: geopandas in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (0.13.2)
-Requirement already satisfied: fiona&gt;=1.8.19 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (1.9.4.post1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: geopandas in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (0.14.0)
+Requirement already satisfied: fiona&gt;=1.8.21 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (1.9.4.post1)
 Requirement already satisfied: packaging in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (23.1)
-Requirement already satisfied: pandas&gt;=1.1.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (2.0.3)
-Requirement already satisfied: pyproj&gt;=3.0.1 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (3.6.0)
-Requirement already satisfied: shapely&gt;=1.7.1 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (2.0.1)
-Requirement already satisfied: attrs&gt;=19.2.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.19-&gt;geopandas) (21.4.0)
-Requirement already satisfied: certifi in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.19-&gt;geopandas) (2023.5.7)
-Requirement already satisfied: click~=8.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.19-&gt;geopandas) (8.1.4)
-Requirement already satisfied: click-plugins&gt;=1.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.19-&gt;geopandas) (1.1.1)
-Requirement already satisfied: cligj&gt;=0.5 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.19-&gt;geopandas) (0.7.2)
-Requirement already satisfied: six in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.19-&gt;geopandas) (1.16.0)
-Requirement already satisfied: importlib-metadata in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.19-&gt;geopandas) (6.8.0)
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pandas&gt;=1.1.0-&gt;geopandas) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pandas&gt;=1.1.0-&gt;geopandas) (2023.3)
-Requirement already satisfied: tzdata&gt;=2022.1 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pandas&gt;=1.1.0-&gt;geopandas) (2023.3)
-Requirement already satisfied: numpy&gt;=1.20.3 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pandas&gt;=1.1.0-&gt;geopandas) (1.25.1)
-Requirement already satisfied: colorama in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from click~=8.0-&gt;fiona&gt;=1.8.19-&gt;geopandas) (0.4.6)
-Requirement already satisfied: zipp&gt;=0.5 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from importlib-metadata-&gt;fiona&gt;=1.8.19-&gt;geopandas) (3.16.0)
+Requirement already satisfied: pandas&gt;=1.4.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (2.0.3)
+Requirement already satisfied: pyproj&gt;=3.3.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (3.6.0)
+Requirement already satisfied: shapely&gt;=1.8.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (2.0.2)
+Requirement already satisfied: attrs&gt;=19.2.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (21.4.0)
+Requirement already satisfied: certifi in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (2023.5.7)
+Requirement already satisfied: click~=8.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (8.1.4)
+Requirement already satisfied: click-plugins&gt;=1.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (1.1.1)
+Requirement already satisfied: cligj&gt;=0.5 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (0.7.2)
+Requirement already satisfied: six in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (1.16.0)
+Requirement already satisfied: importlib-metadata in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (6.8.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pandas&gt;=1.4.0-&gt;geopandas) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pandas&gt;=1.4.0-&gt;geopandas) (2023.3)
+Requirement already satisfied: tzdata&gt;=2022.1 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pandas&gt;=1.4.0-&gt;geopandas) (2023.3)
+Requirement already satisfied: numpy&gt;=1.20.3 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pandas&gt;=1.4.0-&gt;geopandas) (1.25.1)
+Requirement already satisfied: colorama in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from click~=8.0-&gt;fiona&gt;=1.8.21-&gt;geopandas) (0.4.6)
+Requirement already satisfied: zipp&gt;=0.5 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from importlib-metadata-&gt;fiona&gt;=1.8.21-&gt;geopandas) (3.16.0)
 Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pickle5Note: you may need to restart the kernel to use updated packages.
-
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pickle5
   Using cached pickle5-0.0.11.tar.gz (132 kB)
   Preparing metadata (setup.py): started
   Preparing metadata (setup.py): finished with status &#39;done&#39;
@@ -504,6 +497,7 @@ Building wheels for collected packages: pickle5
   Building wheel for pickle5 (setup.py): finished with status &#39;error&#39;
   Running setup.py clean for pickle5
 Failed to build pickle5
+Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  error: subprocess-exited-with-error

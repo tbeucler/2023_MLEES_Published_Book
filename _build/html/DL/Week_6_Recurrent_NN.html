@@ -62,8 +62,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'DL/Week_6_Recurrent_NN';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7.1. Neural Networks for Time Series Predictions" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html" />
-    <link rel="prev" title="6.3. Land Use and Land Cover Classification using CNN" href="S5_2_CNN_and_EuroSAT.html" />
+    <link rel="next" title="7.5. Neural Networks for Time Series Predictions" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html" />
+    <link rel="prev" title="6.3. Land Cover Classification using Convolutional Neural Networks (CNNs)" href="S5_2_CNN_and_EuroSAT.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -220,15 +220,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">7. Recurrent Neural Networks and Hydrological Modeling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.1. Neural Networks for Time Series Predictions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S6_1_Composing_Music_With_RNNs_CNNs.html">7.2. (Exercise) Composing Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S6_2_LSTM.html">7.3. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
-
-
-
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.5. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_1_Composing_Music_With_RNNs_CNNs.html">7.6. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_2_LSTM.html">7.7. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
 </ul>
@@ -401,7 +395,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -417,6 +413,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-neural-networks-rnn">7.1. Recurrent Neural Networks (RNN)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-language-processing-nlp">7.2. Natural Language Processing (NLP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms-to-process-time-series">7.3. Algorithms to process time series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-week-s-exercises">7.4. This week’s exercises:</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -431,13 +438,167 @@ document.write(`
 <h1><span class="section-number">7. </span>Recurrent Neural Networks and Hydrological Modeling<a class="headerlink" href="#recurrent-neural-networks-and-hydrological-modeling" title="Permalink to this headline">#</a></h1>
 <p>In this chapter, the learning objectives are:</p>
 <ol class="arabic simple">
+<li><p>Define a recurrent neural network</p></li>
+<li><p>Distinguish recurrent from convolutional neural networks</p></li>
+<li><p>Discuss the forecasting of environmental time series</p></li>
+<li><p>Define natural language processing</p></li>
+<li><p>Know at least three algorithms to process time-series (Vanilla RNN, LSTM,
+GRU
+Attention)</p></li>
+</ol>
+<p>The Exercises will help you to learn:</p>
+<ol class="arabic simple">
 <li><p>Implementing and training a recurrent neural network using [<code class="docutils literal notranslate"><span class="pre">Keras</span></code>].</p></li>
 <li><p>Gain intuition on architecture design.</p></li>
 <li><p>Cross-validate a recurrent neural network</p></li>
 <li><p>Use a neural network to generate new data</p></li>
 <li><p>Implementing an LSTM network for Hydrological Applications using [<code class="docutils literal notranslate"><span class="pre">PyTorch</span></code>]</p></li>
 </ol>
-<p>Today’s tutorial:</p>
+<div class="section" id="recurrent-neural-networks-rnn">
+<h2><span class="section-number">7.1. </span>Recurrent Neural Networks (RNN)<a class="headerlink" href="#recurrent-neural-networks-rnn" title="Permalink to this headline">#</a></h2>
+<p>RNNs are a class of artificial neural networks designed for sequential data, making them well-suited for various applications in environmental science.
+They are particularly useful for tasks that involve time series data, natural language processing, and sequential data analysis.</p>
+<p>Key Concepts:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Sequential Data Handling:
+RNNs are designed to work with sequential data where the order of data points matters.
+Examples in environmental science include time series data (e.g., weather observations, pollution levels, and ocean currents) and sequences of sensor data.</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="arabic simple" start="2">
+<li><p>Recurrent Neurons:
+RNNs have neurons with recurrent connections, meaning they can maintain a form of memory of previous time steps.
+This memory enables RNNs to process sequences and make predictions based on prior data.</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="arabic simple" start="3">
+<li><p>The Time Dimension:
+RNNs introduce the time dimension into neural networks, allowing them to process data across different time steps.
+This is crucial for tasks like forecasting environmental changes or modeling long-term climate patterns.</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="arabic simple" start="4">
+<li><p>Vanishing and Exploding Gradients:
+RNNs are prone to gradient-related issues due to backpropagation through time. This can cause vanishing gradients (gradients become too small) or exploding gradients (gradients become too large).
+Techniques like LSTM and GRU cells were developed to address these issues.</p></li>
+</ol>
+</div></blockquote>
+<p>Environmental Science Examples:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Weather Forecasting:
+RNNs can analyze historical weather data (temperature, humidity, pressure) to make short-term and long-term weather predictions.
+For example, they can be used to predict daily or hourly temperature changes, supporting applications like agriculture and disaster management.</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="arabic simple" start="2">
+<li><p>Air Quality Prediction:
+RNNs can be employed to forecast air quality based on a sequence of meteorological data, historical pollution levels, and emission sources.
+These models help in predicting pollution trends and alerting the public about potential health risks.</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="arabic simple" start="3">
+<li><p>Ocean Current Modeling:
+RNNs can analyze historical ocean current data to understand and predict oceanic patterns and behavior.
+This knowledge is essential for applications like navigation, fisheries management, and marine conservation.</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="arabic simple" start="4">
+<li><p>Climate Change Modeling:
+RNNs can be used to model long-term climate data, including temperature, sea levels, and greenhouse gas concentrations.
+These models help in predicting future climate scenarios and assessing the impact of climate change on ecosystems.</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="arabic simple" start="5">
+<li><p>Natural Language Processing for Environmental Texts:
+In NLP, RNNs can analyze text data related to environmental science, such as research papers or environmental reports.
+They assist in tasks like sentiment analysis of public opinions on environmental issues or summarizing scientific research.</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="natural-language-processing-nlp">
+<h2><span class="section-number">7.2. </span>Natural Language Processing (NLP)<a class="headerlink" href="#natural-language-processing-nlp" title="Permalink to this headline">#</a></h2>
+<p>Natural Language Processing (NLP) is a subfield of artificial intelligence that focuses on the interaction between computers and human language. It involves the development of algorithms and models to understand, interpret, and generate human language.</p>
+<p>Applications in Environmental Sciences:</p>
+<blockquote>
+<div><p>Text Mining for Climate Data: NLP can be used to extract information from climate reports, weather data, and scientific publications, allowing for automated data analysis and information retrieval.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Environmental Policy Analysis: Analyzing policy documents and legislative texts to identify trends, compliance issues, and areas of environmental concern.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Social Media and Public Discourse: Monitoring social media platforms and news articles for public sentiment regarding environmental issues, which can inform decision-making.</p>
+</div></blockquote>
+<p>Key Concepts in NLP:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Tokenization:
+Tokenization is the process of breaking text into individual units or tokens, often words or phrases.
+Use in Environmental Sciences: Tokenization helps transform unstructured text data into a structured format for analysis. For instance, breaking a climate report into tokens allows for sentiment analysis.</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="arabic simple" start="2">
+<li><p>Stop Words:
+Stop words are common words (e.g., “the,” “and,” “in”) that are often removed during text processing as they carry little meaning.
+Use in Environmental Sciences: Removing stop words can improve the efficiency of text analysis by focusing on content-bearing words.</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="arabic simple" start="3">
+<li><p>Text Vectorization:
+Text vectorization is the process of converting text data into numerical representations (vectors).
+Use in Environmental Sciences: Converting environmental texts into numerical vectors enables the application of machine learning algorithms for tasks like classification and clustering.</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="arabic simple" start="4">
+<li><p>Sentiment Analysis:
+Sentiment analysis is the process of determining the emotional tone or sentiment expressed in a piece of text.
+Use in Environmental Sciences: Assessing public sentiment toward environmental policies or climate change through the analysis of news articles and social media posts.</p></li>
+</ol>
+</div></blockquote>
+<blockquote>
+<div><ol class="arabic simple" start="5">
+<li><p>Named Entity Recognition (NER):
+NER is a technique used to identify and classify named entities (e.g., locations, organizations, persons) in text.
+Use in Environmental Sciences: Identifying and categorizing entities mentioned in environmental reports and documents, such as the names of affected regions.</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="algorithms-to-process-time-series">
+<h2><span class="section-number">7.3. </span>Algorithms to process time series<a class="headerlink" href="#algorithms-to-process-time-series" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p><strong>Vanilla RNN (Recurrent Neural Network):</strong>
+Vanilla RNN is the simplest form of recurrent neural networks. It processes sequential data by maintaining a hidden state that is updated at each time step.
+Example: Predicting ocean temperature based on historical temperature data, considering seasonal variations and climate changes.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>LSTM (Long Short-Term Memory):</strong>
+LSTM is an advanced recurrent neural network architecture that effectively handles long-range dependencies in sequences. It incorporates memory cells, input, forget, and output gates.
+Example: Modeling and predicting air quality levels in urban areas, considering complex dependencies on factors like traffic, weather, and emissions.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>GRU (Gated Recurrent Unit):</strong>
+GRU is another type of recurrent neural network, similar to LSTM but with a simplified structure. It uses gating mechanisms to manage information flow through the network.
+Example: Predicting river flow rates, considering factors like rainfall, snowmelt, and temperature changes, where GRU helps capture complex dependencies.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Attention Mechanism:</strong>
+The attention mechanism is a component often used in conjunction with RNNs and other architectures. It allows the network to focus on different parts of the input sequence when making predictions.
+Example: Analyzing climate data from different regions and giving more attention to regions with higher impact on global climate models.</p>
+</div></blockquote>
+</div>
+<div class="section" id="this-week-s-exercises">
+<h2><span class="section-number">7.4. </span>This week’s exercises:<a class="headerlink" href="#this-week-s-exercises" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>This exercise adapts Géron et al.’s Jupyter notebook exercises for <span class="xref myst">chapter 15</span> (<a class="reference external" href="https://github.com/ageron/handson-ml2/blob/master/LICENSE">License</a>) of his book <a class="reference external" href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/">“Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 2nd Edition”</a>.</p></li>
 <li><p>Adapts a watershed modeling exercise developed by Yikui Zhang (ETH Zurich) for Profs. Nadav Peleg &amp; Peter Molnar, which focuses on modeling the Gsteig catchment.</p></li>
@@ -462,6 +623,7 @@ The final project’s goal is to answer a well-defined scientific question by ap
 <li><p>How could you format the dataset to facilitate its manipulation in Python?</p></li>
 <li><p>If you’re still hunting for a dataset of interest, consider browsing the <a class="reference external" href="http://mldata.pangeo.io/index.html">list of benchmark datasets</a> maintained by <a class="reference external" href="https://pangeo.io/">Pangeo</a> and <a class="reference external" href="https://www.kaggle.com/datasets">Kaggle</a>.</p></li>
 </ul>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -503,7 +665,7 @@ The final project’s goal is to answer a well-defined scientific question by ap
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6.3. </span>Land Use and Land Cover Classification using CNN</p>
+        <p class="prev-next-title"><span class="section-number">6.3. </span>Land Cover Classification using Convolutional Neural Networks (CNNs)</p>
       </div>
     </a>
     <a class="right-next"
@@ -511,7 +673,7 @@ The final project’s goal is to answer a well-defined scientific question by ap
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7.1. </span>Neural Networks for Time Series Predictions</p>
+        <p class="prev-next-title"><span class="section-number">7.5. </span>Neural Networks for Time Series Predictions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -524,6 +686,23 @@ The final project’s goal is to answer a well-defined scientific question by ap
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-neural-networks-rnn">7.1. Recurrent Neural Networks (RNN)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-language-processing-nlp">7.2. Natural Language Processing (NLP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithms-to-process-time-series">7.3. Algorithms to process time series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-week-s-exercises">7.4. This week’s exercises:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
