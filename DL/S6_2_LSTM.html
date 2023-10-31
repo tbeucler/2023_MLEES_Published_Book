@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7.2. Q6) Convert the prepared datasets into PyTorch Datasets &#8212; Machine Learning for Earth and Environmental Sciences</title>
+    <title>7.3. Exercise 2 – Recurrent Neural Networks for Hydrological Modeling &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'DL/S6_2_LSTM';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="7.1. Exercise 1: Comparing Different Types of Recurrent and Convolutional Neural Networks to Compose Bach Chorales" href="S6_1_Composing_Music_With_RNNs_CNNs.html" />
+    <link rel="prev" title="7.2. Exercise 1: Comparing Different Types of Recurrent and Convolutional Neural Networks to Compose Bach Chorales" href="S6_1_Composing_Music_With_RNNs_CNNs.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -195,7 +195,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Support_Vector_Machines.html">3.2. (Exercises) Support Vector Machines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Decision_Trees_and_Random_Forest.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Ensemble_Modeling_and_Stacking.html">3.4. Ensemble Modeling and Stacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Ensemble_Modeling_and_Stacking.html">3.4. (Exercises) Ensemble Modeling and Stacking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Wildfire_Susceptibility_Mapping.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
 </ul>
 </li>
@@ -221,14 +221,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="S6_1_Composing_Music_With_RNNs_CNNs.html">7.1. (Exercise) Composing Music</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.2. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
-
-
-
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.1. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_1_Composing_Music_With_RNNs_CNNs.html">7.2. (Exercise) Composing Music</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.3. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
 </ul>
@@ -414,7 +409,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Q6) Convert the prepared datasets into PyTorch Datasets</h1>
+    <h1>Exercise 2 – Recurrent Neural Networks for Hydrological Modeling</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -424,15 +419,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7.2. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-define-the-hyperparameters-and-settings-for-training">7.3. <strong>Q7) Define the hyperparameters and settings for training</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-define-the-training-validation-and-test-dataloaders">7.4. <strong>Q8) Define the training, validation, and test Dataloaders</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-define-the-lstm-model-architecture">7.5. <strong>Q9) Define the LSTM model architecture</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-define-the-loss-function-instantiate-the-model-define-the-optimizer-and-set-the-number-of-epochs-to-iterate-through">7.6. <strong>Q10) Define the loss function, instantiate the model, define the optimizer, and set the number of epochs to iterate through</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-define-the-model-evaluation-function">7.7. <strong>Q11) Define the model evaluation function</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q12-write-the-training-loop">7.8. <strong>Q12) Write the training loop</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-go-ahead-and-load-the-csv-file-with-the-data-for-our-project-today-the-filepath-is-stored-in-the-data-file-variable-that-was-defined-in-the-hidden-code-within-the-cell-above-this-one">7.3.1. <strong>Q1) Go ahead and load the csv file with the data for our project today. The filepath is stored in the <code class="docutils literal notranslate"><span class="pre">data_file</span></code> variable that was defined in the hidden code within the cell above this one!</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-store-the-list-of-available-years-of-data-in-a-variable-and-print-out-the-length-of-the-list">7.3.2. <strong>Q2) Store the list of available years of data in a variable, and print out the length of the list.</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-split-the-dataset-into-a-training-validation-and-test-set">7.3.3. <strong>Q3) Split the dataset into a training, validation, and test set.</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-scale-the-input-data-using-a-standardscaler-i-e-using-the-mean-and-standard-deviation">7.3.4. <strong>Q4) Scale the input data using a StandardScaler (i.e., using the mean and standard deviation).</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-turn-the-training-validation-and-test-data-into-a-set-of-series-to-feed-into-an-lstm">7.3.5. <strong>Q5) Turn the training, validation, and test data into a set of series to feed into an LSTM</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-convert-the-prepared-datasets-into-pytorch-datasets">7.3.6. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-define-the-hyperparameters-and-settings-for-training">7.3.7. <strong>Q7) Define the hyperparameters and settings for training</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-define-the-training-validation-and-test-dataloaders">7.3.8. <strong>Q8) Define the training, validation, and test Dataloaders</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-define-the-lstm-model-architecture">7.3.9. <strong>Q9) Define the LSTM model architecture</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-define-the-loss-function-instantiate-the-model-define-the-optimizer-and-set-the-number-of-epochs-to-iterate-through">7.3.10. <strong>Q10) Define the loss function, instantiate the model, define the optimizer, and set the number of epochs to iterate through</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-define-the-model-evaluation-function">7.3.11. <strong>Q11) Define the model evaluation function</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q12-write-the-training-loop">7.3.12. <strong>Q12) Write the training loop</strong></a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -444,7 +443,8 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a href="https://colab.research.google.com/github/tbeucler/2022_ML_EES/blob/main/Labs/S6_2_LSTM.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<p>#<strong>Week 6 Exercise 2 – Recurrent Neural Networks for Hydrological Modeling</strong></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="exercise-2-recurrent-neural-networks-for-hydrological-modeling">
+<h1><span class="section-number">7.3. </span><strong>Exercise 2 – Recurrent Neural Networks for Hydrological Modeling</strong><a class="headerlink" href="#exercise-2-recurrent-neural-networks-for-hydrological-modeling" title="Permalink to this headline">#</a></h1>
 <center><img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EX7p8EcOwelFg3UkF7576noBzjdubEy10lWXbULT_N6QHw?download=1' width=100%> <i>The rain fell alike upon the just and upon the unjust, and for nothing was there a why and a wherefore. - William Somerset Maugham</i> </center>
 <br>
 <p>Rain is oft described as having a gloomy beauty to it, and it continues to inspire authors and scientists alike. Can we use machine learning algorithms to predict rainfall runoff with comparable accuracies to other established methods?</p>
@@ -523,7 +523,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>###<strong>Q1) Go ahead and load the csv file with the data for our project today. The filepath is stored in the <code class="docutils literal notranslate"><span class="pre">data_file</span></code> variable that was defined in the hidden code within the cell above this one!</strong></p>
+<div class="section" id="q1-go-ahead-and-load-the-csv-file-with-the-data-for-our-project-today-the-filepath-is-stored-in-the-data-file-variable-that-was-defined-in-the-hidden-code-within-the-cell-above-this-one">
+<h2><span class="section-number">7.3.1. </span><strong>Q1) Go ahead and load the csv file with the data for our project today. The filepath is stored in the <code class="docutils literal notranslate"><span class="pre">data_file</span></code> variable that was defined in the hidden code within the cell above this one!</strong><a class="headerlink" href="#q1-go-ahead-and-load-the-csv-file-with-the-data-for-our-project-today-the-filepath-is-stored-in-the-data-file-variable-that-was-defined-in-the-hidden-code-within-the-cell-above-this-one" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hints - Loading CSVs with Pandas</span>
@@ -564,7 +565,9 @@ document.write(`
 </div>
 <p>We now have our data in a nice format for us to use. You’ll see that our data has an index column, a T column, a P1 column, a P2 column, and a runoff column. The index column is the date of our measurements, the T column is the mean daily temperature at a station, the P1 and P2 columns are the daily precipitations at two stations, and the runoff column is the daily streamflow at one station.</p>
 <p>Let’s go ahead and figure out how many years of data we have by looking at the time index.</p>
-<p>###<strong>Q2) Store the list of available years of data in a variable, and print out the length of the list.</strong></p>
+</div>
+<div class="section" id="q2-store-the-list-of-available-years-of-data-in-a-variable-and-print-out-the-length-of-the-list">
+<h2><span class="section-number">7.3.2. </span><strong>Q2) Store the list of available years of data in a variable, and print out the length of the list.</strong><a class="headerlink" href="#q2-store-the-list-of-available-years-of-data-in-a-variable-and-print-out-the-length-of-the-list" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint: How to use Pandas datetimeIndex</span>
@@ -596,7 +599,9 @@ document.write(`
 </div>
 </div>
 <p>Now we need to split the dataset into a training, validation, and test set to use with our algorithm. Since we’re dealing with time series data, let’s use the last 10 of the years available as the test dataset, the 10 years previous to that as the validation dataset, and the remainder of the data will be used to train our algorithm.</p>
-<p>###<strong>Q3) Split the dataset into a training, validation, and test set.</strong></p>
+</div>
+<div class="section" id="q3-split-the-dataset-into-a-training-validation-and-test-set">
+<h2><span class="section-number">7.3.3. </span><strong>Q3) Split the dataset into a training, validation, and test set.</strong><a class="headerlink" href="#q3-split-the-dataset-into-a-training-validation-and-test-set" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint: Review of array slicing</span>
@@ -722,7 +727,9 @@ document.write(`
 <center><img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EUmui9FDDxxFpxjrY4I7MMABit-4pVJziPGmCZqMMwU28w?download=1'></center><p>We now have our data for training, validating, and testing our algorithm! However, the values are still the original ones from our measurements. We saw before that we generally want to transform these into stardardized values, otherwise we might end up with a <em>problem of scales.</em></p>
 <center> <img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EQEslPIi1XZCgYGqSst2AOsBbZ5NHo7tpj1bFpW8Krzqgg?download=1' width=75%><br><font size=5><i>get it?</i></font></center>
 <p>With that joke out of our system, let’s go ahead and prepare a Scikit-Learn pipeline to scale our data.</p>
-<p>###<strong>Q4) Scale the input data using a StandardScaler (i.e., using the mean and standard deviation).</strong></p>
+</div>
+<div class="section" id="q4-scale-the-input-data-using-a-standardscaler-i-e-using-the-mean-and-standard-deviation">
+<h2><span class="section-number">7.3.4. </span><strong>Q4) Scale the input data using a StandardScaler (i.e., using the mean and standard deviation).</strong><a class="headerlink" href="#q4-scale-the-input-data-using-a-standardscaler-i-e-using-the-mean-and-standard-deviation" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint: Review of Scikit Learn pipelines and transformers</span>
@@ -827,7 +834,9 @@ document.write(`
 <p>We’re almost ready to start training our algorithm! However, we currently have a list of temperature, precipitation, and runoff readings <em>for each day</em> in our datasets. However, we’re interested in looking at an <span class="math notranslate nohighlight">\(n\)</span>-sized <strong>window</strong> of temperature and precipitation readings to predict a point in the runoff series!</p>
 <p>As an example with <span class="math notranslate nohighlight">\( n= 5\)</span>: <span class="math notranslate nohighlight">\(\;\)</span>
 to predict the runoff on a given Friday, we need the temperature and precipitation readings for Monday, Tuesday, Wednesday, Thursday, and the Friday itself.</p>
-<p>###<strong>Q5) Turn the training, validation, and test data into a set of series to feed into an LSTM</strong></p>
+</div>
+<div class="section" id="q5-turn-the-training-validation-and-test-data-into-a-set-of-series-to-feed-into-an-lstm">
+<h2><span class="section-number">7.3.5. </span><strong>Q5) Turn the training, validation, and test data into a set of series to feed into an LSTM</strong><a class="headerlink" href="#q5-turn-the-training-validation-and-test-data-into-a-set-of-series-to-feed-into-an-lstm" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s start by printing out the shape of our training dataset</span>
@@ -958,8 +967,9 @@ Here, we just need to select the column, skipping over the first (<span class="m
 </div>
 </div>
 <p>First, let’s start by moving away from Pandas Dataframes and NumPy N-Dimensional Arrays and into the realm of PyTorch <em>Tensors</em>.</p>
+</div>
 <div class="section" id="q6-convert-the-prepared-datasets-into-pytorch-datasets">
-<h1><span class="section-number">7.2. </span><strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong><a class="headerlink" href="#q6-convert-the-prepared-datasets-into-pytorch-datasets" title="Permalink to this headline">#</a></h1>
+<h2><span class="section-number">7.3.6. </span><strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong><a class="headerlink" href="#q6-convert-the-prepared-datasets-into-pytorch-datasets" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint: Transitioning from Numpy ND-Arrays to Pytorch Tensors</span>
@@ -1051,7 +1061,7 @@ Here, we just need to select the column, skipping over the first (<span class="m
 <p>We recommend you use a batch size of 128, and two workers. We won’t go into details on how large a batch size to use, especially as there is ongoing research on the topic (e.g., <a class="reference external" href="https://arxiv.org/abs/1609.04836">in</a> <a class="reference external" href="https://arxiv.org/abs/2006.08517">these</a> <a class="reference external" href="https://arxiv.org/abs/1711.00489">papers</a>). However, too large a batch size tends to make it harder for ML algorithms to generalize. As for the number of workers, this is generally dictaded by how many cpu/gpu cores you have available.</p>
 </div>
 <div class="section" id="q7-define-the-hyperparameters-and-settings-for-training">
-<h1><span class="section-number">7.3. </span><strong>Q7) Define the hyperparameters and settings for training</strong><a class="headerlink" href="#q7-define-the-hyperparameters-and-settings-for-training" title="Permalink to this headline">#</a></h1>
+<h2><span class="section-number">7.3.7. </span><strong>Q7) Define the hyperparameters and settings for training</strong><a class="headerlink" href="#q7-define-the-hyperparameters-and-settings-for-training" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Define the hyperparameters</span>
@@ -1063,7 +1073,7 @@ Here, we just need to select the column, skipping over the first (<span class="m
 </div>
 </div>
 <div class="section" id="q8-define-the-training-validation-and-test-dataloaders">
-<h1><span class="section-number">7.4. </span><strong>Q8) Define the training, validation, and test Dataloaders</strong><a class="headerlink" href="#q8-define-the-training-validation-and-test-dataloaders" title="Permalink to this headline">#</a></h1>
+<h2><span class="section-number">7.3.8. </span><strong>Q8) Define the training, validation, and test Dataloaders</strong><a class="headerlink" href="#q8-define-the-training-validation-and-test-dataloaders" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint: PyTorch DataLoaders</span>
@@ -1112,7 +1122,7 @@ Here, we just need to select the column, skipping over the first (<span class="m
 <p>Finally, the last state of the LSTM layer are going to be combined linearly into a prediction for the runoff at the end of the time series. The default notebook will use a simple linear combination (i.e., we won’t be using an activation function on the combination the way we often did before).</p>
 </div>
 <div class="section" id="q9-define-the-lstm-model-architecture">
-<h1><span class="section-number">7.5. </span><strong>Q9) Define the LSTM model architecture</strong><a class="headerlink" href="#q9-define-the-lstm-model-architecture" title="Permalink to this headline">#</a></h1>
+<h2><span class="section-number">7.3.9. </span><strong>Q9) Define the LSTM model architecture</strong><a class="headerlink" href="#q9-define-the-lstm-model-architecture" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title PyTorch Hints</span>
@@ -1227,7 +1237,7 @@ Here, we just need to select the column, skipping over the first (<span class="m
 <p>Note that you’re free to play around with these hyperparameters - your performance will just be different from the ones we will show if you do so. I’m sure you can find a better solution 😀</p>
 </div>
 <div class="section" id="q10-define-the-loss-function-instantiate-the-model-define-the-optimizer-and-set-the-number-of-epochs-to-iterate-through">
-<h1><span class="section-number">7.6. </span><strong>Q10) Define the loss function, instantiate the model, define the optimizer, and set the number of epochs to iterate through</strong><a class="headerlink" href="#q10-define-the-loss-function-instantiate-the-model-define-the-optimizer-and-set-the-number-of-epochs-to-iterate-through" title="Permalink to this headline">#</a></h1>
+<h2><span class="section-number">7.3.10. </span><strong>Q10) Define the loss function, instantiate the model, define the optimizer, and set the number of epochs to iterate through</strong><a class="headerlink" href="#q10-define-the-loss-function-instantiate-the-model-define-the-optimizer-and-set-the-number-of-epochs-to-iterate-through" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the loss function for training </span>
@@ -1251,7 +1261,7 @@ Here, we just need to select the column, skipping over the first (<span class="m
 <p>We’re almost ready to train our model. Before we move on to the training routine, let’s take a minute to define how we will evaluate the performance of the model - both for validation during training and for testing after training!</p>
 </div>
 <div class="section" id="q11-define-the-model-evaluation-function">
-<h1><span class="section-number">7.7. </span><strong>Q11) Define the model evaluation function</strong><a class="headerlink" href="#q11-define-the-model-evaluation-function" title="Permalink to this headline">#</a></h1>
+<h2><span class="section-number">7.3.11. </span><strong>Q11) Define the model evaluation function</strong><a class="headerlink" href="#q11-define-the-model-evaluation-function" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">eval_model</span><span class="p">(</span><span class="n">_______</span><span class="p">,</span> <span class="c1"># the model to be evaluated</span>
@@ -1325,7 +1335,7 @@ Here, we just need to select the column, skipping over the first (<span class="m
 </ul>
 </div>
 <div class="section" id="q12-write-the-training-loop">
-<h1><span class="section-number">7.8. </span><strong>Q12) Write the training loop</strong><a class="headerlink" href="#q12-write-the-training-loop" title="Permalink to this headline">#</a></h1>
+<h2><span class="section-number">7.3.12. </span><strong>Q12) Write the training loop</strong><a class="headerlink" href="#q12-write-the-training-loop" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define empty lists that will be used to keep track of the training losses,</span>
@@ -1485,6 +1495,7 @@ Here, we just need to select the column, skipping over the first (<span class="m
 <center><img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EUEtOgx5IzBJjIFELU3KdvIBDpFB1d_qnNr_HarNvVMGYA?download=1' width=100%>
 <p><span class="math notranslate nohighlight">\(_{^{*}\text{Once again, GPU operations are generally non-deterministic - you should get something remarkably similar}}\)</span></p>
 </div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1523,7 +1534,7 @@ Here, we just need to select the column, skipping over the first (<span class="m
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">7.1. </span>Exercise 1: Comparing Different Types of Recurrent and Convolutional Neural Networks to Compose Bach Chorales</p>
+        <p class="prev-next-title"><span class="section-number">7.2. </span>Exercise 1: Comparing Different Types of Recurrent and Convolutional Neural Networks to Compose Bach Chorales</p>
       </div>
     </a>
 </div></div>
@@ -1544,15 +1555,19 @@ Here, we just need to select the column, skipping over the first (<span class="m
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7.2. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-define-the-hyperparameters-and-settings-for-training">7.3. <strong>Q7) Define the hyperparameters and settings for training</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-define-the-training-validation-and-test-dataloaders">7.4. <strong>Q8) Define the training, validation, and test Dataloaders</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-define-the-lstm-model-architecture">7.5. <strong>Q9) Define the LSTM model architecture</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-define-the-loss-function-instantiate-the-model-define-the-optimizer-and-set-the-number-of-epochs-to-iterate-through">7.6. <strong>Q10) Define the loss function, instantiate the model, define the optimizer, and set the number of epochs to iterate through</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-define-the-model-evaluation-function">7.7. <strong>Q11) Define the model evaluation function</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q12-write-the-training-loop">7.8. <strong>Q12) Write the training loop</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-go-ahead-and-load-the-csv-file-with-the-data-for-our-project-today-the-filepath-is-stored-in-the-data-file-variable-that-was-defined-in-the-hidden-code-within-the-cell-above-this-one">7.3.1. <strong>Q1) Go ahead and load the csv file with the data for our project today. The filepath is stored in the <code class="docutils literal notranslate"><span class="pre">data_file</span></code> variable that was defined in the hidden code within the cell above this one!</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-store-the-list-of-available-years-of-data-in-a-variable-and-print-out-the-length-of-the-list">7.3.2. <strong>Q2) Store the list of available years of data in a variable, and print out the length of the list.</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-split-the-dataset-into-a-training-validation-and-test-set">7.3.3. <strong>Q3) Split the dataset into a training, validation, and test set.</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-scale-the-input-data-using-a-standardscaler-i-e-using-the-mean-and-standard-deviation">7.3.4. <strong>Q4) Scale the input data using a StandardScaler (i.e., using the mean and standard deviation).</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-turn-the-training-validation-and-test-data-into-a-set-of-series-to-feed-into-an-lstm">7.3.5. <strong>Q5) Turn the training, validation, and test data into a set of series to feed into an LSTM</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-convert-the-prepared-datasets-into-pytorch-datasets">7.3.6. <strong>Q6) Convert the prepared datasets into PyTorch Datasets</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-define-the-hyperparameters-and-settings-for-training">7.3.7. <strong>Q7) Define the hyperparameters and settings for training</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-define-the-training-validation-and-test-dataloaders">7.3.8. <strong>Q8) Define the training, validation, and test Dataloaders</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-define-the-lstm-model-architecture">7.3.9. <strong>Q9) Define the LSTM model architecture</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-define-the-loss-function-instantiate-the-model-define-the-optimizer-and-set-the-number-of-epochs-to-iterate-through">7.3.10. <strong>Q10) Define the loss function, instantiate the model, define the optimizer, and set the number of epochs to iterate through</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-define-the-model-evaluation-function">7.3.11. <strong>Q11) Define the model evaluation function</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q12-write-the-training-loop">7.3.12. <strong>Q12) Write the training loop</strong></a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
