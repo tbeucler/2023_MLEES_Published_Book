@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7.5. Neural Networks for Time Series Predictions &#8212; Machine Learning for Earth and Environmental Sciences</title>
+    <title>7.1. Neural Networks for Time Series Predictions &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -62,7 +62,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Frederick/Neural_Networks_for_Time_Series_Predictions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7.6. Exercise 1: Comparing Different Types of Recurrent and Convolutional Neural Networks to Compose Bach Chorales" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html" />
+    <link rel="next" title="7.2. Exercise 1: Comparing Different Types of Recurrent and Convolutional Neural Networks to Compose Bach Chorales" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html" />
     <link rel="prev" title="7. Recurrent Neural Networks and Hydrological Modeling" href="../DL/Week_6_Recurrent_NN.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -220,9 +220,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../DL/Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.5. Neural Networks for Time Series Predictions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.6. (Exercise) Composing Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.7. (Exercise) Hydrological Modeling</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.1. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.2. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.3. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
 </ul>
@@ -418,8 +418,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-sequences-using-rnns-and-cnns">7.5.1. Processing Sequences using RNNs and CNNs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-and-attention">7.5.2. Transformers and Attention</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-sequences-using-rnns-and-cnns">7.1.1. Processing Sequences using RNNs and CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-and-attention">7.1.2. Transformers and Attention</a></li>
 </ul>
             </nav>
         </div>
@@ -432,7 +432,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="neural-networks-for-time-series-predictions">
-<h1><span class="section-number">7.5. </span>Neural Networks for Time Series Predictions<a class="headerlink" href="#neural-networks-for-time-series-predictions" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">7.1. </span>Neural Networks for Time Series Predictions<a class="headerlink" href="#neural-networks-for-time-series-predictions" title="Permalink to this headline">#</a></h1>
 <p>This week, we will introduce ML approaches for time series data. Time series data documents the temporal changes of variables and is very common when dealing with instrumental data. This chapter will introduce the use of Recurrent Neural Networks and 1D Convolutional Neural Networks to predict future changes in variables with time.</p>
 <p>Learning Objectives for this chapter include:</p>
 <ul class="simple">
@@ -443,7 +443,7 @@ document.write(`
 <li><p>Know at least three algorithms to process time-series</p></li>
 </ul>
 <div class="section" id="processing-sequences-using-rnns-and-cnns">
-<h2><span class="section-number">7.5.1. </span>Processing Sequences using RNNs and CNNs<a class="headerlink" href="#processing-sequences-using-rnns-and-cnns" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.1.1. </span>Processing Sequences using RNNs and CNNs<a class="headerlink" href="#processing-sequences-using-rnns-and-cnns" title="Permalink to this headline">#</a></h2>
 <p><img alt="RNN_schematic.jpg" src="Frederick/Figures/RNN_schematic.jpg" /></p>
 <p><strong>Caption</strong> LSTM Model for time series prediction for environmental sciences</p>
 <p><strong>Source</strong> Figure 1 from Mishra et al. (2020; <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2352484719308546#fig1">link to paper</a>)</p>
@@ -474,7 +474,7 @@ Hunt, K. M. R., Matthews, G. R., Pappenberger, F., &amp; Prudhomme, C. (2022). U
 </ol>
 </div>
 <div class="section" id="transformers-and-attention">
-<h2><span class="section-number">7.5.2. </span>Transformers and Attention<a class="headerlink" href="#transformers-and-attention" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.1.2. </span>Transformers and Attention<a class="headerlink" href="#transformers-and-attention" title="Permalink to this headline">#</a></h2>
 <p><strong>Key points</strong></p>
 <ul class="simple">
 <li><p>The main disavantages of the RNNs introduced in the previous section is that RNNs have limited capacities to capture long-range dependencies and can be hard to interpret.</p></li>
@@ -536,7 +536,7 @@ Hunt, K. M. R., Matthews, G. R., Pappenberger, F., &amp; Prudhomme, C. (2022). U
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7.6. </span>Exercise 1: Comparing Different Types of Recurrent and Convolutional Neural Networks to Compose Bach Chorales</p>
+        <p class="prev-next-title"><span class="section-number">7.2. </span>Exercise 1: Comparing Different Types of Recurrent and Convolutional Neural Networks to Compose Bach Chorales</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -558,8 +558,8 @@ Hunt, K. M. R., Matthews, G. R., Pappenberger, F., &amp; Prudhomme, C. (2022). U
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-sequences-using-rnns-and-cnns">7.5.1. Processing Sequences using RNNs and CNNs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-and-attention">7.5.2. Transformers and Attention</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-sequences-using-rnns-and-cnns">7.1.1. Processing Sequences using RNNs and CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-and-attention">7.1.2. Transformers and Attention</a></li>
 </ul>
   </nav></div>
 
