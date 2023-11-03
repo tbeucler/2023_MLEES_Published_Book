@@ -90,11 +90,11 @@ parts:
 - caption: (Part III) Deep Learning for the Geosciences
   numbered: True
   chapters:
-    - file: Saranya/W4_ANNetworks.ipynb
-      title: Introduction to Artificial Neural Networks
     - file: DL/Week_4_Artificial_Neural_Networks.ipynb
       title: Artificial Neural Networks and Surrogate Modeling
       sections:
+        - file: Saranya/W4_ANN.ipynb
+          title: Introduction to Artificial Neural Networks
         - file: DL/S4_1_NNs_with_Keras.ipynb
           title: (Exercise) Artificial Neural Networks with Keras
         - file: DL/S4_2_Physically_informed_parameterization.ipynb
@@ -111,6 +111,8 @@ parts:
     - file: DL/Week_6_Recurrent_NN.ipynb
       title: Recurrent Neural Networks and Hydrological Modeling
       sections:
+        - file: Saranya/W6_RNN_Summary.ipynb
+          title: Introduction to Recurrent Neural Networks
         - file: Frederick/Neural_Networks_for_Time_Series_Predictions.ipynb
           title: Neural Networks for Time Series Predictions
         - file: DL/S6_1_Composing_Music_With_RNNs_CNNs.ipynb
