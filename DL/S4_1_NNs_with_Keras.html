@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.1. (Exercise) Artificial Neural Networks with Keras &#8212; Machine Learning for Earth and Environmental Sciences</title>
+    <title>5.2. (Exercise) Artificial Neural Networks with Keras &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'DL/S4_1_NNs_with_Keras';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.2. (Exercise) Physically-Informed Climate Modeling" href="S4_2_Physically_informed_parameterization.html" />
-    <link rel="prev" title="5. Artificial Neural Networks and Surrogate Modeling" href="Week_4_Artificial_Neural_Networks.html" />
+    <link rel="next" title="5.3. (Exercise) Physically-Informed Climate Modeling" href="S4_2_Physically_informed_parameterization.html" />
+    <link rel="prev" title="5.1. Introduction to Artificial Neural Networks" href="../Saranya/W4_ANN.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -211,8 +211,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part III) Deep Learning for the Geosciences</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.1. (Exercise) Artificial Neural Networks with Keras</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S4_2_Physically_informed_parameterization.html">5.2. (Exercise) Physically-Informed Climate Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W4_ANN.html">5.1. Introduction to Artificial Neural Networks</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.2. (Exercise) Artificial Neural Networks with Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4_2_Physically_informed_parameterization.html">5.3. (Exercise) Physically-Informed Climate Modeling</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Week_5_Convolutional_NN.html">6. Convolutional Neural Networks and Remote Sensing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -222,9 +223,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.5. Neural Networks for Time Series Predictions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S6_1_Composing_Music_With_RNNs_CNNs.html">7.6. (Exercise) Composing Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S6_2_LSTM.html">7.7. (Exercise) Hydrological Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W6_RNN_Summary.html">7.1. Introduction to Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.2. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_1_Composing_Music_With_RNNs_CNNs.html">7.3. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
 </ul>
@@ -420,19 +422,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-setup">5.1.1. <strong>Notebook Setup</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-load-the-mnist-dataset-from-keras-divide-it-into-a-training-validation-and-test-dataset">5.1.2. Q1) Load the MNIST dataset from Keras. Divide it into a training, validation, and test dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-print-the-shape-of-the-training-validation-and-test-sets-then-print-the-maximum-and-minimum-input-values">5.1.3. Q2) Print the shape of the training, validation, and test sets. Then, print the maximum and minimum input values.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-normalize-the-input-data-for-the-training-validation-and-testing-sets">5.1.4. Q3) Normalize the input data for the training, validation, and testing sets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-to-visualize-a-sample-image-write-a-function-that">5.1.5. Q4) To visualize a sample image, write a function that:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-grab-a-4x8-sample-of-digits-from-each-dataset-and-print-out-the-image-and-labels">5.1.6. Q5) Grab a 4x8 sample of digits from each dataset and print out the image and labels</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-set-up-an-exponential-learning-rate-callback-that-after-each-batch-logs-the-value-of-the-loss-function-and-learning-rate-and-then-multiplies-the-learning-rate-by-a-factor-of-k">5.1.7. Q6) Set up an <em>Exponential_Learning_Rate</em> callback that, after each batch, logs the value of the loss function and learning rate, and then multiplies the learning rate by a factor of <span class="math notranslate nohighlight">\(k\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-write-a-sequential-keras-model-that-will-predict-the-digit-class">5.1.8. Q7) Write a sequential Keras model that will predict the digit class.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-compile-the-model-with-the-given-hyperparameters-i-e-loss-function-optimizer-and-metrics-and-instantiate-the-callback-we-defined-previously-using-a-k-factor-of-1-005-i-e-a-0-5-increase-in-learning-rate-per-batch">5.1.9. Q8) Compile the model with the given hyperparameters (i.e., loss function, optimizer, and metrics) and instantiate the callback we defined previously using a <span class="math notranslate nohighlight">\(k\)</span> factor of 1.005 (i.e., a 0.5% increase in learning rate per batch)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-fit-the-model-for-a-single-epoch-using-the-exponential-learning-rate-callback-we-defined-in-the-previous-code-cell-then-plot-the-loss-vs-learning-rate">5.1.10. Q9) Fit the model for a single epoch, using the exponential learning rate callback we defined in the previous code cell. Then, plot the Loss vs Learning rate.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-redefine-and-re-compile-the-model-with-the-learning-rate-you-found-in-q9">5.1.11. Q10) Redefine and re-compile the model with the learning rate you found in Q9.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-fit-the-updated-model-for-100-epochs">5.1.12. Q11) Fit the updated model for 100 epochs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q12-evaluate-the-model-on-the-test-set">5.1.13. Q12) Evaluate the model on the test set.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-setup">5.2.1. <strong>Notebook Setup</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-load-the-mnist-dataset-from-keras-divide-it-into-a-training-validation-and-test-dataset">5.2.2. Q1) Load the MNIST dataset from Keras. Divide it into a training, validation, and test dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-print-the-shape-of-the-training-validation-and-test-sets-then-print-the-maximum-and-minimum-input-values">5.2.3. Q2) Print the shape of the training, validation, and test sets. Then, print the maximum and minimum input values.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-normalize-the-input-data-for-the-training-validation-and-testing-sets">5.2.4. Q3) Normalize the input data for the training, validation, and testing sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-to-visualize-a-sample-image-write-a-function-that">5.2.5. Q4) To visualize a sample image, write a function that:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-grab-a-4x8-sample-of-digits-from-each-dataset-and-print-out-the-image-and-labels">5.2.6. Q5) Grab a 4x8 sample of digits from each dataset and print out the image and labels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-set-up-an-exponential-learning-rate-callback-that-after-each-batch-logs-the-value-of-the-loss-function-and-learning-rate-and-then-multiplies-the-learning-rate-by-a-factor-of-k">5.2.7. Q6) Set up an <em>Exponential_Learning_Rate</em> callback that, after each batch, logs the value of the loss function and learning rate, and then multiplies the learning rate by a factor of <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-write-a-sequential-keras-model-that-will-predict-the-digit-class">5.2.8. Q7) Write a sequential Keras model that will predict the digit class.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-compile-the-model-with-the-given-hyperparameters-i-e-loss-function-optimizer-and-metrics-and-instantiate-the-callback-we-defined-previously-using-a-k-factor-of-1-005-i-e-a-0-5-increase-in-learning-rate-per-batch">5.2.9. Q8) Compile the model with the given hyperparameters (i.e., loss function, optimizer, and metrics) and instantiate the callback we defined previously using a <span class="math notranslate nohighlight">\(k\)</span> factor of 1.005 (i.e., a 0.5% increase in learning rate per batch)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-fit-the-model-for-a-single-epoch-using-the-exponential-learning-rate-callback-we-defined-in-the-previous-code-cell-then-plot-the-loss-vs-learning-rate">5.2.10. Q9) Fit the model for a single epoch, using the exponential learning rate callback we defined in the previous code cell. Then, plot the Loss vs Learning rate.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-redefine-and-re-compile-the-model-with-the-learning-rate-you-found-in-q9">5.2.11. Q10) Redefine and re-compile the model with the learning rate you found in Q9.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-fit-the-updated-model-for-100-epochs">5.2.12. Q11) Fit the updated model for 100 epochs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q12-evaluate-the-model-on-the-test-set">5.2.13. Q12) Evaluate the model on the test set.</a></li>
 </ul>
             </nav>
         </div>
@@ -446,7 +448,7 @@ document.write(`
                   
   <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/DL/S4_1_NNs_with_Keras.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <div class="tex2jax_ignore mathjax_ignore section" id="exercise-artificial-neural-networks-with-keras">
-<h1><span class="section-number">5.1. </span>(Exercise) Artificial Neural Networks with Keras<a class="headerlink" href="#exercise-artificial-neural-networks-with-keras" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">5.2. </span>(Exercise) Artificial Neural Networks with Keras<a class="headerlink" href="#exercise-artificial-neural-networks-with-keras" title="Permalink to this headline">#</a></h1>
 <p>This notebook was designed to be run on Google Colab and we recommend clicking on the Google Colab badge to proceed.</p>
 <p><img alt="picture" src="https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EWzvoN-LqmBDtvuEXvi3m2MBRr4ACElB77IAfndUaDFVJQ?download=1" /></p>
 <center>
@@ -458,7 +460,7 @@ a constructed, artificial, or machine intelligence.</em> <br>
 </div></blockquote>
 <p><em>This notebook, whose first draft was written by Milton Gomez, covers Chapters 10 of Géron, and builds on the <a class="reference external" href="https://github.com/ageron/handson-ml2">notebooks made available on <em>Github</em></a>.</em></p>
 <div class="section" id="notebook-setup">
-<h2><span class="section-number">5.1.1. </span><strong>Notebook Setup</strong><a class="headerlink" href="#notebook-setup" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2.1. </span><strong>Notebook Setup</strong><a class="headerlink" href="#notebook-setup" title="Permalink to this headline">#</a></h2>
 <p>First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20 and TensorFlow ≥2.0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -538,7 +540,7 @@ a constructed, artificial, or machine intelligence.</em> <br>
 <p>Let’s begin by importing the dataset from the keras dataset library.</p>
 </div>
 <div class="section" id="q1-load-the-mnist-dataset-from-keras-divide-it-into-a-training-validation-and-test-dataset">
-<h2><span class="section-number">5.1.2. </span>Q1) Load the MNIST dataset from Keras. Divide it into a training, validation, and test dataset<a class="headerlink" href="#q1-load-the-mnist-dataset-from-keras-divide-it-into-a-training-validation-and-test-dataset" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2.2. </span>Q1) Load the MNIST dataset from Keras. Divide it into a training, validation, and test dataset<a class="headerlink" href="#q1-load-the-mnist-dataset-from-keras-divide-it-into-a-training-validation-and-test-dataset" title="Permalink to this headline">#</a></h2>
 <p><em>Hint 1: To access the Keras library, you can either reimport keras (e.g., <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">tensorflow.keras</span> <span class="pre">as</span> <span class="pre">keras</span></code>), or you can access it from the instance of tensorflow we imported during setup (i.e., using <code class="docutils literal notranslate"><span class="pre">tf.keras</span></code>)</em></p>
 <p><em>Hint 2: <a class="reference external" href="https://keras.io/api/datasets/mnist/">Here is the documentation</a> for the Keras implementation of the MNIST dataset</em></p>
 <p><em>Hint 3: If you use the <code class="docutils literal notranslate"><span class="pre">mnist.load_data()</span></code> method, what will be returned will be a set of tuples: (training_data, testing_data), where training_data and testing_data are tuples of inputs and labels (X, y)</em></p>
@@ -565,7 +567,7 @@ a constructed, artificial, or machine intelligence.</em> <br>
 <p>What does our data look like? Let’s get an idea of the values and figure out what kind of preprocessing we should do before training our neural network.</p>
 </div>
 <div class="section" id="q2-print-the-shape-of-the-training-validation-and-test-sets-then-print-the-maximum-and-minimum-input-values">
-<h2><span class="section-number">5.1.3. </span>Q2) Print the shape of the training, validation, and test sets. Then, print the maximum and minimum input values.<a class="headerlink" href="#q2-print-the-shape-of-the-training-validation-and-test-sets-then-print-the-maximum-and-minimum-input-values" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2.3. </span>Q2) Print the shape of the training, validation, and test sets. Then, print the maximum and minimum input values.<a class="headerlink" href="#q2-print-the-shape-of-the-training-validation-and-test-sets-then-print-the-maximum-and-minimum-input-values" title="Permalink to this headline">#</a></h2>
 <p><em>Hint 1: You loaded the data as numpy arrays. Thus, you can rely on the built-in methods for finding the shape and min/max values.</em></p>
 <p><em>Hint 2: Click for the documentation on <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.max.html"><code class="docutils literal notranslate"><span class="pre">ndarray.max()</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.min.html"><code class="docutils literal notranslate"><span class="pre">ndarray.min()</span></code></a>, and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.shape.html"><code class="docutils literal notranslate"><span class="pre">ndarray.shape</span></code></a></em></p>
 <div class="cell docutils container">
@@ -579,7 +581,7 @@ a constructed, artificial, or machine intelligence.</em> <br>
 <p>Since the data represents grayscale image values, data values should vary between 0 and 255; Normalize the data by dividing it by 255.</p>
 </div>
 <div class="section" id="q3-normalize-the-input-data-for-the-training-validation-and-testing-sets">
-<h2><span class="section-number">5.1.4. </span>Q3) Normalize the input data for the training, validation, and testing sets<a class="headerlink" href="#q3-normalize-the-input-data-for-the-training-validation-and-testing-sets" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2.4. </span>Q3) Normalize the input data for the training, validation, and testing sets<a class="headerlink" href="#q3-normalize-the-input-data-for-the-training-validation-and-testing-sets" title="Permalink to this headline">#</a></h2>
 <p><em>Hint 1: The datasets are stored as simple numpy arrays, so you can perform arithmetic operations on them!</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -593,7 +595,7 @@ a constructed, artificial, or machine intelligence.</em> <br>
 <p>We now have the normalized training, validation, and testing data that we’ll use to train our neural network. Before moving on, it might be worth it to make a small visualiation of samples in our data to ensure that everything worked out correctly.</p>
 </div>
 <div class="section" id="q4-to-visualize-a-sample-image-write-a-function-that">
-<h2><span class="section-number">5.1.5. </span>Q4) To visualize a sample image, write a function that:<a class="headerlink" href="#q4-to-visualize-a-sample-image-write-a-function-that" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2.5. </span>Q4) To visualize a sample image, write a function that:<a class="headerlink" href="#q4-to-visualize-a-sample-image-write-a-function-that" title="Permalink to this headline">#</a></h2>
 <p><br> <blockquote>1) Takes in an input dataset and its labels, a number of rows, and a number of columns <br> 2) Prints out a random <code class="docutils literal notranslate"><span class="pre">n_rows</span></code> by <code class="docutils literal notranslate"><span class="pre">n_columns</span></code> sample of images with their labels</blockquote>**</p>
 <p><em>Hint 1: You can use the <code class="docutils literal notranslate"><span class="pre">rnd_seed.integers()</span></code> generator to generate a set of integers between 0 and the number of samples, with a size of (rows,columns). <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html#simple-random-data">Here is some documentation that can help</a>. It’s best practice to take in the random generator as an argument for your function.</em></p>
 <p><em>Hint 2: You can use matplotlib’s <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">axes</span> <span class="pre">=</span> <span class="pre">plt.subplots()</span></code> to make a grid of axes and call the <code class="docutils literal notranslate"><span class="pre">imshow()</span></code> method on each ax in order to plot the digit. It is recommended that you use the <code class="docutils literal notranslate"><span class="pre">cmap='binary'</span></code> argument in imshow to print the digits in black and white</em>. Click on the links for the documentation to <a class="reference external" href="https://matplotlib.org/3.5.0/api/_as_gen/matplotlib.pyplot.subplots.html"><code class="docutils literal notranslate"><span class="pre">plt.sublopts()</span></code></a>, <a class="reference external" href="https://matplotlib.org/3.5.0/api/_as_gen/matplotlib.pyplot.imshow.html"><code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code></a>, and <a class="reference external" href="https://matplotlib.org/stable/gallery/color/colormap_reference.html">the colormaps (i.e., cmap values)</a> available in matplotlib.</p>
@@ -639,7 +641,7 @@ a constructed, artificial, or machine intelligence.</em> <br>
 <p>Now that our function is defined, let’s go ahead and print out a 4 row by 8 column sample from each dataset.</p>
 </div>
 <div class="section" id="q5-grab-a-4x8-sample-of-digits-from-each-dataset-and-print-out-the-image-and-labels">
-<h2><span class="section-number">5.1.6. </span>Q5) Grab a 4x8 sample of digits from each dataset and print out the image and labels<a class="headerlink" href="#q5-grab-a-4x8-sample-of-digits-from-each-dataset-and-print-out-the-image-and-labels" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2.6. </span>Q5) Grab a 4x8 sample of digits from each dataset and print out the image and labels<a class="headerlink" href="#q5-grab-a-4x8-sample-of-digits-from-each-dataset-and-print-out-the-image-and-labels" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Write your code here!</span>
@@ -662,7 +664,7 @@ where <span class="math notranslate nohighlight">\(t\)</span> is the current ite
 </div></blockquote>
 </div>
 <div class="section" id="q6-set-up-an-exponential-learning-rate-callback-that-after-each-batch-logs-the-value-of-the-loss-function-and-learning-rate-and-then-multiplies-the-learning-rate-by-a-factor-of-k">
-<h2><span class="section-number">5.1.7. </span>Q6) Set up an <em>Exponential_Learning_Rate</em> callback that, after each batch, logs the value of the loss function and learning rate, and then multiplies the learning rate by a factor of <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#q6-set-up-an-exponential-learning-rate-callback-that-after-each-batch-logs-the-value-of-the-loss-function-and-learning-rate-and-then-multiplies-the-learning-rate-by-a-factor-of-k" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2.7. </span>Q6) Set up an <em>Exponential_Learning_Rate</em> callback that, after each batch, logs the value of the loss function and learning rate, and then multiplies the learning rate by a factor of <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#q6-set-up-an-exponential-learning-rate-callback-that-after-each-batch-logs-the-value-of-the-loss-function-and-learning-rate-and-then-multiplies-the-learning-rate-by-a-factor-of-k" title="Permalink to this headline">#</a></h2>
 <p><em>Hint 1: Multiple backend options are available with Keras. We will be using tensorflow, but the code is thought to be written in such a way that a different backend <strong>could</strong> be used. <code class="docutils literal notranslate"><span class="pre">tf.keras.backend</span></code> has a <code class="docutils literal notranslate"><span class="pre">.backend()</span></code> method that allows you to check what backend is being used.</em></p>
 <p>*Hint 2: You should extend the <code class="docutils literal notranslate"><span class="pre">tf.keras.callbacks.Callback</span></code> class. (Confused about extending classes? <a class="reference external" href="https://stackoverflow.com/questions/15526858/how-to-extend-a-class-in-python">Here is a question on stack overflow</a> that could provide some context) *</p>
 <p><em>Hint 3: The ExponentialLearningRate callback we will implement will need to take in the <span class="math notranslate nohighlight">\(k\)</span> factor during its initialization (<a class="reference external" href="https://stackoverflow.com/questions/625083/what-do-init-and-self-do-in-python">here’s a quick overview</a> on the <strong>init</strong> contructor method and <strong>self</strong> arguments in classes, with a focus on python.). You will also need to save an empty list as an attribute for both the losses and the learning rates</em></p>
@@ -721,7 +723,7 @@ where <span class="math notranslate nohighlight">\(t\)</span> is the current ite
 <p>Let’s make a simple neural network model using Keras. For this, we will rely on a <a class="reference external" href="https://keras.io/guides/sequential_model/"><em>Sequential model</em></a>, since we will want all of the inputs of one layer to be fed into the next layer. We recommend using the architecture described in the diagram below, but feel free to define your own architecture!</p>
 <center><img width=60% src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/ETl6L_3bHENFt6ZDSgaCpIEBkg2cNPDGowc8u5V8Gxe7XQ?download=1'></center></div>
 <div class="section" id="q7-write-a-sequential-keras-model-that-will-predict-the-digit-class">
-<h2><span class="section-number">5.1.8. </span>Q7) Write a sequential Keras model that will predict the digit class.<a class="headerlink" href="#q7-write-a-sequential-keras-model-that-will-predict-the-digit-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2.8. </span>Q7) Write a sequential Keras model that will predict the digit class.<a class="headerlink" href="#q7-write-a-sequential-keras-model-that-will-predict-the-digit-class" title="Permalink to this headline">#</a></h2>
 <p><em>Hint 1: You can add the layers in the sequential model when initializing the model. It expects the layers in a list. Alternatively, you can add them one by one using the model’s <code class="docutils literal notranslate"><span class="pre">.add()</span></code> method. <a class="reference external" href="https://keras.io/guides/sequential_model/#creating-a-sequential-model">Check out the documentation here</a>.</em></p>
 <p><em>Hint 2: The input images should be flattened before feeding them into any densely connected layers. <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Flatten">Here is the documentation</a> for the flatten layer.</em></p>
 <p><em>Hint 3: You want to use simple, densely connected layers for this exercise. <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense">Here is the documentation</a> for the dense layer.</em></p>
@@ -747,7 +749,7 @@ where <span class="math notranslate nohighlight">\(t\)</span> is the current ite
 </div></blockquote>
 </div>
 <div class="section" id="q8-compile-the-model-with-the-given-hyperparameters-i-e-loss-function-optimizer-and-metrics-and-instantiate-the-callback-we-defined-previously-using-a-k-factor-of-1-005-i-e-a-0-5-increase-in-learning-rate-per-batch">
-<h2><span class="section-number">5.1.9. </span>Q8) Compile the model with the given hyperparameters (i.e., loss function, optimizer, and metrics) and instantiate the callback we defined previously using a <span class="math notranslate nohighlight">\(k\)</span> factor of 1.005 (i.e., a 0.5% increase in learning rate per batch)<a class="headerlink" href="#q8-compile-the-model-with-the-given-hyperparameters-i-e-loss-function-optimizer-and-metrics-and-instantiate-the-callback-we-defined-previously-using-a-k-factor-of-1-005-i-e-a-0-5-increase-in-learning-rate-per-batch" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2.9. </span>Q8) Compile the model with the given hyperparameters (i.e., loss function, optimizer, and metrics) and instantiate the callback we defined previously using a <span class="math notranslate nohighlight">\(k\)</span> factor of 1.005 (i.e., a 0.5% increase in learning rate per batch)<a class="headerlink" href="#q8-compile-the-model-with-the-given-hyperparameters-i-e-loss-function-optimizer-and-metrics-and-instantiate-the-callback-we-defined-previously-using-a-k-factor-of-1-005-i-e-a-0-5-increase-in-learning-rate-per-batch" title="Permalink to this headline">#</a></h2>
 <p><em>Hint 1: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/metrics/sparse_categorical_crossentropy">Here is the documentation</a> for the sparse categorical cross entropy loss function in keras. You can simply reference the function using <code class="docutils literal notranslate"><span class="pre">loss='sparse_categorical_crossentropy'</span></code> when compiling.</em></p>
 <p><em>Hint 2: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/SGD">Here is the documentation</a> for the Stochastic Gradient Descent optimizer in keras</em></p>
 <p><em>Hint 3: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/metrics/Accuracy">Here is the documentation</a> for the accuracy score implementation in keras. Like with the sparse_categorical_cross_entropy loss, you can reference the accuracy score in the metrics list, e.g. by setting <code class="docutils literal notranslate"><span class="pre">metrics=['accuracy']</span></code> when compiling.</em></p>
@@ -770,7 +772,7 @@ where <span class="math notranslate nohighlight">\(t\)</span> is the current ite
 <p>Let’s go ahead and train the compiled model for a single epoch.</p>
 </div>
 <div class="section" id="q9-fit-the-model-for-a-single-epoch-using-the-exponential-learning-rate-callback-we-defined-in-the-previous-code-cell-then-plot-the-loss-vs-learning-rate">
-<h2><span class="section-number">5.1.10. </span>Q9) Fit the model for a single epoch, using the exponential learning rate callback we defined in the previous code cell. Then, plot the Loss vs Learning rate.<a class="headerlink" href="#q9-fit-the-model-for-a-single-epoch-using-the-exponential-learning-rate-callback-we-defined-in-the-previous-code-cell-then-plot-the-loss-vs-learning-rate" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2.10. </span>Q9) Fit the model for a single epoch, using the exponential learning rate callback we defined in the previous code cell. Then, plot the Loss vs Learning rate.<a class="headerlink" href="#q9-fit-the-model-for-a-single-epoch-using-the-exponential-learning-rate-callback-we-defined-in-the-previous-code-cell-then-plot-the-loss-vs-learning-rate" title="Permalink to this headline">#</a></h2>
 <p><em>Hint 1: Just like in scikit-learn, the keras model includes a <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method to train the algorithm! <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/Model#fit">Here is the documentation</a>.</em></p>
 <p><em>Hint 2: After training, you can access the recorded losses and corresponding learning rates using the attributes we defined when we defined the class in Q5!</em></p>
 <div class="cell docutils container">
@@ -834,7 +836,7 @@ where <span class="math notranslate nohighlight">\(t\)</span> is the current ite
 <p>We also want to instantiate the model again - the weights in our current model are quite bad and if we use it as is it won’t be able to learn since the weights are too far away from the solution. There are other ways to do this, but since our model is quite simple it’s worth it to just redefine and recompile it.</p>
 </div>
 <div class="section" id="q10-redefine-and-re-compile-the-model-with-the-learning-rate-you-found-in-q9">
-<h2><span class="section-number">5.1.11. </span>Q10) Redefine and re-compile the model with the learning rate you found in Q9.<a class="headerlink" href="#q10-redefine-and-re-compile-the-model-with-the-learning-rate-you-found-in-q9" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2.11. </span>Q10) Redefine and re-compile the model with the learning rate you found in Q9.<a class="headerlink" href="#q10-redefine-and-re-compile-the-model-with-the-learning-rate-you-found-in-q9" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># redefine the model</span>
@@ -887,7 +889,7 @@ where <span class="math notranslate nohighlight">\(t\)</span> is the current ite
 <p>Let’s go ahead and fit the model again!</p>
 </div>
 <div class="section" id="q11-fit-the-updated-model-for-100-epochs">
-<h2><span class="section-number">5.1.12. </span>Q11) Fit the updated model for 100 epochs<a class="headerlink" href="#q11-fit-the-updated-model-for-100-epochs" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2.12. </span>Q11) Fit the updated model for 100 epochs<a class="headerlink" href="#q11-fit-the-updated-model-for-100-epochs" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">____</span><span class="p">,</span> <span class="c1"># inputs</span>
@@ -902,7 +904,7 @@ where <span class="math notranslate nohighlight">\(t\)</span> is the current ite
 <p>Finally, we need to evaluate the performance of our model. Go ahead and try it out on the test set!</p>
 </div>
 <div class="section" id="q12-evaluate-the-model-on-the-test-set">
-<h2><span class="section-number">5.1.13. </span>Q12) Evaluate the model on the test set.<a class="headerlink" href="#q12-evaluate-the-model-on-the-test-set" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2.13. </span>Q12) Evaluate the model on the test set.<a class="headerlink" href="#q12-evaluate-the-model-on-the-test-set" title="Permalink to this headline">#</a></h2>
 <p><em>Hint 1: Keras models include an <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code> method that takes in the test set inputs/labels. <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/Model#evaluate">Here is the documentation</a>.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -960,12 +962,12 @@ where <span class="math notranslate nohighlight">\(t\)</span> is the current ite
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Week_4_Artificial_Neural_Networks.html"
+       href="../Saranya/W4_ANN.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Artificial Neural Networks and Surrogate Modeling</p>
+        <p class="prev-next-title"><span class="section-number">5.1. </span>Introduction to Artificial Neural Networks</p>
       </div>
     </a>
     <a class="right-next"
@@ -973,7 +975,7 @@ where <span class="math notranslate nohighlight">\(t\)</span> is the current ite
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.2. </span>(Exercise) Physically-Informed Climate Modeling</p>
+        <p class="prev-next-title"><span class="section-number">5.3. </span>(Exercise) Physically-Informed Climate Modeling</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -995,19 +997,19 @@ where <span class="math notranslate nohighlight">\(t\)</span> is the current ite
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-setup">5.1.1. <strong>Notebook Setup</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-load-the-mnist-dataset-from-keras-divide-it-into-a-training-validation-and-test-dataset">5.1.2. Q1) Load the MNIST dataset from Keras. Divide it into a training, validation, and test dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-print-the-shape-of-the-training-validation-and-test-sets-then-print-the-maximum-and-minimum-input-values">5.1.3. Q2) Print the shape of the training, validation, and test sets. Then, print the maximum and minimum input values.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-normalize-the-input-data-for-the-training-validation-and-testing-sets">5.1.4. Q3) Normalize the input data for the training, validation, and testing sets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-to-visualize-a-sample-image-write-a-function-that">5.1.5. Q4) To visualize a sample image, write a function that:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-grab-a-4x8-sample-of-digits-from-each-dataset-and-print-out-the-image-and-labels">5.1.6. Q5) Grab a 4x8 sample of digits from each dataset and print out the image and labels</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-set-up-an-exponential-learning-rate-callback-that-after-each-batch-logs-the-value-of-the-loss-function-and-learning-rate-and-then-multiplies-the-learning-rate-by-a-factor-of-k">5.1.7. Q6) Set up an <em>Exponential_Learning_Rate</em> callback that, after each batch, logs the value of the loss function and learning rate, and then multiplies the learning rate by a factor of <span class="math notranslate nohighlight">\(k\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-write-a-sequential-keras-model-that-will-predict-the-digit-class">5.1.8. Q7) Write a sequential Keras model that will predict the digit class.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-compile-the-model-with-the-given-hyperparameters-i-e-loss-function-optimizer-and-metrics-and-instantiate-the-callback-we-defined-previously-using-a-k-factor-of-1-005-i-e-a-0-5-increase-in-learning-rate-per-batch">5.1.9. Q8) Compile the model with the given hyperparameters (i.e., loss function, optimizer, and metrics) and instantiate the callback we defined previously using a <span class="math notranslate nohighlight">\(k\)</span> factor of 1.005 (i.e., a 0.5% increase in learning rate per batch)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-fit-the-model-for-a-single-epoch-using-the-exponential-learning-rate-callback-we-defined-in-the-previous-code-cell-then-plot-the-loss-vs-learning-rate">5.1.10. Q9) Fit the model for a single epoch, using the exponential learning rate callback we defined in the previous code cell. Then, plot the Loss vs Learning rate.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-redefine-and-re-compile-the-model-with-the-learning-rate-you-found-in-q9">5.1.11. Q10) Redefine and re-compile the model with the learning rate you found in Q9.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-fit-the-updated-model-for-100-epochs">5.1.12. Q11) Fit the updated model for 100 epochs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q12-evaluate-the-model-on-the-test-set">5.1.13. Q12) Evaluate the model on the test set.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-setup">5.2.1. <strong>Notebook Setup</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-load-the-mnist-dataset-from-keras-divide-it-into-a-training-validation-and-test-dataset">5.2.2. Q1) Load the MNIST dataset from Keras. Divide it into a training, validation, and test dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-print-the-shape-of-the-training-validation-and-test-sets-then-print-the-maximum-and-minimum-input-values">5.2.3. Q2) Print the shape of the training, validation, and test sets. Then, print the maximum and minimum input values.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-normalize-the-input-data-for-the-training-validation-and-testing-sets">5.2.4. Q3) Normalize the input data for the training, validation, and testing sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-to-visualize-a-sample-image-write-a-function-that">5.2.5. Q4) To visualize a sample image, write a function that:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-grab-a-4x8-sample-of-digits-from-each-dataset-and-print-out-the-image-and-labels">5.2.6. Q5) Grab a 4x8 sample of digits from each dataset and print out the image and labels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-set-up-an-exponential-learning-rate-callback-that-after-each-batch-logs-the-value-of-the-loss-function-and-learning-rate-and-then-multiplies-the-learning-rate-by-a-factor-of-k">5.2.7. Q6) Set up an <em>Exponential_Learning_Rate</em> callback that, after each batch, logs the value of the loss function and learning rate, and then multiplies the learning rate by a factor of <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-write-a-sequential-keras-model-that-will-predict-the-digit-class">5.2.8. Q7) Write a sequential Keras model that will predict the digit class.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-compile-the-model-with-the-given-hyperparameters-i-e-loss-function-optimizer-and-metrics-and-instantiate-the-callback-we-defined-previously-using-a-k-factor-of-1-005-i-e-a-0-5-increase-in-learning-rate-per-batch">5.2.9. Q8) Compile the model with the given hyperparameters (i.e., loss function, optimizer, and metrics) and instantiate the callback we defined previously using a <span class="math notranslate nohighlight">\(k\)</span> factor of 1.005 (i.e., a 0.5% increase in learning rate per batch)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-fit-the-model-for-a-single-epoch-using-the-exponential-learning-rate-callback-we-defined-in-the-previous-code-cell-then-plot-the-loss-vs-learning-rate">5.2.10. Q9) Fit the model for a single epoch, using the exponential learning rate callback we defined in the previous code cell. Then, plot the Loss vs Learning rate.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-redefine-and-re-compile-the-model-with-the-learning-rate-you-found-in-q9">5.2.11. Q10) Redefine and re-compile the model with the learning rate you found in Q9.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-fit-the-updated-model-for-100-epochs">5.2.12. Q11) Fit the updated model for 100 epochs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q12-evaluate-the-model-on-the-test-set">5.2.13. Q12) Evaluate the model on the test set.</a></li>
 </ul>
   </nav></div>
 
