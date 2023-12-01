@@ -73,7 +73,7 @@ parts:
         - file: Frederick/(Exercises)_Decision_Trees_and_Random_Forest.ipynb
           title: (Exercises) Decision Trees and Random Forest
         - file: Frederick/(Exercises)_Ensemble_Modeling_and_Stacking.ipynb
-          title: Ensemble Modeling and Stacking
+          title: (Exercises) Ensemble Modeling and Stacking
         - file: Frederick/(Exercises)_Wildfire_Susceptibility_Mapping.ipynb
           title: (Exercises) Wildfire Susceptibility Mapping
     - file: ML/Week_3_Dimensionality_Reduction_Clustering.ipynb
@@ -90,11 +90,11 @@ parts:
 - caption: (Part III) Deep Learning for the Geosciences
   numbered: True
   chapters:
-    - file: Saranya/W4_ANNetworks.ipynb
-      title: Introduction to Artificial Neural Networks
     - file: DL/Week_4_Artificial_Neural_Networks.ipynb
       title: Artificial Neural Networks and Surrogate Modeling
       sections:
+        - file: Saranya/W4_ANN.ipynb
+          title: Introduction to Artificial Neural Networks
         - file: DL/S4_1_NNs_with_Keras.ipynb
           title: (Exercise) Artificial Neural Networks with Keras
         - file: DL/S4_2_Physically_informed_parameterization.ipynb
@@ -111,9 +111,21 @@ parts:
     - file: DL/Week_6_Recurrent_NN.ipynb
       title: Recurrent Neural Networks and Hydrological Modeling
       sections:
+        - file: Saranya/W6_RNN_Summary.ipynb
+          title: Introduction to Recurrent Neural Networks
         - file: Frederick/Neural_Networks_for_Time_Series_Predictions.ipynb
           title: Neural Networks for Time Series Predictions
         - file: DL/S6_1_Composing_Music_With_RNNs_CNNs.ipynb
           title: (Exercise) Composing Music
         - file: DL/S6_2_LSTM.ipynb
           title: (Exercise) Hydrological Modeling
+- caption: (Part IV) Towards Trustworthy AI
+  numbered: True
+  chapters:
+    - file: DL/W8_XAI.ipynb
+      title: EXplainable Artifical Intelligence (XAI) and Understanding Predictions
+      sections:
+        - file: Frederick/S8_XAIsummary.ipynb
+          title: Why do we need machine learning model interpretability?
+        - file: Frederick/Chapter8_Ex1.ipynb
+          title: (Exercise) XAI on Simple Datasets

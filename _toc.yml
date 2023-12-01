@@ -119,3 +119,13 @@ parts:
           title: (Exercise) Composing Music
         - file: DL/S6_2_LSTM.ipynb
           title: (Exercise) Hydrological Modeling
+- caption: (Part IV) Towards Trustworthy AI
+  numbered: True
+  chapters:
+    - file: DL/W8_XAI.ipynb
+      title: Explainable Artifical Intelligence and Understanding Predictions
+      sections:
+        - file: Frederick/S8_XAIsummary.ipynb
+          title: Why do we need machine learning model interpretability?
+        - file: Frederick/Chapter8_Ex1.ipynb
+          title: (Exercise) XAI on Simple Datasets
