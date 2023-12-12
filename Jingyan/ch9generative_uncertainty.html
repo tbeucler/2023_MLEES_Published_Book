@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity &#8212; Machine Learning for Earth and Environmental Sciences</title>
+    <title>9. Generative Modeling: From Uncertainty Quantification to Stochastic Downscaling &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -59,11 +59,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ML/Week_3_Dimensionality_Reduction_Clustering';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Jingyan/ch9generative_uncertainty';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.1. Unsupervised Learning for Clustering and Dimensionality Reduction" href="../Jingyan/Chapter4-UnsupervisedLearning.html" />
-    <link rel="prev" title="3.5. Exercise 4: Mapping Wildfire Susceptibility in the Liguria Region with Simple Machine Learning Classifiers" href="../Frederick/%28Exercises%29_Wildfire_Susceptibility_Mapping.html" />
+    <link rel="prev" title="8.2. Exercise 1: Implementing Explainable AI Methods on Simple Datasets" href="../Frederick/Chapter8_Ex1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -181,16 +180,16 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2.html">2.1. Classification and Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2_Stat.html">2.4. Statistical Forecasting in Environmental Sciences</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Support_Vector_Machines.html">3.2. (Exercises) Support Vector Machines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Decision_Trees_and_Random_Forest.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
@@ -198,11 +197,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Wildfire_Susceptibility_Mapping.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S3_3_THOR.html">4.4. (Exercise) Ocean Regimes Identification</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_3_THOR.html">4.4. (Exercise) Ocean Regimes Identification</a></li>
 </ul>
 </li>
 </ul>
@@ -215,7 +214,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_5_Convolutional_NN.html">6. Convolutional Neural Networks and Remote Sensing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.html">6.1. Convolutional Neural Networks and Remote Sensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.html">6.1. Convolutional Neural Networks and Remote Sensing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../DL/S5_1_CNNs.html">6.2. (Exercise) Deep Computer Vision</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../DL/S5_2_CNN_and_EuroSAT.html">6.3. (Exercise) Land Cover Classification</a></li>
 </ul>
@@ -229,13 +228,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">9. Generative Modeling and Uncertainty Quantification</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Generative Modeling and Uncertainty Quantification</a></li>
 </ul>
 
     </div>
@@ -307,7 +306,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FML/Week_3_Dimensionality_Reduction_Clustering.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FJingyan/ch9generative_uncertainty.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -337,7 +336,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/ML/Week_3_Dimensionality_Reduction_Clustering.ipynb" target="_blank"
+      <li><a href="../_sources/Jingyan/ch9generative_uncertainty.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -406,7 +405,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -417,11 +418,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</h1>
+    <h1>Generative Modeling: From Uncertainty Quantification to Stochastic Downscaling</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">9.1. Learning Objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-modeling">9.2. Generative Modeling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-uncertainty-to-machine-learning-models">9.3. Add Uncertainty to Machine Learning Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-uncertainty">9.4. Evaluate Uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notable-genetative-models">9.5. Notable Genetative Models:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-data-representations">9.6. Latent data representations</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -431,41 +445,69 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/ML/Week_3_Dimensionality_Reduction_Clustering.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="unsupervised-learning-for-clustering-dimensionality-reduction-and-environmental-complexity">
-<h1><span class="section-number">4. </span>Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity<a class="headerlink" href="#unsupervised-learning-for-clustering-dimensionality-reduction-and-environmental-complexity" title="Permalink to this headline">#</a></h1>
-<p>For this week’s lab, the learning objectives are:</p>
+  <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Jingyan/ch9generative_uncertainty.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="generative-modeling-from-uncertainty-quantification-to-stochastic-downscaling">
+<h1><span class="section-number">9. </span>Generative Modeling: From Uncertainty Quantification to Stochastic Downscaling<a class="headerlink" href="#generative-modeling-from-uncertainty-quantification-to-stochastic-downscaling" title="Permalink to this headline">#</a></h1>
+<div class="section" id="learning-objectives">
+<h2><span class="section-number">9.1. </span>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
-<li><p>Exploring dimensionality reduction and its use in conjunction with other machine learning algorithms</p></li>
-<li><p>Exploring the use of unsupervised clustering algorithms, their advantages, and their limitations</p></li>
-<li><p>Applying clustering algorithms to identify dynamical regimes in oceanic data</p></li>
+<li><p>Define generative modeling</p></li>
+<li><p>Know different ways of adding uncertainty to ML models</p></li>
+<li><p>Understand how to evaluate such uncertainty estimates</p></li>
+<li><p>Know three state-of-the-art generative models</p></li>
+<li><p>Apprehend applications of latent data representations</p></li>
 </ol>
-<p>Today’s tutorial:</p>
+</div>
+<div class="section" id="generative-modeling">
+<h2><span class="section-number">9.2. </span>Generative Modeling<a class="headerlink" href="#generative-modeling" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>Generative modeling refers to a class of models within artificial intelligence that focuses on the creation of new data samples that resemble a given dataset. Instead of predictive tasks, like classification or regression, generative models aim to understand and mimic the underlying structure of the data to generate entirely new samples.</p>
+</div></blockquote>
+<blockquote>
+<div><p>These models learn the probability distribution of the input data, capturing the patterns and relationships among the data points. They can then generate new instances that, ideally, exhibit similar characteristics to the original dataset.</p>
+</div></blockquote>
+<hr class="docutils" />
+</div>
+<hr class="docutils" />
+<div class="section" id="add-uncertainty-to-machine-learning-models">
+<h2><span class="section-number">9.3. </span>Add Uncertainty to Machine Learning Models<a class="headerlink" href="#add-uncertainty-to-machine-learning-models" title="Permalink to this headline">#</a></h2>
+<p>Incorporating uncertainty into machine learning models is pivotal, especially in scenarios where decisions rely on understanding the confidence or reliability of predictions. Several methods exist to inject uncertainty into models:</p>
 <ol class="arabic simple">
-<li><p>Adapts Géron et al.’s Jupyter notebook exercises for chapters <a class="reference external" href="https://github.com/ageron/handson-ml2/blob/master/08_dimensionality_reduction.ipynb">8</a> and <a class="reference external" href="https://github.com/ageron/handson-ml2/blob/master/09_unsupervised_learning.ipynb">9</a> <a class="reference external" href="https://github.com/ageron/handson-ml2/blob/master/LICENSE">(License)</a> of his book <a class="reference external" href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/">“Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 2nd Edition”</a>,</p></li>
-<li><p>Adapts two articles on oceanic circulation from <a class="reference external" href="https://doi.org/10.1029/2018EA000519">Sonnewald, Wunsch, &amp; Heimbach</a> and <a class="reference external" href="https://doi.org/10.1029/2021MS002496">Sonnewald &amp; Lguensat</a>, and Python scripts from <a class="reference external" href="https://github.com/maikejulie">Maike Sonnewald</a>.</p></li>
+<li><p><strong>Ensemble Prediction</strong>: Ensemble methods, like bagging or boosting, involve training multiple models on different subsets of data or using diverse algorithms. The variance among predictions across these models reflects uncertainty. Aggregating these predictions, such as through averaging or weighted averaging, provides more robust estimates.</p></li>
+<li><p><strong>Multi-Model Approaches</strong>: Combining predictions from diverse models, possibly stemming from different architectures or learning algorithms, can provide a broader perspective on uncertainty. Integrating outputs from these models allows capturing various sources of uncertainty present in the data.</p></li>
+<li><p><strong>Parametric Distributional Prediction</strong>: Certain models, like Bayesian Neural Networks or Gaussian Processes, parameterize probability distributions over predictions. These models learn the uncertainty in terms of distribution parameters, enabling the estimation of full predictive distributions rather than point estimates.</p></li>
+<li><p><strong>Non-Parametric Distributional Prediction</strong>: Methods like Kernel Density Estimation or Histogram-based approaches directly estimate the underlying probability distribution of the predictions. These techniques offer non-parametric ways to model uncertainty without assuming specific functional forms for distributions.</p></li>
+<li><p><strong>Monte Carlo Dropout (MC Dropout)</strong>: Applying dropout during both training and testing in neural networks, and then performing multiple forward passes during testing, allows the model to approximate Bayesian inference. The variance in predictions across these passes provides estimates of uncertainty.</p></li>
 </ol>
-<p>If you are struggling with some of the exercises, do not hesitate to:</p>
-<ul class="simple">
-<li><p>Use a direct Internet search, or <a class="reference external" href="https://stackoverflow.com/">stackoverflow</a></p></li>
-<li><p>Ask your neighbor(s), the teacher, or the TA for help</p></li>
-<li><p>Debug your program, e.g. by following <a class="reference external" href="https://swcarpentry.github.io/python-novice-inflammation/11-debugging/index.html">this tutorial</a></p></li>
-<li><p>Use assertions, e.g. by following <a class="reference external" href="https://swcarpentry.github.io/python-novice-inflammation/10-defensive/index.html">this tutorial</a></p></li>
-</ul>
-<p>You’re making a splash!! 💦 😃 💦</p>
-<p>If you’re done early, consider:</p>
-<ul class="simple">
-<li><p>Giving feedback on how to improve this notebook (typos, hints, exercises that may be improved/removed/added, etc.) by messaging the teacher and TA(s) on Moodle</p></li>
-<li><p>Working on your final project for this course.</p></li>
-</ul>
-<p><strong>Final Project</strong>
-The final project’s goal is to answer a well-defined scientific question by applying one of the ML algorithms introduced in class on an environmental dataset of your choice (e.g., related to your Masters thesis or your PhD research).</p>
-<ul class="simple">
-<li><p>Now that you found a large environmental dataset linked to a scientific question you are passionate about, which machine learning algorithm can you use to address it? Is it a classification, a regression, or a data exploration project?</p></li>
-<li><p>How could you format the dataset to facilitate its manipulation in Python?</p></li>
-<li><p>If you’re still hunting for a dataset of interest, consider browsing the <a class="reference external" href="http://mldata.pangeo.io/index.html">list of benchmark datasets</a> maintained by <a class="reference external" href="https://pangeo.io/">Pangeo</a> and <a class="reference external" href="https://www.kaggle.com/datasets">Kaggle</a>!</p></li>
-</ul>
-<div class="toctree-wrapper compound">
+<p><img alt="image" src="https://journals.ametsoc.org/view/journals/aies/2/2/full-AIES-D-22-0061.1-f4.jpg" /></p>
+<p>Fig 1. Summary schematics and key ideas for non-Bayesian uncertainty quantification approaches (Haynes et al. 2023)</p>
+<p>By adding uncertainty, models become more robust, reliable, and adaptable to real-world complexities.</p>
+<p><img alt="image" src="https://journals.ametsoc.org/view/journals/aies/2/2/full-AIES-D-22-0061.1-f1.jpg" /></p>
+<p>Fig 2. Information flow for an machine learning model with uncertainty quantification (Haynes et al. 2023)</p>
+</div>
+<div class="section" id="evaluate-uncertainty">
+<h2><span class="section-number">9.4. </span>Evaluate Uncertainty<a class="headerlink" href="#evaluate-uncertainty" title="Permalink to this headline">#</a></h2>
+<p>Evaluating uncertainty estimates in machine learning models involves various methods and metrics, such as:</p>
+<ol class="arabic simple">
+<li><p><strong>Spread-Skill Plot</strong>: This metric assesses the relationship between uncertainty and model performance. It plots the spread of predicted uncertainties against the model’s accuracy. A good model demonstrates higher uncertainty for incorrectly predicted instances.</p></li>
+<li><p><strong>Continuous Ranked Probability Score (CRPS)</strong>: Measures the discrepancy between predicted and observed cumulative distribution functions. Lower CRPS values indicate better calibration and accuracy of uncertainty estimates.</p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="notable-genetative-models">
+<h2><span class="section-number">9.5. </span>Notable Genetative Models:<a class="headerlink" href="#notable-genetative-models" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Autoencoders</strong>: Neural networks designed to learn a compressed representation of the input data, which can then be used to generate similar data.</p></li>
+<li><p><strong>Generative Adversarial Networks (GANs)</strong>: Comprising two networks—a generator and a discriminator—that compete against each other. The generator creates synthetic samples, and the discriminator tries to distinguish between real and generated data. Through adversarial training, the generator improves its ability to produce more realistic samples.</p></li>
+<li><p><strong>Variational Autoencoders (VAEs)</strong>: Another type of autoencoder that is trained to generate new data points by learning the underlying probability distribution of the data.</p></li>
+<li><p><strong>Probabilistic Graphical Models (PGMs)</strong>: A framework for modeling probability distributions using graphs, incorporating nodes to represent random variables and edges to signify dependencies between variables.</p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="latent-data-representations">
+<h2><span class="section-number">9.6. </span>Latent data representations<a class="headerlink" href="#latent-data-representations" title="Permalink to this headline">#</a></h2>
+<p>Latent data representations, existing on a latent manifold, are condensed, abstract encodings extracted from raw data through methods like autoencoders, VAEs, or GANs. These representations capture essential features while reducing dimensionality, residing within a structured latent space.</p>
+<p>In semi-supervised learning, latent manifolds within latent data representations may capture the underlying structure or the distribution of the data, to improve the model’s performance when only a limited portion of the data is labeled. For example, models may use unlabeled data that lie close to the clusters or structures within the latent manifold to generalize better, thus learning from both labeled and unlabeled data points. The structure of the latent manifold helps in defining decision boundaries, assigning labels to unlabeled data points. The smoothness and continuity of the latent space assist in guiding the model’s predictions, allowing for more accurate classifications even with limited labeled data.</p>
 </div>
 </div>
 
@@ -482,7 +524,7 @@ The final project’s goal is to answer a well-defined scientific question by ap
         },
         kernelOptions: {
             name: "python3",
-            path: "./ML"
+            path: "./Jingyan"
         },
         predefinedOutput: true
     }
@@ -501,22 +543,13 @@ The final project’s goal is to answer a well-defined scientific question by ap
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Frederick/%28Exercises%29_Wildfire_Susceptibility_Mapping.html"
+       href="../Frederick/Chapter8_Ex1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3.5. </span>Exercise 4: Mapping Wildfire Susceptibility in the Liguria Region with Simple Machine Learning Classifiers</p>
+        <p class="prev-next-title"><span class="section-number">8.2. </span>Exercise 1: Implementing Explainable AI Methods on Simple Datasets</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="../Jingyan/Chapter4-UnsupervisedLearning.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.1. </span>Unsupervised Learning for Clustering and Dimensionality Reduction</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -527,6 +560,25 @@ The final project’s goal is to answer a well-defined scientific question by ap
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">9.1. Learning Objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-modeling">9.2. Generative Modeling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-uncertainty-to-machine-learning-models">9.3. Add Uncertainty to Machine Learning Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-uncertainty">9.4. Evaluate Uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notable-genetative-models">9.5. Notable Genetative Models:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-data-representations">9.6. Latent data representations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

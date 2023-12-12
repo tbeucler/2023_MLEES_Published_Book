@@ -230,11 +230,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">8. EXplainable Artifical Intelligence (XAI) and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="ch9generative_uncertainty.html">9. Generative Modeling and Uncertainty Quantification</a></li>
 </ul>
 
     </div>
@@ -428,9 +429,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-convolutional-neural-networks-cnns">6.1.1. What are Convolutional Neural Networks (CNNs)?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">6.1.2. Exercise 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">6.1.3. Exercise 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">6.1.1. Learning Objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-convolutional-neural-networks-cnns">6.1.2. What are Convolutional Neural Networks (CNNs)?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components-of-cnns">6.1.3. Key components of CNNs:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cnn-architecture">6.1.4. CNN Architecture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cnn-applications">6.1.5. CNN applications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cnn-and-remote-sensing">6.1.6. CNN and remote sensing</a></li>
 </ul>
             </nav>
         </div>
@@ -445,12 +449,21 @@ document.write(`
   <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Jingyan/Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <div class="tex2jax_ignore mathjax_ignore section" id="convolutional-neural-networks-and-remote-sensing">
 <h1><span class="section-number">6.1. </span>Convolutional Neural Networks and Remote Sensing<a class="headerlink" href="#convolutional-neural-networks-and-remote-sensing" title="Permalink to this headline">#</a></h1>
+<div class="section" id="learning-objectives">
+<h2><span class="section-number">6.1.1. </span>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Define a convolutional neural network</p></li>
+<li><p>Discuss the main applications of convolutional neural networks</p></li>
+<li><p>Know the steps to design and train a convolutional neural network</p></li>
+<li><p>Define transfer learning and understand how to re-use pre-trained models</p></li>
+</ol>
+</div>
 <div class="section" id="what-are-convolutional-neural-networks-cnns">
-<h2><span class="section-number">6.1.1. </span>What are Convolutional Neural Networks (CNNs)?<a class="headerlink" href="#what-are-convolutional-neural-networks-cnns" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.1.2. </span>What are Convolutional Neural Networks (CNNs)?<a class="headerlink" href="#what-are-convolutional-neural-networks-cnns" title="Permalink to this headline">#</a></h2>
 <p>CNNs are a type of artificial neural network inspired by the structure and function of the human visual system. They excel at tasks related to pattern recognition and image analysis. CNNs are particularly well-suited for handling grid-like data, making them ideal for processing images and spatial data. CNNs are more efficient in handling larger images due to their use of partially connected layers and weight sharing, which reduces the number of parameters and computational complexity. In contrast, deep neural networks with fully connected layers may become impractical and risk network instability when dealing with large images.</p>
-<blockquote>
-<div><p><strong>Key components of CNNs</strong>:</p>
-</div></blockquote>
+</div>
+<div class="section" id="key-components-of-cnns">
+<h2><span class="section-number">6.1.3. </span>Key components of CNNs:<a class="headerlink" href="#key-components-of-cnns" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Convolutional Layers: These layers apply convolutional operations to the input data using learnable filters (kernels). These filters scan the input image, capturing features like edges, corners, textures, and more. Convolutional layers are responsible for feature extraction.</p>
 <ul class="simple">
@@ -464,23 +477,28 @@ document.write(`
 <li><p>Fully Connected Layers (Dense Layers): These layers are usually placed at the end of the CNN architecture. They take the flattened output from the previous layers and perform classification or regression tasks. Fully connected layers capture high-level patterns and relationships.</p></li>
 <li><p>Softmax Layer: In classification tasks, a softmax layer is often used to convert the network’s output into class probabilities. It assigns a probability score to each class, indicating the likelihood of the input belonging to that class.</p></li>
 </ol>
-<blockquote>
-<div><p><strong>CNN Architecture</strong><br />
-CNN architectures can vary in complexity and depth, depending on the task and dataset. Some well-known CNN architectures include:</p>
-</div></blockquote>
+<p><img alt="Scheme of a CNN" src="https://ars.els-cdn.com/content/image/1-s2.0-S0924271620303488-gr1_lrg.jpg" /></p>
+<p>Fig.1 Scheme of a CNN (Kattenborn et al. 2021)</p>
+<hr class="docutils" />
+</div>
+<hr class="docutils" />
+<div class="section" id="cnn-architecture">
+<h2><span class="section-number">6.1.4. </span>CNN Architecture<a class="headerlink" href="#cnn-architecture" title="Permalink to this headline">#</a></h2>
+<p>CNN architectures can vary in complexity and depth, depending on the task and dataset. Some well-known CNN architectures include:</p>
 <ol class="arabic simple">
 <li><p>LeNet-5: One of the earliest CNN architectures, designed for handwritten digit recognition.</p></li>
 <li><p>AlexNet: Introduced in 2012, it played a significant role in popularizing deep learning. It won the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) with a significantly reduced error rate.</p></li>
-<li><p>VGGNet: Known for its simplicity and uniform architecture, VGGNet uses small 3x3 convolutional filters repeatedly to learn features.</p></li>
+<li><p>VGGNet: Known for its simplicity and uniform architecture, VGGNet uses small 3x3 convolutional filters repeatedly to learn features.
+<img alt="VGG" src="https://ars.els-cdn.com/content/image/1-s2.0-S0924271620303488-gr4_lrg.jpg" /></p></li>
+</ol>
+<p>Fig.2 Scheme of the VGG-16 architecture (Kattenborn et al. 2021)</p>
+<ol class="arabic simple" start="4">
 <li><p>GoogLeNet (Inception): Introduced the concept of inception modules, which are multiple parallel convolutional layers of different sizes.</p></li>
 <li><p>ResNet (Residual Network): Addressed the vanishing gradient problem by introducing skip connections or residual blocks. It enabled training very deep networks.</p></li>
 </ol>
-<blockquote>
-<div><p><strong>Data Augmentation</strong> is a technique that artificially increases the training dataset’s size by creating realistic variations of each training instance. It serves as a regularization technique to reduce overfitting. To be effective, the generated instances should be as realistic as possible, involving modifications such as slight shifts, rotations, and resizing of images in the training set. This approach enhances the model’s tolerance to variations in object position, orientation, and size, effectively expanding the training dataset.</p>
-</div></blockquote>
-<blockquote>
-<div><p><strong>CNN applications</strong></p>
-</div></blockquote>
+</div>
+<div class="section" id="cnn-applications">
+<h2><span class="section-number">6.1.5. </span>CNN applications<a class="headerlink" href="#cnn-applications" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Image Classification: CNNs are widely used for image classification tasks, where they can accurately categorize objects, animals, or scenes within images.</p></li>
 <li><p>Object Detection: CNNs can locate and classify objects within images, making them valuable for tasks like autonomous driving, surveillance, and more.</p></li>
@@ -488,10 +506,27 @@ CNN architectures can vary in complexity and depth, depending on the task and da
 <li><p>Face Recognition: CNNs are used for face detection and recognition in security systems and social media applications.</p></li>
 <li><p>Remote Sensing: In remote sensing, CNNs are used for tasks like land cover classification, change detection, and object recognition in satellite imagery.</p></li>
 </ol>
+<p><img alt="CNN tasks" src="https://ars.els-cdn.com/content/image/1-s2.0-S0924271620303488-gr9_lrg.jpg" /></p>
+<p>Fig.3 Different CNN tasks (Kattenborn et al. 2021)</p>
 <blockquote>
-<div><p><strong>CNN and remote sensing</strong><br />
-CNNs have significantly impacted remote sensing by automating the analysis of satellite and aerial imagery:</p>
+<div><p><strong>Tips and tricks</strong></p>
 </div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Data Augmentation</strong> is a technique that artificially increases the training dataset’s size by creating realistic variations of each training instance. It serves as a regularization technique to reduce overfitting. To be effective, the generated instances should be as realistic as possible, involving modifications such as slight shifts, rotations, and resizing of images in the training set. This approach enhances the model’s tolerance to variations in object position, orientation, and size, effectively expanding the training dataset.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>CNNs face <strong>memory challenges</strong> during training due to storing forward pass values for backpropagation. Solutions involve reducing mini-batch size, which affects convergence speed, and lowering dimensionality via larger strides or layer removal. Adopting 16-bit floats reduces memory but risks precision issues. Distributed computing aids larger models but needs specialized hardware. Pooling layers, beneficial for downsampling, may compromise spatial details. Solutions depend on task needs, resources, and balancing memory efficiency with model performance.</p>
+</div></blockquote>
+</div></blockquote>
+<hr class="docutils" />
+</div>
+<hr class="docutils" />
+<div class="section" id="cnn-and-remote-sensing">
+<h2><span class="section-number">6.1.6. </span>CNN and remote sensing<a class="headerlink" href="#cnn-and-remote-sensing" title="Permalink to this headline">#</a></h2>
+<p>CNNs have significantly impacted remote sensing by automating the analysis of satellite and aerial imagery:</p>
 <ol class="arabic simple">
 <li><p>Land Cover Classification: CNNs classify land cover types (e.g., forests, urban areas, water bodies) in satellite images with high accuracy. They automatically learn relevant features and spatial relationships, improving classification results.</p></li>
 <li><p>Object Detection: CNNs locate and classify objects of interest (e.g., buildings, vehicles) within remote sensing images. They enable precise object identification for applications like urban planning and disaster response.</p></li>
@@ -499,18 +534,18 @@ CNNs have significantly impacted remote sensing by automating the analysis of sa
 <li><p>Semantic Segmentation: CNNs assign labels to each pixel in an image, allowing for detailed mapping of land cover, vegetation, and infrastructure. This information is valuable for environmental assessments.</p></li>
 <li><p>Transfer Learning: Pre-trained CNN models, fine-tuned for remote sensing tasks, reduce the need for extensive labeled data, making CNNs accessible for smaller-scale projects.</p></li>
 </ol>
-</div>
-<div class="section" id="exercise-1">
-<h2><span class="section-number">6.1.2. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">#</a></h2>
-</div>
-<div class="section" id="exercise-2">
-<h2><span class="section-number">6.1.3. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">#</a></h2>
 <blockquote>
-<div><p>Reading: <strong>Review on Convolutional Neural Networks (CNN) in vegetation remote sensing - Kattenborn et al. 2021</strong></p>
+<div><blockquote>
+<div><p>Reading: <strong>Review on Convolutional Neural Networks (CNN) in vegetation remote sensing - Kattenborn et al. 2021</strong><br />
+CNNs are employed in vegetation remote sensing, extracting information from spatial data without the need for extensive feature engineering. Unlike traditional ML algorithms, which require demanding and limiting feature engineering, CNNs learn to perceive by optimizing transformations iteratively, rendering feature engineering obsolete. This approach signifies a shift from dictating what a model should learn to how it should learn.</p>
 </div></blockquote>
-<p>CNNs are employed in vegetation remote sensing, extracting information from spatial data without the need for extensive feature engineering. Unlike traditional ML algorithms, which require demanding and limiting feature engineering, CNNs learn to perceive by optimizing transformations iteratively, rendering feature engineering obsolete. This approach signifies a shift from dictating what a model should learn to how it should learn.</p>
+</div></blockquote>
+<p><img alt="CNN vegetation remote sensing" src="https://ars.els-cdn.com/content/image/1-s2.0-S0924271620303488-gr3_lrg.jpg" /></p>
+<p>Fig.4 CNN applications in vegetation remote sensing (Kattenborn et al. 2021)</p>
 <blockquote>
+<div><blockquote>
 <div><p>Exercise notebook: <strong>Land Cover Classification using Convolutional Neural Networks (CNNs)</strong></p>
+</div></blockquote>
 </div></blockquote>
 <ul class="simple">
 <li><p>Construct CNNs that classifies EuroSAT images into one of its 10 classes</p></li>
@@ -585,9 +620,12 @@ CNNs have significantly impacted remote sensing by automating the analysis of sa
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-convolutional-neural-networks-cnns">6.1.1. What are Convolutional Neural Networks (CNNs)?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">6.1.2. Exercise 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">6.1.3. Exercise 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">6.1.1. Learning Objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-convolutional-neural-networks-cnns">6.1.2. What are Convolutional Neural Networks (CNNs)?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components-of-cnns">6.1.3. Key components of CNNs:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cnn-architecture">6.1.4. CNN Architecture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cnn-applications">6.1.5. CNN applications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cnn-and-remote-sensing">6.1.6. CNN and remote sensing</a></li>
 </ul>
   </nav></div>
 
