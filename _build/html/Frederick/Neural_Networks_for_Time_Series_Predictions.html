@@ -59,6 +59,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Frederick/Neural_Networks_for_Time_Series_Predictions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -230,11 +232,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">8. EXplainable Artifical Intelligence (XAI) and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">9. Generative Modeling and Uncertainty Quantification</a></li>
 </ul>
 
     </div>
@@ -457,7 +460,14 @@ document.write(`
 <p><img alt="RNN_schematic.jpg" src="../_images/RNN_schematic.jpg" /></p>
 <p><strong>Caption</strong> LSTM Model for time series prediction for environmental sciences</p>
 <p><strong>Source</strong> Figure 1 from Mishra et al. (2020; <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2352484719308546#fig1">link to paper</a>)</p>
-<p><strong>Key points</strong></p>
+<p><strong>Key concepts of RNNs:</strong></p>
+<ul class="simple">
+<li><p><strong>Unrolling the network through time:</strong> This is a way of representing an RNN as a feedforward neural network, where each time step is represented by a separate layer of neurons.</p></li>
+<li><p><strong>Backpropagation through time (BPTT):</strong> This is a way of training RNNs that takes into account the fact that the outputs of the network at a one-time step depend on the outputs of the network at previous time steps.</p></li>
+<li><p><strong>Vanishing and exploding gradients:</strong> These are two problems that can occur when training RNNs, and they can make it difficult for the network to learn long-term dependencies.</p></li>
+<li><p><strong>Long short-term memory (LSTM) and gated recurrent units (GRUs):</strong> These are two types of RNN cells that are designed to address the vanishing and exploding gradients problems.</p></li>
+</ul>
+<p><strong>Take home messages</strong></p>
 <ul class="simple">
 <li><p>Time series forecasting in environmental sciences can be framed in different ways: <em>Sequence-to-sequence</em>, <em>sequence-to-vector</em>, <em>vector-to-sequence</em></p></li>
 <li><p>The <em>encoder-decoder</em> structure is essentially a sequence-to-vector model followed by a vector-to-sequence model.</p></li>
@@ -468,6 +478,100 @@ document.write(`
 <li><p>These solutions split the available information into long-term and short-term components and learn which part of long-term information to include in the prediction during training.</p></li>
 <li><p>Time series predictions can also be produced with 1D convolutional networks.</p></li>
 </ul>
+<p><strong>Inputs and Outputs Configurations for RNNs:</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuration</p></th>
+<th class="text-center head"><p>Discussion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sequence-to-sequence networks</p></td>
+<td class="text-center"><p>Predict outputs for each input in a sequence, useful for tasks like predicting stock prices</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sequence-to-vector networks</p></td>
+<td class="text-center"><p>Output a single result for a sequence, suitable for tasks like sentiment analysis</p></td>
+</tr>
+<tr class="row-even"><td><p>Vector-to-sequence networks</p></td>
+<td class="text-center"><p>generate a sequence based on a constant input, such as generating captions for an image</p></td>
+</tr>
+<tr class="row-odd"><td><p>Encoder–Decoder networks</p></td>
+<td class="text-center"><p>sequence-to-vector and vector-to-sequence components, useful for translation tasks</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Memory cells:</strong></p>
+<ul class="simple">
+<li><p>A part of a neural network that preserves some state across time steps is called a memory cell. It is called “memory cells” because past information impacts the neuron outputs.</p></li>
+<li><p>A single recurrent neuron, or a layer of recurrent neurons, is a very basic cell, capable of learning only short patterns, typically aroundd 10 steps long.</p></li>
+<li><p>The LSTM and GRU architecture contain more complex cells with the ability to learn longer patterns.</p></li>
+</ul>
+<blockquote>
+<div><p>Generally, a cell’s state at time step “t” is denoted as <span class="math notranslate nohighlight">\(h(t)\)</span> and is a function of inputs at
+that step and its state at the previous step: <span class="math notranslate nohighlight">\(h(t) = f(h(t–1), x(t))\)</span>. The output at time step “t,”
+denoted as <span class="math notranslate nohighlight">\(y(t)\)</span>, depends on the previous state and current inputs.</p>
+</div></blockquote>
+<p>Here we show an schematic diagram of a simple RNN memory cell and a complex cell in a LSTM model (Figure 1 in Rassem et al. 2017). In a simple RNN cell, cell output at a previous time step is stored and added to the input features list, which is then used for predictions.</p>
+<p><img alt="RNN_LSTM_cells.png" src="../_images/RNN_LSTM_cells.png" /></p>
+<p><strong>How to train RNNs</strong></p>
+<ul class="simple">
+<li><p>Backpropagation through time (BPTT): Unroll the RNN through time, creating a temporal
+sequence, and then apply regular backpropagation.</p></li>
+<li><p>The gradients of the cost function are propagated backward through the
+unrolled network, and the model parameters are updated using these gradients.</p></li>
+<li><p>The gradients flow backward through all the outputs used by the cost function, not solely through the final output.</p></li>
+</ul>
+<p><strong>Baseline metrics:</strong></p>
+<ul class="simple">
+<li><p>Naive forecasting (predicting the last value in each series)</p></li>
+<li><p>Fully connected neural network</p></li>
+</ul>
+<p><strong>Forecasting Several Time Steps Ahead:</strong></p>
+<p>Two approaches:</p>
+<ul class="simple">
+<li><p>Making sequential predictions one step at a time.</p></li>
+<li><p>Predicting all future values at once.</p></li>
+</ul>
+<blockquote>
+<div><p>LSTM cells: This specialized cell improves upon the RNN cell in solving the short-term memory problem of that simple cell. The LSTM cell has gates (forget, input, and output) that control information flow using logistic activation.</p>
+<blockquote>
+<div><p>The Forget gate <span class="math notranslate nohighlight">\(f(t)\)</span> removes unnecessary information from the long-term state. Input gate <span class="math notranslate nohighlight">\(i(t)\)</span> controls which parts of the new information <span class="math notranslate nohighlight">\(g(t)\)</span> should be added to the long-term state. Output gate <span class="math notranslate nohighlight">\(o(t)\)</span> controls which parts of the long-term state should be read and output.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>The main layer outputs <span class="math notranslate nohighlight">\(g(t)\)</span>, analyzing current inputs and the previous short-term state.
+Three gate controllers (forget gate f(t), input gate i(t), and output gate o(t)) control information flow using logistic activation.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>The LSTM cell excels at recognizing, storing, preserving, and extracting
+important inputs over time, making it highly successful in capturing long-term
+patterns in various data types such as time series, texts, and audio recordings.</p>
+</div></blockquote>
+</div></blockquote>
+<p><img alt="LSTMcell.jpg" src="../_images/LSTMcell.jpg" /></p>
+<blockquote>
+<div><p>Gated Recurrent Unit (GRU) Cells:
+The GRU cell is a simplified version of the LSTM cell but performs similarly well.</p>
+<blockquote>
+<div><p>Key simplifications include merging both state vectors into a single vector <span class="math notranslate nohighlight">\(h(t)\)</span>, a single gate controller <span class="math notranslate nohighlight">\(z(t)\)</span> governing both the forget and input gates, and the absence of an output gate.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>A new gate controller <span class="math notranslate nohighlight">\(r(t)\)</span> determines which part of the previous
+state is revealed to the main layer <span class="math notranslate nohighlight">\(g(t)\)</span>.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Keras provides a keras.layers.GRU layer, making its implementation straightforward by replacing SimpleRNN or LSTM with GRU.</p>
+</div></blockquote>
+</div></blockquote>
+<p><img alt="GRUcell.jpg" src="../_images/GRUcell.jpg" /></p>
+<p>While LSTM and GRU cells contribute significantly to the success of RNNs, they still face challenges in learning long-term patterns in sequences of 100 or more time steps, such as audio samples or long sentences. One approach to address this limitation is to <em>shorten input sequences</em>, potentially by using 1D convolutional layers.</p>
 <p><strong>Environmental Sciences Applications</strong></p>
 <p>The neural network architectures introduced in this chapter can be useful when your problem involves predicting the time evolution of different physical variables. One example is using LSTM to predict river streamflow in the western US (e.g., Hunt et al. 2022).</p>
 <p>Assuming you have a large gridded dataset with time evolution of environmental properties (e.g., topography, vegetation, weather conditions, rainfall predictions), and your research task is to evaluate the likelihood of flooding in the next 12 hours, you can use RNN or similar models to predict the changes in water levels at particular measuring sites. These models make predictions using environmental context from the gridded data and water level predictions at the previous time step.</p>
@@ -498,6 +602,78 @@ Hunt, K. M. R., Matthews, G. R., Pappenberger, F., &amp; Prudhomme, C. (2022). U
 <li><p>Using Natural Language Processing tasks as an example, multihead attention trains different iterations of self-attention that captures different long-range dependencies within a sentence.</p></li>
 <li><p>The multihead attention module will then combine different similarity matrices and provide the final attention output from 0 to 1.</p></li>
 </ul>
+<p><strong>Attention Mechanism</strong></p>
+<ul class="simple">
+<li><p>Allows the decoder to focus on relevant words from the
+encoder at each time step.</p></li>
+<li><p>Mitigates the short-term memory limitations of traditional RNNs especially for long sentences.</p></li>
+<li><p>All encoder outputs are sent to the decoder and at each time step, the
+decoder’s memory cell computes a weighted sum of these outputs determining the
+focus on specific words.</p></li>
+<li><p>These weights containing information of what previous words to focus on are generated by an alignment model that is a small neural network trained parallel to the Encoder-Decoder model.</p></li>
+</ul>
+<p>There are two main types of attention:</p>
+<ol class="arabic simple">
+<li><p>Bahdanau attention (concatenative attention): Combines encoder output with
+the decoder’s previous hidden state.</p></li>
+<li><p>Luong attention (multiplicative attention): Computes the dot product of
+encoder outputs and the decoder’s hidden state. The weights derived from
+this dot product are obtained through a softmax layer.</p></li>
+</ol>
+<p>It has been demonstrated that dot product variants outperformed concatenative attention.</p>
+<blockquote>
+<div><p>Models originally developed for language tasks has resulted in breakthroughs in environmental sciences studies. These models can be adapted to environmental sciences because the goal and data structure of time series prediction tasks are very similar to human languages.</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Here we show a comparison of different ML model architectures in predicting water quality (Yang et al. 2021). Notice that adding an attention layer to the same background moddel architecture yields substantial reduction in the model error (compare the LSTM and LSTM-Attention results)</p>
+</div></blockquote>
+</div></blockquote>
+<p><img alt="LSTM_attention.jpg" src="../_images/LSTM_attention.jpg" /></p>
+<p><strong>Transformers</strong></p>
+<ul class="simple">
+<li><p>Revolutionized neural machine translation (NMT) without the need of recurrent or convolutional layers for translation tasks</p></li>
+<li><p>It uses only attention mechanisms, yet achieved state-of-the-art
+performance in translation tasks and exhibited faster training and enhanced parallelization capabilities</p></li>
+<li><p>In the Transformer architecture, the encoder takes input sentences represented as sequences of word IDs. It encodes each word into a 512-dimensional representation.</p></li>
+<li><p>The decoder takes the target sentence as input and receives the encoder’s outputs.</p></li>
+<li><p>The decoder outputs probabilities for each possible next word at each time step. The decoder predicts subsequent words without target inputs, relying on previously generated words until an end-of-sequence token is produced.</p></li>
+<li><p>The key components include two embedding layers, skip connections, layer
+normalization, feed-forward modules, and a softmax activation output layer.</p></li>
+<li><p>The novel components are the Multi-Head Attention layers in both the encoder and decoder.</p></li>
+<li><p>The encoder’s layer encodes relationships between words in the same
+sentence using self-attention, emphasizing more relevant words.</p></li>
+<li><p>The decoder’s Masked Multi-Head Attention layer ensures each word attends only to preceding words, while the upper Multi-Head Attention layer enables the decoder to attend to words in the input sentence.</p></li>
+<li><p>Positonal encodings, the second novel component, are dense vectors representing word positions in a sentence. Added to word embeddings, these encodings provide the model with positional information.</p></li>
+<li><p>Positional encodings are crucial for understanding word order as the
+Multi-Head Attention layers focus on relationships between words.</p></li>
+</ul>
+<p><img alt="transformer.jpg" src="../_images/transformer.jpg" /></p>
+<blockquote>
+<div><p>The use of transformer has become more attractive in environmental sciences problems in recent years</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Alerskans et al. (2022) developed a transformer-based machine learning moddel to predict the surface temperature values for different sites in Denmark.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>In Figure 4 of this paper, the authors compares the bias/errors in the transformer temperature predictions for different seasons to other ML baselines (linear regression, neural network).</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>While there are seasonal variabilities in the results, the transformer consistently beats the baselines for all seasons at most of the study sites.</p>
+</div></blockquote>
+</div></blockquote>
+<p><img alt="transformer_environmental.jpg" src="../_images/transformer_environmental.jpg" /></p>
+<p>Reference:</p>
+<ol class="arabic simple">
+<li><p>Rassem, A., El-Beltagy, M., &amp; Saleh, M. (2017). Cross-country skiing gears classification using deep learning. arXiv preprint arXiv:1706.08924.</p></li>
+<li><p>Yang, Y., Xiong, Q., Wu, C., Zou, Q., Yu, Y., Yi, H., &amp; Gao, M. (2021). A study on water quality prediction by a hybrid CNN-LSTM model with attention mechanism. Environmental Science and Pollution Research, 28(39), 55129-55139.</p></li>
+<li><p>Alerskans, E., Nyborg, J., Birk, M., &amp; Kaas, E. (2022). A transformer neural network for predicting near‐surface temperature. Meteorological Applications, 29(5), e2098.</p></li>
+</ol>
 </div>
 </div>
 

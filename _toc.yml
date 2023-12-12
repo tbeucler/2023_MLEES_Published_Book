@@ -129,3 +129,5 @@ parts:
           title: Why do we need machine learning model interpretability?
         - file: Frederick/Chapter8_Ex1.ipynb
           title: (Exercise) XAI on Simple Datasets
+    - file: Jingyan/ch9generative_uncertainty.ipynb
+      title: Generative Modeling and Uncertainty Quantification

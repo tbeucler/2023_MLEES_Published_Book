@@ -123,7 +123,7 @@ parts:
   numbered: True
   chapters:
     - file: DL/W8_XAI.ipynb
-      title: EXplainable Artifical Intelligence (XAI) and Understanding Predictions
+      title: Explainable Artifical Intelligence and Understanding Predictions
       sections:
         - file: Frederick/S8_XAIsummary.ipynb
           title: Why do we need machine learning model interpretability?
